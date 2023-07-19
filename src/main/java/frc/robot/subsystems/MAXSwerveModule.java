@@ -30,6 +30,16 @@ public class MAXSwerveModule {
   private double m_chassisAngularOffset = 0;
   private SwerveModuleState m_desiredState = new SwerveModuleState(0.0, new Rotation2d());
 
+  public RelativeEncoder getDrivingEncoder()
+  {
+    return m_drivingEncoder;
+  }
+
+  public RelativeEncoder getTurningEncoder()
+  {
+    return m_turningEncoder;
+  }
+
   /**
    * Constructs a MAXSwerveModule and configures the driving and turning motor,
    * encoder, and PID controller. This configuration is specific to the REV
