@@ -62,6 +62,12 @@ public final class Constants {
     public static final int kFrontRightTurningCanId = 1;
     public static final int kRearRightTurningCanId = 3;
 
+     // SPARK MAX Absolute encoders
+    public static final int kFrontLeftTurningAnalogPort = 3;
+    public static final int kRearLeftTurningAnalogPort = 2;
+    public static final int kFrontRightTurningAnalogPort = 0;
+    public static final int kRearRightTurningAnalogPort = 1;
+
     public static final boolean kGyroReversed = false;
   }
 

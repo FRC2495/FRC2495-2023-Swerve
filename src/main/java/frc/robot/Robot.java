@@ -110,6 +110,11 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("FrontRightTurningEncoderPosition", m_robotContainer.getDrive().getFrontRightModule().getTurningEncoder().getPosition());
     SmartDashboard.putNumber("RearRightDrivingEncoderPosition", m_robotContainer.getDrive().getRearRightModule().getDrivingEncoder().getPosition());
     SmartDashboard.putNumber("RearRightTurningEncoderPosition", m_robotContainer.getDrive().getRearRightModule().getTurningEncoder().getPosition());
+  
+    SmartDashboard.putNumber("FrontLeftTurningAbsoluteEncoderPosition", m_robotContainer.getDrive().getFrontLeftModule().getTurningAbsoluteEncoder().getPosition());
+    SmartDashboard.putNumber("RearLeftTurningAbsoluteEncoderPosition", m_robotContainer.getDrive().getRearLeftModule().getTurningAbsoluteEncoder().getPosition());
+    SmartDashboard.putNumber("FrontRightTurningAbsoluteEncoderPosition", m_robotContainer.getDrive().getFrontRightModule().getTurningAbsoluteEncoder().getPosition());
+    SmartDashboard.putNumber("RearRightTurningAbsoluteEncoderPosition", m_robotContainer.getDrive().getRearRightModule().getTurningAbsoluteEncoder().getPosition());
   }
 
   @Override
