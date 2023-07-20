@@ -180,5 +180,8 @@ public class MAXSwerveModule {
   /** Zeroes all the SwerveModule encoders. */
   public void resetEncoders() {
     m_drivingEncoder.setPosition(0);
+
+    //temp
+    m_turningEncoder.setPosition(0);
   }
 }
