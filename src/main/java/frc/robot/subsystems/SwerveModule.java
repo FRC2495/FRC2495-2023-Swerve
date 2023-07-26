@@ -17,15 +17,15 @@ import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.RelativeEncoder;
 
 import frc.robot.Constants.ModuleConstants;
-import frc.robot.sensors.AnalogEncoder;
+import frc.robot.sensors.ThriftyEncoder;
 
-public class MAXSwerveModule {
+public class SwerveModule {
   private final CANSparkMax m_drivingSparkMax;
   private final CANSparkMax m_turningSparkMax;
 
   private final RelativeEncoder m_drivingEncoder;
   private final /*AbsoluteEncoder*/RelativeEncoder m_turningEncoder;
-  private final AnalogEncoder m_turningAbsoluteEncoder;
+  private final ThriftyEncoder m_turningAbsoluteEncoder;
 
   private final SparkMaxPIDController m_drivingPIDController;
   private final SparkMaxPIDController m_turningPIDController;
@@ -43,7 +43,7 @@ public class MAXSwerveModule {
     return m_turningEncoder;
   }
 
-  public AnalogEncoder getTurningAbsoluteEncoder()
+  public ThriftyEncoder getTurningAbsoluteEncoder()
   {
     return m_turningAbsoluteEncoder;
   }
@@ -54,7 +54,7 @@ public class MAXSwerveModule {
    * MAXSwerve Module built with NEOs, SPARKS MAX, and a Through Bore
    * Encoder.
    */
-  public MAXSwerveModule(int drivingCANId, int turningCANId, int turningAnalogPort, double chassisAngularOffset) {
+  public SwerveModule(int drivingCANId, int turningCANId, int turningAnalogPort, double chassisAngularOffset) {
     m_drivingSparkMax = new CANSparkMax(drivingCANId, MotorType.kBrushless);
     m_turningSparkMax = new CANSparkMax(turningCANId, MotorType.kBrushless);
 
@@ -66,7 +66,7 @@ public class MAXSwerveModule {
     // Setup encoders and PID controllers for the driving and turning SPARKS MAX.
     m_drivingEncoder = m_drivingSparkMax.getEncoder();
     m_turningEncoder = m_turningSparkMax/*.getAbsoluteEncoder(Type.kDutyCycle)*/.getEncoder();
-    m_turningAbsoluteEncoder = new AnalogEncoder(turningAnalogPort);
+    m_turningAbsoluteEncoder = new ThriftyEncoder(turningAnalogPort);
 
     m_drivingPIDController = m_drivingSparkMax.getPIDController();
     m_turningPIDController = m_turningSparkMax.getPIDController();

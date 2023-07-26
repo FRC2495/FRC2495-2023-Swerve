@@ -8,12 +8,12 @@ import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.RobotController;
 
 /** Add your docs here. */
-public class AnalogEncoder
+public class ThriftyEncoder
 {
     private AnalogInput analogInput;
     private boolean inverted;
 
-    public AnalogEncoder(int port){
+    public ThriftyEncoder(int port){
         this.analogInput = new AnalogInput(port);
         this.inverted = false;
     }
