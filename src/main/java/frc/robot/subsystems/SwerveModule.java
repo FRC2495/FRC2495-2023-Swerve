@@ -48,6 +48,11 @@ public class SwerveModule {
     return m_turningAbsoluteEncoder;
   }
 
+  public SwerveModuleState getDesiredState()
+  {
+    return m_desiredState;
+  }
+
   /**
    * Constructs a MAXSwerveModule and configures the driving and turning motor,
    * encoder, and PID controller. This configuration is specific to the REV

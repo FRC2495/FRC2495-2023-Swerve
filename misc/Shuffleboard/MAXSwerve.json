@@ -300,6 +300,58 @@
               "_glyph": 148,
               "_showGlyph": false
             }
+          },
+          "4,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/FrontLeftTurningDesiredState",
+              "_title": "FrontLeftTurningDesiredState",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "9,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/RearLeftTurningDesiredState",
+              "_title": "RearLeftTurningDesiredState",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "10,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/FrontRightTurningDesiredState",
+              "_title": "FrontRightTurningDesiredState",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "11,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/RearRightTurningDesiredState",
+              "_title": "RearRightTurningDesiredState",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
           }
         }
       }
@@ -617,15 +669,67 @@
               "_glyph": 148,
               "_showGlyph": false
             }
+          },
+          "9,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/FrontRightTurningDesiredState",
+              "_title": "SmartDashboard/FrontRightTurningDesiredState",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "4,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/FrontLeftTurningDesiredState",
+              "_title": "SmartDashboard/FrontLeftTurningDesiredState",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "4,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/RearLeftTurningDesiredState",
+              "_title": "SmartDashboard/RearLeftTurningDesiredState",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "9,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/RearRightTurningDesiredState",
+              "_title": "SmartDashboard/RearRightTurningDesiredState",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
           }
         }
       }
     }
   ],
   "windowGeometry": {
-    "x": -4.0,
-    "y": 0.0,
-    "width": 1753.0,
-    "height": 1026.0
+    "x": -7.199999809265137,
+    "y": -7.199999809265137,
+    "width": 1550.4000244140625,
+    "height": 838.4000244140625
   }
 }
