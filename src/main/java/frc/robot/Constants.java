@@ -95,7 +95,7 @@ public final class Constants {
     public static final double kDrivingEncoderVelocityFactor = ((kWheelDiameterMeters * Math.PI)
         / kDrivingMotorReduction) / 60.0; // meters per second
 
-    public static final double MAGIC = 20.0; // ration between Thrifty and Bore Through - TBD
+    public static final double MAGIC = 20.0; // ratio between Thrifty and Through Bore - TBD
 
     public static final double kTurningEncoderPositionFactor = (2 * Math.PI) / MAGIC ; // radians - 
     public static final double kTurningEncoderVelocityFactor = (2 * Math.PI) / MAGIC / 60.0; // radians per second
@@ -120,7 +120,7 @@ public final class Constants {
     public static final IdleMode kDrivingMotorIdleMode = IdleMode.kBrake;
     public static final IdleMode kTurningMotorIdleMode = IdleMode.kBrake;
 
-    public static final int kDrivingMotorCurrentLimit = 50; // amps
+    public static final int kDrivingMotorCurrentLimit = 40; //50; // amps
     public static final int kTurningMotorCurrentLimit = 20; // amps
   }
 
