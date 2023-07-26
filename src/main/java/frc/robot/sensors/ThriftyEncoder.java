@@ -12,10 +12,12 @@ public class ThriftyEncoder
 {
     private AnalogInput analogInput;
     private boolean inverted;
+    private double positionOffset;
 
-    public ThriftyEncoder(int port){
+    public ThriftyEncoder(int port) {
         this.analogInput = new AnalogInput(port);
         this.inverted = false;
+        this.positionOffset = 0.0;
     }
 
     public double getPosition() {
@@ -23,7 +25,23 @@ public class ThriftyEncoder
     }
 
     public void setInverted(boolean inverted) {
-        this.inverted = inverted;
-        
+        this.inverted = inverted;       
     }
+
+    public void setPositionOffset(double offset) {
+        positionOffset = offset;
+    }
+
+    public double getPositionOffset() {
+        return positionOffset;
+    }
+
+    public double getVirtualPosition() {
+        return getPosition() - positionOffset;
+    }
+
+    public void resetVirtualPosition() {
+        positionOffset = getPosition();
+    }
+
 }

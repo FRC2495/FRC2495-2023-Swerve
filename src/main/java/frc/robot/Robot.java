@@ -104,10 +104,13 @@ public class Robot extends TimedRobot {
   {
     SmartDashboard.putNumber("FrontLeftDrivingEncoderPosition", m_robotContainer.getDrive().getFrontLeftModule().getDrivingEncoder().getPosition());
     SmartDashboard.putNumber("FrontLeftTurningEncoderPosition", m_robotContainer.getDrive().getFrontLeftModule().getTurningEncoder().getPosition());
+    
     SmartDashboard.putNumber("RearLeftDrivingEncoderPosition", m_robotContainer.getDrive().getRearLeftModule().getDrivingEncoder().getPosition());
     SmartDashboard.putNumber("RearLeftTurningEncoderPosition", m_robotContainer.getDrive().getRearLeftModule().getTurningEncoder().getPosition());
+    
     SmartDashboard.putNumber("FrontRightDrivingEncoderPosition", m_robotContainer.getDrive().getFrontRightModule().getDrivingEncoder().getPosition());
     SmartDashboard.putNumber("FrontRightTurningEncoderPosition", m_robotContainer.getDrive().getFrontRightModule().getTurningEncoder().getPosition());
+    
     SmartDashboard.putNumber("RearRightDrivingEncoderPosition", m_robotContainer.getDrive().getRearRightModule().getDrivingEncoder().getPosition());
     SmartDashboard.putNumber("RearRightTurningEncoderPosition", m_robotContainer.getDrive().getRearRightModule().getTurningEncoder().getPosition());
   
@@ -115,6 +118,11 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("RearLeftTurningAbsoluteEncoderPosition", m_robotContainer.getDrive().getRearLeftModule().getTurningAbsoluteEncoder().getPosition());
     SmartDashboard.putNumber("FrontRightTurningAbsoluteEncoderPosition", m_robotContainer.getDrive().getFrontRightModule().getTurningAbsoluteEncoder().getPosition());
     SmartDashboard.putNumber("RearRightTurningAbsoluteEncoderPosition", m_robotContainer.getDrive().getRearRightModule().getTurningAbsoluteEncoder().getPosition());
+
+    SmartDashboard.putNumber("FrontLeftTurningAbsoluteEncoderVirtualPosition", m_robotContainer.getDrive().getFrontLeftModule().getTurningAbsoluteEncoder().getVirtualPosition());
+    SmartDashboard.putNumber("RearLeftTurningAbsoluteEncoderVirtualPosition", m_robotContainer.getDrive().getRearLeftModule().getTurningAbsoluteEncoder().getVirtualPosition());
+    SmartDashboard.putNumber("FrontRightTurningAbsoluteEncoderVirtualPosition", m_robotContainer.getDrive().getFrontRightModule().getTurningAbsoluteEncoder().getVirtualPosition());
+    SmartDashboard.putNumber("RearRightTurningAbsoluteEncoderVirtualPosition", m_robotContainer.getDrive().getRearRightModule().getTurningAbsoluteEncoder().getVirtualPosition());
   }
 
   @Override
