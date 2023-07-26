@@ -123,6 +123,13 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("RearLeftTurningAbsoluteEncoderVirtualPosition", m_robotContainer.getDrive().getRearLeftModule().getTurningAbsoluteEncoder().getVirtualPosition());
     SmartDashboard.putNumber("FrontRightTurningAbsoluteEncoderVirtualPosition", m_robotContainer.getDrive().getFrontRightModule().getTurningAbsoluteEncoder().getVirtualPosition());
     SmartDashboard.putNumber("RearRightTurningAbsoluteEncoderVirtualPosition", m_robotContainer.getDrive().getRearRightModule().getTurningAbsoluteEncoder().getVirtualPosition());
+  
+    /* Display 6-axis Processed Angle Data                                      */
+    SmartDashboard.putBoolean(  "IMU_Connected",        m_robotContainer.getDrive().getImu().isConnected());
+    SmartDashboard.putBoolean(  "IMU_IsCalibrating",    m_robotContainer.getDrive().getImu().isCalibrating());
+    SmartDashboard.putNumber(   "IMU_Yaw",              m_robotContainer.getDrive().getImu().getYaw());
+    SmartDashboard.putNumber(   "IMU_Pitch",            m_robotContainer.getDrive().getImu().getPitch());
+    SmartDashboard.putNumber(   "IMU_Roll",             m_robotContainer.getDrive().getImu().getRoll());
   }
 
   @Override
