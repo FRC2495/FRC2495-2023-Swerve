@@ -179,10 +179,13 @@ public class SwerveModule {
 
   /** Zeroes all the SwerveModule encoders. */
   public void resetEncoders() {
+
     m_drivingEncoder.setPosition(0);
 
     // temp
     m_turningAbsoluteEncoder.resetVirtualPosition();
+
+    m_turningSparkMax.set(0); // no moving during reset of turning encoder
 
     // temp
     m_turningEncoder.setPosition(m_turningAbsoluteEncoder.getVirtualPosition());

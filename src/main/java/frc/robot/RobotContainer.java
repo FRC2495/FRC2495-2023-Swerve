@@ -79,14 +79,14 @@ public class RobotContainer {
             m_robotDrive));
 
     new JoystickButton(m_driverController, Button.kY.value)
-    .whileTrue(new RunCommand(
-        () -> m_robotDrive.resetEncoders(),
-        m_robotDrive).ignoringDisable(true));
+        .whileTrue(new RunCommand(
+            () -> m_robotDrive.resetEncoders(),
+            m_robotDrive).ignoringDisable(true));
 
     new JoystickButton(m_driverController, Button.kA.value)
-    .whileTrue(new RunCommand(
-        () -> m_robotDrive.zeroHeading(),
-        m_robotDrive).ignoringDisable(true));      
+        .whileTrue(new RunCommand(
+            () -> m_robotDrive.zeroHeading(),
+            m_robotDrive).ignoringDisable(true));      
   }
 
   /**
