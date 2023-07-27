@@ -1,14 +1,12 @@
-# MAXSwerve Java Template v2023.1
+# Swerve sandbox
 
-See [the online changelog](https://github.com/REVrobotics/MAXSwerve-Java-Template/blob/main/CHANGELOG.md) for information about updates to the template that may have been released since you created your project.
+See [the online changelog](https://github.com/FRC2495/MAXSwerve/blob/main/CHANGELOG.md) for information about updates since this project was created.
 
 ## Description
 
-A template project for an FRC swerve drivetrain that uses REV MAXSwerve Modules.
+A sandbox project for an FRC swerve drivetrain that uses MK4i Swerve Modules, derived from the REV MAXSwerve template (https://github.com/REVrobotics/MAXSwerve-Java-Template)
 
-Note that this is meant to be used with a drivetrain composed of four MAXSwerve Modules, each configured with two SPARKS MAX, a NEO as the driving motor, a NEO 550 as the turning motor, and a REV Through Bore Encoder as the absolute turning encoder.
-
-To get started, make sure you have calibrated the zero offsets for the absolute encoders in the Hardware Client using the `Absolute Encoder` tab under the associated turning SPARK MAX devices.
+Note that this is meant to be used with a drivetrain composed of four MK4i Swerve Modules, each configured with two SPARKS MAX, a NEO as the driving motor, a NEO as the turning motor, and a Thifty encoder as the absolute turning encoder.
 
 ## Prerequisites
 
