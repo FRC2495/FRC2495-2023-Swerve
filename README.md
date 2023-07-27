@@ -6,7 +6,7 @@ See [the online changelog](https://github.com/FRC2495/MAXSwerve/blob/main/CHANGE
 
 A sandbox project for an FRC swerve drivetrain that uses MK4i Swerve Modules, derived from the REV MAXSwerve template (https://github.com/REVrobotics/MAXSwerve-Java-Template)
 
-Note that this is meant to be used with a drivetrain composed of four MK4i Swerve Modules, each configured with two SPARKS MAX, a NEO as the driving motor, a NEO as the turning motor, and a Thifty encoder as the absolute turning encoder.
+Note that this is meant to be used with a drivetrain composed of four MK4i Swerve Modules, each configured with two SPARKS MAX, a NEO as the driving motor, a NEO as the turning motor, and a Thrifty encoder as the absolute turning encoder.
 
 ## Prerequisites
 
