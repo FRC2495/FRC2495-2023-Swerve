@@ -81,8 +81,8 @@ public class SwerveModule {
     // Apply position and velocity conversion factors for the driving encoder. The
     // native units for position and velocity are rotations and RPM, respectively,
     // but we want meters and meters per second to use with WPILib's swerve APIs.
-    m_drivingEncoder.setPositionConversionFactor(ModuleConstants.kDrivingEncoderPositionFactor);
-    m_drivingEncoder.setVelocityConversionFactor(ModuleConstants.kDrivingEncoderVelocityFactor);
+    m_drivingEncoder.setPositionConversionFactor(ModuleConstants.kTurningEncoderPositionFactor);
+    m_drivingEncoder.setVelocityConversionFactor(ModuleConstants.kTurningEncoderVelocityFactor);
 
     // Apply position and velocity conversion factors for the turning encoder. We
     // want these in radians and radians per second to use with WPILib's swerve
@@ -102,14 +102,20 @@ public class SwerveModule {
     m_turningPIDController.setPositionPIDWrappingMinInput(ModuleConstants.kTurningEncoderPositionPIDMinInput);
     m_turningPIDController.setPositionPIDWrappingMaxInput(ModuleConstants.kTurningEncoderPositionPIDMaxInput);
 
+    //m_drivingPIDController.setPositionPIDWrappingEnabled(true);
+    //m_drivingPIDController.setPositionPIDWrappingMinInput(ModuleConstants.kTurningEncoderPositionPIDMinInput);
+    //m_drivingPIDController.setPositionPIDWrappingMaxInput(ModuleConstants.kTurningEncoderPositionPIDMaxInput);
+
     // Set the PID gains for the driving motor. Note these are example gains, and you
     // may need to tune them for your own robot!
-    m_drivingPIDController.setP(ModuleConstants.kDrivingP);
-    m_drivingPIDController.setI(ModuleConstants.kDrivingI);
-    m_drivingPIDController.setD(ModuleConstants.kDrivingD);
-    m_drivingPIDController.setFF(ModuleConstants.kDrivingFF);
-    m_drivingPIDController.setOutputRange(ModuleConstants.kDrivingMinOutput,
-        ModuleConstants.kDrivingMaxOutput);
+    m_drivingPIDController.setP(ModuleConstants.kTurningP/100);
+    m_drivingPIDController.setI(ModuleConstants.kTurningI);
+    m_drivingPIDController.setD(ModuleConstants.kTurningD);
+    m_drivingPIDController.setFF(ModuleConstants.kTurningFF);
+    m_drivingPIDController.setOutputRange(ModuleConstants.kTurningMinOutput,
+        ModuleConstants.kTurningMaxOutput);
+
+    //m_drivingPIDController.setSmartMotionAllowedClosedLoopError​(0.25,
 
     // Set the PID gains for the turning motor. Note these are example gains, and you
     // may need to tune them for your own robot!
@@ -122,7 +128,7 @@ public class SwerveModule {
 
     m_drivingSparkMax.setIdleMode(ModuleConstants.kDrivingMotorIdleMode);
     m_turningSparkMax.setIdleMode(ModuleConstants.kTurningMotorIdleMode);
-    m_drivingSparkMax.setSmartCurrentLimit(ModuleConstants.kDrivingMotorCurrentLimit);
+    m_drivingSparkMax.setSmartCurrentLimit(ModuleConstants.kTurningMotorCurrentLimit);
     m_turningSparkMax.setSmartCurrentLimit(ModuleConstants.kTurningMotorCurrentLimit);
 
     // Save the SPARK MAX configurations. If a SPARK MAX browns out during
@@ -176,8 +182,12 @@ public class SwerveModule {
         new Rotation2d(m_turningEncoder.getPosition()));
 
     // Command driving and turning SPARKS MAX towards their respective setpoints.
-    m_drivingPIDController.setReference(optimizedDesiredState.speedMetersPerSecond, CANSparkMax.ControlType.kVelocity);
-    m_turningPIDController.setReference(optimizedDesiredState.angle.getRadians(), CANSparkMax.ControlType.kPosition);
+    //m_drivingPIDController.setReference(/*optimized*/desiredState.speedMetersPerSecond, CANSparkMax.ControlType.kVelocity);
+    m_drivingPIDController.setReference(/*optimized*/desiredState.angle.getRadians(), CANSparkMax.ControlType.kPosition);
+    m_drivingPIDController.setReference(12.5, CANSparkMax.ControlType.kPosition);
+    //m_turningPIDController.setReference(/*optimized*/desiredState.angle.getRadians(), CANSparkMax.ControlType.kPosition);
+
+    //m_turningSparkMax.set(0.5);
 
     m_desiredState = desiredState;
   }
