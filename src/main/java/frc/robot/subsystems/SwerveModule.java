@@ -87,7 +87,7 @@ public class SwerveModule {
     // Apply position and velocity conversion factors for the turning encoder. We
     // want these in radians and radians per second to use with WPILib's swerve
     // APIs.
-    m_turningEncoder.setPositionConversionFactor(ModuleConstants.kTurningEncoderPositionFactor*360/(2*Math.PI)); // TODO FIX
+    m_turningEncoder.setPositionConversionFactor(ModuleConstants.kTurningEncoderPositionFactor);
     m_turningEncoder.setVelocityConversionFactor(ModuleConstants.kTurningEncoderVelocityFactor);
 
     // Invert the turning encoder, since the output shaft rotates in the opposite direction of
@@ -114,7 +114,7 @@ public class SwerveModule {
 
     // Set the PID gains for the turning motor. Note these are example gains, and you
     // may need to tune them for your own robot!
-    m_turningPIDController.setP(ModuleConstants.kTurningP/360*(2*Math.PI)); // TODO FIX
+    m_turningPIDController.setP(ModuleConstants.kTurningP);
     m_turningPIDController.setI(ModuleConstants.kTurningI);
     m_turningPIDController.setD(ModuleConstants.kTurningD);
     m_turningPIDController.setFF(ModuleConstants.kTurningFF);
@@ -180,8 +180,7 @@ public class SwerveModule {
     m_drivingPIDController.setReference(optimizedDesiredState.speedMetersPerSecond, CANSparkMax.ControlType.kVelocity);
     // TODO FIX remove comments on next line and remove line after
     //m_turningPIDController.setReference(optimizedDesiredState.angle.getRadians(), CANSparkMax.ControlType.kPosition);
-    //m_turningPIDController.setReference(optimizedDesiredState.angle.getDegrees(), CANSparkMax.ControlType.kPosition);
-    m_turningPIDController.setReference(4*Math.PI*360/(2*Math.PI), CANSparkMax.ControlType.kPosition);
+    m_turningPIDController.setReference(4*Math.PI, CANSparkMax.ControlType.kPosition);
 
     m_desiredState = desiredState;
   }
