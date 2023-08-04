@@ -20,6 +20,12 @@ import frc.utils.SwerveUtils;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Drivetrain extends SubsystemBase {
+
+  public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = -1.65;
+  public static final double FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS = -1.58;
+  public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = -0.92;
+  public static final double REAR_RIGHT_VIRTUAL_OFFSET_RADIANS = +0.96;
+
   // Create MAXSwerveModules
   private final SwerveModule m_frontLeft = new SwerveModule(
       DriveConstants.kFrontLeftDrivingCanId,
@@ -96,10 +102,15 @@ public class Drivetrain extends SubsystemBase {
 
   /** Creates a new DriveSubsystem. */
   public Drivetrain() {
-    m_frontLeft.calibrateVirtualPosition(-1.65);
-    m_frontRight.calibrateVirtualPosition(-1.58);
-    m_rearLeft.calibrateVirtualPosition(-0.92);
-    m_rearRight.calibrateVirtualPosition(+0.96);
+    m_frontLeft.calibrateVirtualPosition(FRONT_LEFT_VIRTUAL_OFFSET_RADIANS); // set virtual position for absolute encoder
+    m_frontRight.calibrateVirtualPosition(FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS);
+    m_rearLeft.calibrateVirtualPosition(REAR_LEFT_VIRTUAL_OFFSET_RADIANS);
+    m_rearRight.calibrateVirtualPosition(REAR_RIGHT_VIRTUAL_OFFSET_RADIANS);
+
+    m_frontLeft.resetEncoders(); // resets relative encoders
+    m_frontRight.resetEncoders();
+    m_rearLeft.resetEncoders();
+    m_rearRight.resetEncoders();
   }
 
   @Override
