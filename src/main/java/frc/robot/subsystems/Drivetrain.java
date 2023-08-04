@@ -96,6 +96,10 @@ public class Drivetrain extends SubsystemBase {
 
   /** Creates a new DriveSubsystem. */
   public Drivetrain() {
+    m_frontLeft.calibrateVirtualPosition(-1.65);
+    m_frontRight.calibrateVirtualPosition(-1.58);
+    m_rearLeft.calibrateVirtualPosition(-0.92);
+    m_rearRight.calibrateVirtualPosition(+0.96);
   }
 
   @Override

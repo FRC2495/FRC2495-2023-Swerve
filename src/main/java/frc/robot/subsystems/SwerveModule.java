@@ -192,11 +192,16 @@ public class SwerveModule {
     m_drivingEncoder.setPosition(0);
 
     // temp
-    m_turningAbsoluteEncoder.resetVirtualPosition();
+    //m_turningAbsoluteEncoder.resetVirtualPosition();
 
     m_turningSparkMax.set(0); // no moving during reset of turning encoder
 
     // temp
     m_turningEncoder.setPosition(m_turningAbsoluteEncoder.getVirtualPosition());
+  }
+
+  public void calibrateVirtualPosition(double angle)
+  {
+    m_turningAbsoluteEncoder.setPositionOffset(angle);
   }
 }
