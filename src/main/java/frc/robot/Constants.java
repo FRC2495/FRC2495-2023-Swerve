@@ -24,7 +24,7 @@ import edu.wpi.first.math.util.Units;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-	public static final class DriveConstants {
+	public static final class DrivetrainConstants {
 		// Driving Parameters - Note that these are not the maximum capable speeds of
 		// the robot, rather the allowed maximum speeds
 		public static final double kMaxSpeedMetersPerSecond = 4.42;
@@ -71,7 +71,7 @@ public final class Constants {
 		public static final boolean kGyroReversed = false;
 	}
 
-	public static final class ModuleConstants {
+	public static final class SwerveModuleConstants {
 		// The MAXSwerve module can be configured with one of three pinion gears: 12T, 13T, or 14T.
 		// This changes the drive speed of the module (a pinion gear with more teeth will result in a
 		// robot that drives faster).

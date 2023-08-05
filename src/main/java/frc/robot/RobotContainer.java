@@ -16,7 +16,7 @@ import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import frc.robot.Constants.AutoConstants;
-import frc.robot.Constants.DriveConstants;
+import frc.robot.Constants.DrivetrainConstants;
 import frc.robot.Constants.OIConstants;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -100,7 +100,7 @@ public class RobotContainer {
 		AutoConstants.kMaxSpeedMetersPerSecond,
 		AutoConstants.kMaxAccelerationMetersPerSecondSquared)
 		// Add kinematics to ensure max speed is actually obeyed
-		.setKinematics(DriveConstants.kDriveKinematics);
+		.setKinematics(DrivetrainConstants.kDriveKinematics);
 
 	// An example trajectory to follow. All units in meters.
 	Trajectory exampleTrajectory = TrajectoryGenerator.generateTrajectory(
@@ -119,7 +119,7 @@ public class RobotContainer {
 	SwerveControllerCommand swerveControllerCommand = new SwerveControllerCommand(
 		exampleTrajectory,
 		m_robotDrive::getPose, // Functional interface to feed supplier
-		DriveConstants.kDriveKinematics,
+		DrivetrainConstants.kDriveKinematics,
 
 		// Position controllers
 		new PIDController(AutoConstants.kPXController, 0, 0),

@@ -7,7 +7,9 @@ package frc.robot.sensors;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.RobotController;
 
-/** Add your docs here. */
+/**
+ * The {@code ThriftyEncoder} class contains fields and methods pertaining to the function of the absolute encoder.
+ */
 public class ThriftyEncoder
 {
 	private AnalogInput analogInput;
