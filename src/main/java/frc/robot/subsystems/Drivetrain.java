@@ -26,6 +26,8 @@ public class Drivetrain extends SubsystemBase {
   public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = -0.92;
   public static final double REAR_RIGHT_VIRTUAL_OFFSET_RADIANS = +0.96;
 
+  public static final int GYRO_ORIENTATION = -1; // might be able to merge with kGyroReversed
+
   // Create MAXSwerveModules
   private final SwerveModule m_frontLeft = new SwerveModule(
       DriveConstants.kFrontLeftDrivingCanId,
@@ -222,7 +224,7 @@ public class Drivetrain extends SubsystemBase {
 
     var swerveModuleStates = DriveConstants.kDriveKinematics.toSwerveModuleStates(
         fieldRelative
-            ? ChassisSpeeds.fromFieldRelativeSpeeds(xSpeedDelivered, ySpeedDelivered, rotDelivered, Rotation2d.fromDegrees(-m_gyro.getAngle()))
+            ? ChassisSpeeds.fromFieldRelativeSpeeds(xSpeedDelivered, ySpeedDelivered, rotDelivered, Rotation2d.fromDegrees(GYRO_ORIENTATION * m_gyro.getAngle()))
             : new ChassisSpeeds(xSpeedDelivered, ySpeedDelivered, rotDelivered));
     SwerveDriveKinematics.desaturateWheelSpeeds(
         swerveModuleStates, DriveConstants.kMaxSpeedMetersPerSecond);

@@ -195,7 +195,7 @@ public class SwerveModule {
     //m_turningAbsoluteEncoder.resetVirtualPosition();
     // the reading and setting of the calibrated absolute turning encoder values is done in the Drivetrain's constructor
 
-    m_turningSparkMax.set(0); // no moving during reset of raltive turning encoder
+    m_turningSparkMax.set(0); // no moving during reset of relative turning encoder
 
     m_turningEncoder.setPosition(m_turningAbsoluteEncoder.getVirtualPosition()); // set relative position based on virtual absolute position
   }
