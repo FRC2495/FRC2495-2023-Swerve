@@ -31,7 +31,7 @@ public class Drivetrain extends SubsystemBase {
 
 	public static final int GYRO_ORIENTATION = -1; // might be able to merge with kGyroReversed
 
-	// Create MAXSwerveModules
+	// Create SwerveModules
 	private final SwerveModule m_frontLeft = new SwerveModule(
 		DrivetrainConstants.kFrontLeftDrivingCanId,
 		DrivetrainConstants.kFrontLeftTurningCanId,
@@ -80,7 +80,7 @@ public class Drivetrain extends SubsystemBase {
 			m_rearRight.getPosition()
 		});
 
-	/** Creates a new DriveSubsystem. */
+	/** Creates a new Drivetrain. */
 	public Drivetrain() {
 		m_frontLeft.calibrateVirtualPosition(FRONT_LEFT_VIRTUAL_OFFSET_RADIANS); // set virtual position for absolute encoder
 		m_frontRight.calibrateVirtualPosition(FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS);
@@ -241,7 +241,7 @@ public class Drivetrain extends SubsystemBase {
 		m_rearRight.setDesiredState(desiredStates[3]);
 	}
 
-	/** Resets the drive encoders to currently read a position of 0. */
+	/** Resets the drive encoders to currently read a position of 0 and seeds the turn encoders using the absolute encoders. */
 	public void resetEncoders() {
 		m_frontLeft.resetEncoders();
 		m_rearLeft.resetEncoders();
