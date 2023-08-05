@@ -10,38 +10,38 @@ import edu.wpi.first.wpilibj.RobotController;
 /** Add your docs here. */
 public class ThriftyEncoder
 {
-    private AnalogInput analogInput;
-    private boolean inverted;
-    private double positionOffset;
+	private AnalogInput analogInput;
+	private boolean inverted;
+	private double positionOffset;
 
-    public ThriftyEncoder(int port) {
-        this.analogInput = new AnalogInput(port);
-        this.inverted = false;
-        this.positionOffset = 0.0;
-    }
+	public ThriftyEncoder(int port) {
+		this.analogInput = new AnalogInput(port);
+		this.inverted = false;
+		this.positionOffset = 0.0;
+	}
 
-    public double getPosition() {
-        return (inverted ? -1.0 : 1.0) * ((analogInput.getAverageVoltage() / RobotController.getVoltage5V()) * (Math.PI * 2) - Math.PI);
-    }
+	public double getPosition() {
+		return (inverted ? -1.0 : 1.0) * ((analogInput.getAverageVoltage() / RobotController.getVoltage5V()) * (Math.PI * 2) - Math.PI);
+	}
 
-    public void setInverted(boolean inverted) {
-        this.inverted = inverted;       
-    }
+	public void setInverted(boolean inverted) {
+		this.inverted = inverted;       
+	}
 
-    public void setPositionOffset(double offset) {
-        positionOffset = offset;
-    }
+	public void setPositionOffset(double offset) {
+		positionOffset = offset;
+	}
 
-    public double getPositionOffset() {
-        return positionOffset;
-    }
+	public double getPositionOffset() {
+		return positionOffset;
+	}
 
-    public double getVirtualPosition() {
-        return getPosition() - positionOffset;
-    }
+	public double getVirtualPosition() {
+		return getPosition() - positionOffset;
+	}
 
-    public void resetVirtualPosition() {
-        positionOffset = getPosition();
-    }
+	public void resetVirtualPosition() {
+		positionOffset = getPosition();
+	}
 
 }
