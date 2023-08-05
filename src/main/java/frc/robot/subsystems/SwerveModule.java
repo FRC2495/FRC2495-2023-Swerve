@@ -92,7 +92,7 @@ public class SwerveModule {
 		m_drivingPIDController.setD(SwerveModuleConstants.kDrivingD);
 		m_drivingPIDController.setFF(SwerveModuleConstants.kDrivingFF);
 		m_drivingPIDController.setOutputRange(SwerveModuleConstants.kDrivingMinOutput,
-		SwerveModuleConstants.kDrivingMaxOutput);
+			SwerveModuleConstants.kDrivingMaxOutput);
 
 		// Set the PID gains for the turning motor. Note these are example gains, and you
 		// may need to tune them for your own robot!
@@ -101,7 +101,7 @@ public class SwerveModule {
 		m_turningPIDController.setD(SwerveModuleConstants.kTurningD);
 		m_turningPIDController.setFF(SwerveModuleConstants.kTurningFF);
 		m_turningPIDController.setOutputRange(SwerveModuleConstants.kTurningMinOutput,
-		SwerveModuleConstants.kTurningMaxOutput);
+			SwerveModuleConstants.kTurningMaxOutput);
 
 		m_drivingSparkMax.setIdleMode(SwerveModuleConstants.kDrivingMotorIdleMode);
 		m_turningSparkMax.setIdleMode(SwerveModuleConstants.kTurningMotorIdleMode);
@@ -127,7 +127,7 @@ public class SwerveModule {
 		// Apply chassis angular offset to the encoder position to get the position
 		// relative to the chassis.
 		return new SwerveModuleState(m_drivingEncoder.getVelocity(),
-				new Rotation2d(m_turningEncoder.getPosition() - m_chassisAngularOffset)); // TODO REMOVE ALL REFS TO ANGULAR OFFSET
+			new Rotation2d(m_turningEncoder.getPosition() - m_chassisAngularOffset)); // TODO REMOVE ALL REFS TO ANGULAR OFFSET
 	}
 
 	/**
@@ -139,8 +139,8 @@ public class SwerveModule {
 		// Apply chassis angular offset to the encoder position to get the position
 		// relative to the chassis.
 		return new SwerveModulePosition(
-				m_drivingEncoder.getPosition(),
-				new Rotation2d(m_turningEncoder.getPosition() - m_chassisAngularOffset)); // TODO REMOVE ALL REFS TO ANGULAR OFFSET
+			m_drivingEncoder.getPosition(),
+			new Rotation2d(m_turningEncoder.getPosition() - m_chassisAngularOffset)); // TODO REMOVE ALL REFS TO ANGULAR OFFSET
 	}
 
 	/**
@@ -157,7 +157,7 @@ public class SwerveModule {
 
 		// Optimize the reference state to avoid spinning further than 90 degrees.
 		SwerveModuleState optimizedDesiredState = SwerveModuleState.optimize(correctedDesiredState,
-				new Rotation2d(m_turningEncoder.getPosition()));
+			new Rotation2d(m_turningEncoder.getPosition()));
 
 		// Command driving and turning SPARKS MAX towards their respective setpoints.
 		// TODO SWITCH BACK TO OPTIMIZED PATHS AFTER REMOVING CHASSIS ANGULAR OFFSET WHICH IS NOT APPLICABLE
