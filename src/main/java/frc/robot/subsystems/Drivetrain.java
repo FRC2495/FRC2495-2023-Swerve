@@ -24,10 +24,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
  */
 public class Drivetrain extends SubsystemBase {
 
-	public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = -1.65;
-	public static final double FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS = -1.58;
-	public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = -0.92;
-	public static final double REAR_RIGHT_VIRTUAL_OFFSET_RADIANS = +0.96;
+	public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = -1.65+0.02;
+	public static final double FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS = -1.58-0.07;
+	public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = -0.92-0.15;
+	public static final double REAR_RIGHT_VIRTUAL_OFFSET_RADIANS = +0.96+0.07;
 
 	public static final int GYRO_ORIENTATION = -1; // might be able to merge with kGyroReversed
 
