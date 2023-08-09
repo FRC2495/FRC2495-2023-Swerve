@@ -159,9 +159,8 @@ public class SwerveModule {
 			new Rotation2d(m_turningEncoder.getPosition()));
 
 		// Command driving and turning SPARKS MAX towards their respective setpoints.
-		// TODO SWITCH BACK TO OPTIMIZED PATHS AFTER REMOVING CHASSIS ANGULAR OFFSET WHICH IS NOT APPLICABLE
-		m_drivingPIDController.setReference(/*optimizedD*/desiredState.speedMetersPerSecond, CANSparkMax.ControlType.kVelocity);
-		m_turningPIDController.setReference(/*optimizedD*/desiredState.angle.getRadians(), CANSparkMax.ControlType.kPosition);
+		m_drivingPIDController.setReference(optimizedDesiredState.speedMetersPerSecond, CANSparkMax.ControlType.kVelocity);
+		m_turningPIDController.setReference(optimizedDesiredState.angle.getRadians(), CANSparkMax.ControlType.kPosition);
 
 		m_desiredState = desiredState;
 	}
