@@ -101,7 +101,7 @@ public final class Constants {
 		public static final double kTurningEncoderVelocityFactor = (2 * Math.PI) / MAGIC / 60.0; // radians per second
 
 		public static final double kTurningEncoderPositionPIDMinInput = 0; // radians
-		public static final double kTurningEncoderPositionPIDMaxInput = kTurningEncoderPositionFactor; // radians
+		public static final double kTurningEncoderPositionPIDMaxInput = (2 * Math.PI); // radians
 
 		public static final double kDrivingP = 0.04;
 		public static final double kDrivingI = 0;
