@@ -24,7 +24,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
  */
 public class Drivetrain extends SubsystemBase {
 
-	public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = -1.65-0.01+0.05;
+	public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = -1.65-0.01+0.00;
 	public static final double FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS = -1.58-0.03;
 	public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = -0.92-0.08-0.04;
 	public static final double REAR_RIGHT_VIRTUAL_OFFSET_RADIANS = +0.96+0.05+0.02;
