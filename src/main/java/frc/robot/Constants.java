@@ -95,7 +95,7 @@ public final class Constants {
 		public static final double kDrivingEncoderVelocityFactor = ((kWheelDiameterMeters * Math.PI)
 				/ kDrivingMotorReduction) / 60.0; // meters per second
 
-		public static final double MAGIC = 21.5; // ratio between Thrifty and Through Bore - TBD
+		public static final double MAGIC = 22.5; // ratio between Thrifty and Through Bore - TBD
 
 		public static final double kTurningEncoderPositionFactor = (2 * Math.PI) / MAGIC ; // radians - 
 		public static final double kTurningEncoderVelocityFactor = (2 * Math.PI) / MAGIC / 60.0; // radians per second
