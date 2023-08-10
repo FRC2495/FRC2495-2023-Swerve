@@ -24,10 +24,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
  */
 public class Drivetrain extends SubsystemBase {
 
-	public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = -1.65-0.01+0.00;
-	public static final double FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS = -1.58-0.03;
-	public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = -0.92-0.08-0.04;
-	public static final double REAR_RIGHT_VIRTUAL_OFFSET_RADIANS = +0.96+0.05+0.02;
+	public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = -1.65-0.01+0.00; // adjust as needed so that virtual (turn) position of wheel is zero when straight
+	public static final double FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS = -1.58-0.03; // // adjust as needed so that virtual (turn) position of wheel is zero when straight
+	public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = -0.92-0.08-0.04; // // adjust as needed so that virtual (turn) position of wheel is zero when straight
+	public static final double REAR_RIGHT_VIRTUAL_OFFSET_RADIANS = +0.96+0.05+0.02; // // adjust as needed so that virtual (turn) position of wheel is zero when straight
 
 	public static final int GYRO_ORIENTATION = -1; // might be able to merge with kGyroReversed
 
@@ -72,7 +72,7 @@ public class Drivetrain extends SubsystemBase {
 	// Odometry class for tracking robot pose
 	SwerveDriveOdometry m_odometry = new SwerveDriveOdometry(
 		DrivetrainConstants.kDriveKinematics,
-		Rotation2d.fromDegrees(m_gyro.getAngle()),
+		Rotation2d.fromDegrees(GYRO_ORIENTATION * m_gyro.getAngle()),
 		new SwerveModulePosition[] {
 			m_frontLeft.getPosition(),
 			m_frontRight.getPosition(),
@@ -97,7 +97,7 @@ public class Drivetrain extends SubsystemBase {
 	public void periodic() {
 		// Update the odometry in the periodic block
 		m_odometry.update(
-			Rotation2d.fromDegrees(m_gyro.getAngle()),
+			Rotation2d.fromDegrees(GYRO_ORIENTATION * m_gyro.getAngle()),
 			new SwerveModulePosition[] {
 				m_frontLeft.getPosition(),
 				m_frontRight.getPosition(),
@@ -122,7 +122,7 @@ public class Drivetrain extends SubsystemBase {
 	 */
 	public void resetOdometry(Pose2d pose) {
 		m_odometry.resetPosition(
-			Rotation2d.fromDegrees(m_gyro.getAngle()),
+			Rotation2d.fromDegrees(GYRO_ORIENTATION * m_gyro.getAngle()),
 			new SwerveModulePosition[] {
 				m_frontLeft.getPosition(),
 				m_frontRight.getPosition(),
@@ -260,7 +260,7 @@ public class Drivetrain extends SubsystemBase {
 	 * @return the robot's heading in degrees, from -180 to 180
 	 */
 	public double getHeading() {
-		return Rotation2d.fromDegrees(m_gyro.getAngle()).getDegrees();
+		return Rotation2d.fromDegrees(GYRO_ORIENTATION * m_gyro.getAngle()).getDegrees();
 	}
 
 	/**
