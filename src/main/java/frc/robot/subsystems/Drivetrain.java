@@ -25,9 +25,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Drivetrain extends SubsystemBase {
 
 	public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = -1.65-0.01+0.00; // adjust as needed so that virtual (turn) position of wheel is zero when straight
-	public static final double FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS = -1.58-0.03; // // adjust as needed so that virtual (turn) position of wheel is zero when straight
-	public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = -0.92-0.08-0.04; // // adjust as needed so that virtual (turn) position of wheel is zero when straight
-	public static final double REAR_RIGHT_VIRTUAL_OFFSET_RADIANS = +0.96+0.05+0.02; // // adjust as needed so that virtual (turn) position of wheel is zero when straight
+	public static final double FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS = -1.58-0.03; // adjust as needed so that virtual (turn) position of wheel is zero when straight
+	public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = -0.92-0.08-0.04; // adjust as needed so that virtual (turn) position of wheel is zero when straight
+	public static final double REAR_RIGHT_VIRTUAL_OFFSET_RADIANS = +0.96+0.05+0.02; // adjust as needed so that virtual (turn) position of wheel is zero when straight
 
 	public static final int GYRO_ORIENTATION = -1; // might be able to merge with kGyroReversed
 
