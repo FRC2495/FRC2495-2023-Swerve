@@ -55,6 +55,9 @@ public class RobotContainer {
 	m_robotDrive.setDefaultCommand(
 		// The left stick controls translation of the robot.
 		// Turning is controlled by the X axis of the right stick.
+		// We are inverting LeftY because Xbox controllers return negative values when we push forward.
+		// We are inverting LeftX because we want a positive value when we pull to the left. Xbox controllers return positive values when you pull to the right by default.
+		// We are also inverting RightX because we want a positive value when we pull to the left (CCW is positive in mathematics).
 		new RunCommand(
 			() -> m_robotDrive.drive(
 				-MathUtil.applyDeadband(m_driverController.getLeftY(), OIConstants.kDriveDeadband),
