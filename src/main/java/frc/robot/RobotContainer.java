@@ -21,6 +21,7 @@ import frc.robot.Constants.OIConstants;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SwerveControllerCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import java.util.List;
@@ -79,12 +80,12 @@ public class RobotContainer {
 			m_robotDrive));
 
 	new JoystickButton(m_driverController, Button.kY.value)
-		.onTrue(new RunCommand(
+		.onTrue(new InstantCommand(
 			() -> m_robotDrive.resetEncoders(),
 			m_robotDrive).ignoringDisable(true));
 
 	new JoystickButton(m_driverController, Button.kA.value)
-		.onTrue(new RunCommand(
+		.onTrue(new InstantCommand(
 			() -> m_robotDrive.zeroHeading(),
 			m_robotDrive).ignoringDisable(true));      
   }
