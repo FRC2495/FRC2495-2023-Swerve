@@ -33,6 +33,9 @@ public class Drivetrain extends SubsystemBase {
 
 	public static final int GYRO_ORIENTATION = -1; // might be able to merge with kGyroReversed
 
+	public static final double FIELD_LENGTH_INCHES = 54*12+1; // 54ft 1in
+	public static final double FIELD_WIDTH_INCHES = 26*12+7; // 26ft 7in
+
 	// Create SwerveModules
 	private final SwerveModule m_frontLeft = new SwerveModule(
 		DrivetrainConstants.kFrontLeftDrivingCanId,
@@ -94,7 +97,11 @@ public class Drivetrain extends SubsystemBase {
 		m_rearLeft.resetEncoders();
 		m_rearRight.resetEncoders();
 
-		Translation2d initialTranslation = new Translation2d(Units.inchesToMeters((54*12+1)/2),Units.inchesToMeters((26*12+7)/2)); // mid field
+		// sets initial pose arbitrarily
+		// Note: the field coordinate system (or global coordinate system) is an absolute coordinate system where a point on the field is designated as the origin.
+		// Positive theta is in the counter-clockwise direction, and the positive x-axis points away from your alliance’s driver station wall,
+		// and the positive y-axis is perpendicular and to the left of the positive x-axis.
+		Translation2d initialTranslation = new Translation2d(Units.inchesToMeters(FIELD_LENGTH_INCHES/2),Units.inchesToMeters(FIELD_WIDTH_INCHES/2)); // mid field
 		Rotation2d initialRotation = new Rotation2d(); 
 		Pose2d initialPose = new Pose2d(initialTranslation,initialRotation);
 		resetOdometry(initialPose);
