@@ -7,11 +7,13 @@ package frc.robot.subsystems;
 import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.kinematics.SwerveDriveOdometry;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
+import edu.wpi.first.math.util.Units;
 import edu.wpi.first.util.WPIUtilJNI;
 //import edu.wpi.first.wpilibj.ADIS16470_IMU;
 import com.kauailabs.navx.frc.AHRS;
@@ -91,6 +93,11 @@ public class Drivetrain extends SubsystemBase {
 		m_frontRight.resetEncoders();
 		m_rearLeft.resetEncoders();
 		m_rearRight.resetEncoders();
+
+		Translation2d initialTranslation = new Translation2d(Units.inchesToMeters((54*12+1)/2),Units.inchesToMeters((26*12+7)/2)); // mid field
+		Rotation2d initialRotation = new Rotation2d(); 
+		Pose2d initialPose = new Pose2d(initialTranslation,initialRotation);
+		resetOdometry(initialPose);
 	}
 
 	@Override
