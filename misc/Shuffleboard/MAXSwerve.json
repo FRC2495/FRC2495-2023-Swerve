@@ -19,12 +19,12 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/FrontLeftDrivingEncoderPosition",
-              "_title": "FrontLeftDrivingEncoderPosition",
+              "_title": "FrontLeftDriving",
               "_glyph": 148,
               "_showGlyph": false
             }
           },
-          "1,0": {
+          "3,0": {
             "size": [
               1,
               1
@@ -32,7 +32,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/FrontLeftTurningEncoderPosition",
-              "_title": "FrontLeftTurningEncoderPosition",
+              "_title": "FrontLeftTurning",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -45,12 +45,12 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/RearLeftDrivingEncoderPosition",
-              "_title": "RearLeftDrivingEncoderPosition",
+              "_title": "RearLeftDriving",
               "_glyph": 148,
               "_showGlyph": false
             }
           },
-          "1,1": {
+          "3,1": {
             "size": [
               1,
               1
@@ -58,7 +58,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/RearLeftTurningEncoderPosition",
-              "_title": "RearLeftTurningEncoderPosition",
+              "_title": "RearLeftTurning",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -71,12 +71,12 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/FrontRightDrivingEncoderPosition",
-              "_title": "FrontRightDrivingEncoderPosition",
+              "_title": "FrontRightDriving",
               "_glyph": 148,
               "_showGlyph": false
             }
           },
-          "6,0": {
+          "8,0": {
             "size": [
               1,
               1
@@ -84,7 +84,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/FrontRightTurningEncoderPosition",
-              "_title": "FrontRightTurningEncoderPosition",
+              "_title": "FrontRightTurning",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -97,111 +97,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/RearRightDrivingEncoderPosition",
-              "_title": "RearRightDrivingEncoderPosition",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "6,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/RearRightTurningEncoderPosition",
-              "_title": "RearRightTurningEncoderPosition",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "2,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/FrontLeftTurningAbsoluteEncoderPosition",
-              "_title": "FrontLeftTurningAbsoluteEncoderPosition",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "2,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/RearLeftTurningAbsoluteEncoderPosition",
-              "_title": "RearLeftTurningAbsoluteEncoderPosition",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "7,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/FrontRightTurningAbsoluteEncoderPosition",
-              "_title": "FrontRightTurningAbsoluteEncoderPosition",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "7,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/RearRightTurningAbsoluteEncoderPosition",
-              "_title": "RearRightTurningAbsoluteEncoderPosition",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "3,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/FrontLeftTurningAbsoluteEncoderVirtualPosition",
-              "_title": "FrontLeftTurningAbsoluteEncoderVirtualPosition",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "3,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/RearLeftTurningAbsoluteEncoderVirtualPosition",
-              "_title": "RearLeftTurningAbsoluteEncoderVirtualPosition",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "8,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/FrontRightTurningAbsoluteEncoderVirtualPosition",
-              "_title": "FrontRightTurningAbsoluteEncoderVirtualPosition",
+              "_title": "RearRightDriving",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -213,8 +109,112 @@
             ],
             "content": {
               "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/RearRightTurningEncoderPosition",
+              "_title": "RearRightTurning",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "1,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/FrontLeftTurningAbsoluteEncoderPosition",
+              "_title": "FrontLeftTurningAbsolute",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "1,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/RearLeftTurningAbsoluteEncoderPosition",
+              "_title": "RearLeftTurningAbsolute",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "6,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/FrontRightTurningAbsoluteEncoderPosition",
+              "_title": "FrontRightTurningAbsolute",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "6,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/RearRightTurningAbsoluteEncoderPosition",
+              "_title": "RearRightTurningAbsolute",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "2,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/FrontLeftTurningAbsoluteEncoderVirtualPosition",
+              "_title": "FrontLeftTurningAbsoluteVirtual",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "2,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/RearLeftTurningAbsoluteEncoderVirtualPosition",
+              "_title": "RearLeftTurningAbsoluteVirtual",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "7,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/FrontRightTurningAbsoluteEncoderVirtualPosition",
+              "_title": "FrontRightTurningAbsoluteVirtual",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "7,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/RearRightTurningAbsoluteEncoderVirtualPosition",
-              "_title": "RearRightTurningAbsoluteEncoderVirtualPosition",
+              "_title": "RearRightTurningAbsoluteVirtual",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -296,7 +296,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/FrontLeftTurningDesiredState",
-              "_title": "FrontLeftTurningDesiredState",
+              "_title": "FrontLeftTurningDesired",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -309,7 +309,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/RearLeftTurningDesiredState",
-              "_title": "RearLeftTurningDesiredState",
+              "_title": "RearLeftTurningDesired",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -322,7 +322,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/FrontRightTurningDesiredState",
-              "_title": "FrontRightTurningDesiredState",
+              "_title": "FrontRightTurningDesired",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -335,7 +335,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/RearRightTurningDesiredState",
-              "_title": "RearRightTurningDesiredState",
+              "_title": "RearRightTurningDesired",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -391,12 +391,12 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/FrontLeftDrivingEncoderPosition",
-              "_title": "FrontLeftDrivingEncoderPosition",
+              "_title": "FrontLeftDriving",
               "_glyph": 148,
               "_showGlyph": false
             }
           },
-          "1,0": {
+          "3,0": {
             "size": [
               1,
               1
@@ -404,7 +404,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/FrontLeftTurningEncoderPosition",
-              "_title": "FrontLeftTurningEncoderPosition",
+              "_title": "FrontLeftTurning",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -417,12 +417,12 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/RearLeftDrivingEncoderPosition",
-              "_title": "RearLeftDrivingEncoderPosition",
+              "_title": "RearLeftDriving",
               "_glyph": 148,
               "_showGlyph": false
             }
           },
-          "1,1": {
+          "3,1": {
             "size": [
               1,
               1
@@ -430,7 +430,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/RearLeftTurningEncoderPosition",
-              "_title": "RearLeftTurningEncoderPosition",
+              "_title": "RearLeftTurning",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -443,12 +443,12 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/FrontRightDrivingEncoderPosition",
-              "_title": "FrontRightDrivingEncoderPosition",
+              "_title": "FrontRightDriving",
               "_glyph": 148,
               "_showGlyph": false
             }
           },
-          "6,0": {
+          "8,0": {
             "size": [
               1,
               1
@@ -456,7 +456,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/FrontRightTurningEncoderPosition",
-              "_title": "FrontRightTurningEncoderPosition",
+              "_title": "FrontRightTurning",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -469,111 +469,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/RearRightDrivingEncoderPosition",
-              "_title": "RearRightDrivingEncoderPosition",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "6,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/RearRightTurningEncoderPosition",
-              "_title": "RearRightTurningEncoderPosition",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "2,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/FrontLeftTurningAbsoluteEncoderPosition",
-              "_title": "FrontLeftTurningAbsoluteEncoderPosition",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "2,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/RearLeftTurningAbsoluteEncoderPosition",
-              "_title": "RearLeftTurningAbsoluteEncoderPosition",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "7,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/FrontRightTurningAbsoluteEncoderPosition",
-              "_title": "FrontRightTurningAbsoluteEncoderPosition",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "7,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/RearRightTurningAbsoluteEncoderPosition",
-              "_title": "RearRightTurningAbsoluteEncoderPosition",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "3,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/FrontLeftTurningAbsoluteEncoderVirtualPosition",
-              "_title": "FrontLeftTurningAbsoluteEncoderVirtualPosition",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "3,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/RearLeftTurningAbsoluteEncoderVirtualPosition",
-              "_title": "RearLeftTurningAbsoluteEncoderVirtualPosition",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "8,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/FrontRightTurningAbsoluteEncoderVirtualPosition",
-              "_title": "FrontRightTurningAbsoluteEncoderVirtualPosition",
+              "_title": "RearRightDriving",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -585,8 +481,112 @@
             ],
             "content": {
               "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/RearRightTurningEncoderPosition",
+              "_title": "RearRightTurning",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "1,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/FrontLeftTurningAbsoluteEncoderPosition",
+              "_title": "FrontLeftTurningAbsolute",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "1,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/RearLeftTurningAbsoluteEncoderPosition",
+              "_title": "RearLeftTurningAbsolute",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "6,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/FrontRightTurningAbsoluteEncoderPosition",
+              "_title": "FrontRightTurningAbsolute",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "6,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/RearRightTurningAbsoluteEncoderPosition",
+              "_title": "RearRightTurningAbsolute",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "2,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/FrontLeftTurningAbsoluteEncoderVirtualPosition",
+              "_title": "FrontLeftTurningAbsoluteVirtual",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "2,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/RearLeftTurningAbsoluteEncoderVirtualPosition",
+              "_title": "RearLeftTurningAbsoluteVirtual",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "7,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/FrontRightTurningAbsoluteEncoderVirtualPosition",
+              "_title": "FrontRightTurningAbsoluteVirtual",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "7,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/RearRightTurningAbsoluteEncoderVirtualPosition",
-              "_title": "RearRightTurningAbsoluteEncoderVirtualPosition",
+              "_title": "RearRightTurningAbsoluteVirtual",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -681,7 +681,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/FrontRightTurningDesiredState",
-              "_title": "SmartDashboard/FrontRightTurningDesiredState",
+              "_title": "SmartDashboard/FrontRightTurningDesired",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -694,7 +694,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/FrontLeftTurningDesiredState",
-              "_title": "SmartDashboard/FrontLeftTurningDesiredState",
+              "_title": "SmartDashboard/FrontLeftTurningDesired",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -707,7 +707,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/RearLeftTurningDesiredState",
-              "_title": "SmartDashboard/RearLeftTurningDesiredState",
+              "_title": "SmartDashboard/RearLeftTurningDesired",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -720,7 +720,7 @@
             "content": {
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/RearRightTurningDesiredState",
-              "_title": "SmartDashboard/RearRightTurningDesiredState",
+              "_title": "SmartDashboard/RearRightTurningDesired",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -733,7 +733,7 @@
             "content": {
               "_type": "Field",
               "_source0": "network_table:///SmartDashboard/Swerve Odometry",
-              "_title": "SmartDashboard/Swerve Odometry",
+              "_title": "Swerve Odometry",
               "_glyph": 148,
               "_showGlyph": false,
               "Game/Game": "A2023_Charged_Up",
