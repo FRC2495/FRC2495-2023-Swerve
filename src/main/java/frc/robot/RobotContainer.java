@@ -24,6 +24,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SwerveControllerCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import java.util.List;
 
 /*
@@ -33,16 +34,14 @@ import java.util.List;
  * (including subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
+
+	private final Field2d field = new Field2d(); //  a representation of the field
+
 	// The robot's subsystems
 	private final Drivetrain m_robotDrive = new Drivetrain();
 
 	// The driver's controller
 	XboxController m_driverController = new XboxController(OIConstants.kDriverControllerPort);
-
-	public Drivetrain getDrive()
-	{
-		return m_robotDrive;
-	}
 
 	/**
 	 * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -136,7 +135,19 @@ public class RobotContainer {
 		// Reset odometry to the starting pose of the trajectory.
 		m_robotDrive.resetOdometry(exampleTrajectory.getInitialPose());
 
+		field.getObject("exampleTrajectory").setTrajectory(exampleTrajectory);
+
 		// Run path following command, then stop at the end.
 		return swerveControllerCommand.andThen(() -> m_robotDrive.drive(0, 0, 0, false, false));
+	}
+
+	public Field2d getField()
+	{
+		return field;
+	}
+
+	public Drivetrain getDrive()
+	{
+		return m_robotDrive;
 	}
 }

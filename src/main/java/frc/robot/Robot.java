@@ -6,7 +6,6 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
@@ -21,20 +20,17 @@ public class Robot extends TimedRobot {
 
 	private RobotContainer m_robotContainer;
 
-	private Field2d smartdashField; // not quite part of the robot, so feels like this is good place for it rather than the container
-
 	/**
 	 * This function is run when the robot is first started up and should be used for any
 	 * initialization code.
 	 */
 	@Override
 	public void robotInit() {
-		smartdashField = new Field2d();
-		SmartDashboard.putData("Swerve Odometry", smartdashField);
-
 		// Instantiate our RobotContainer.  This will perform all our button bindings, and put our
 		// autonomous chooser on the dashboard.
 		m_robotContainer = new RobotContainer();
+
+		SmartDashboard.putData("Swerve Odometry", m_robotContainer.getField());		
 	}
 
 	/**
@@ -142,7 +138,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber(   "IMU_Pitch",            m_robotContainer.getDrive().getImu().getPitch());
 		SmartDashboard.putNumber(   "IMU_Roll",             m_robotContainer.getDrive().getImu().getRoll());
 
-		smartdashField.setRobotPose(m_robotContainer.getDrive().getPose());
+		m_robotContainer.getField().setRobotPose(m_robotContainer.getDrive().getPose());
 	}
 
 	@Override
