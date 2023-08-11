@@ -97,7 +97,7 @@ public final class Constants {
 		public static final double kDrivingEncoderVelocityFactor = ((kWheelDiameterMeters * Math.PI)
 				/ kDrivingMotorReduction) / 60.0; // meters per second
 
-		public static final double TURNING_MOTOR_REDUCTION = 22.5; // ratio between internal relative encoder and Through Bore (or Thrifty in our case) absolute encoder - TBD 150.0 / 7.0?
+		public static final double TURNING_MOTOR_REDUCTION = 150.0 / 7.0; // ratio between internal relative encoder and Through Bore (or Thrifty in our case) absolute encoder - 150.0 / 7.0
 
 		public static final double kTurningEncoderPositionFactor = (2 * Math.PI) / TURNING_MOTOR_REDUCTION ; // radians - 
 		public static final double kTurningEncoderVelocityFactor = (2 * Math.PI) / TURNING_MOTOR_REDUCTION / 60.0; // radians per second
