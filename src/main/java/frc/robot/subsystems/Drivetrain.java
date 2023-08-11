@@ -97,6 +97,8 @@ public class Drivetrain extends SubsystemBase {
 		m_rearLeft.resetEncoders();
 		m_rearRight.resetEncoders();
 
+		zeroHeading(); // resets gyro
+
 		// sets initial pose arbitrarily
 		// Note: the field coordinate system (or global coordinate system) is an absolute coordinate system where a point on the field is designated as the origin.
 		// Positive theta is in the counter-clockwise direction, and the positive x-axis points away from your alliance’s driver station wall,

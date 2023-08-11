@@ -151,16 +151,24 @@ public class SwerveModule {
 		// Apply chassis angular offset to the desired state.
 		SwerveModuleState correctedDesiredState = new SwerveModuleState();
 		correctedDesiredState.speedMetersPerSecond = desiredState.speedMetersPerSecond;
-		//correctedDesiredState.angle = desiredState.angle.plus(Rotation2d.fromRadians(m_chassisAngularOffset)); // WE SKIP THIS STEP
-		correctedDesiredState.angle = desiredState.angle; // we do not need to deal with angular offsets
+
+		correctedDesiredState.angle = desiredState.angle.plus(Rotation2d.fromRadians(m_chassisAngularOffset)); // TODO REMOVE ALL REFS TO ANGULAR OFFSET
 
 		// Optimize the reference state to avoid spinning further than 90 degrees.
 		SwerveModuleState optimizedDesiredState = SwerveModuleState.optimize(correctedDesiredState,
 			new Rotation2d(m_turningEncoder.getPosition()));
 
-		// Command driving and turning SPARKS MAX towards their respective setpoints.
-		m_drivingPIDController.setReference(optimizedDesiredState.speedMetersPerSecond, CANSparkMax.ControlType.kVelocity);
-		m_turningPIDController.setReference(optimizedDesiredState.angle.getRadians(), CANSparkMax.ControlType.kPosition);
+		if (Math.abs(optimizedDesiredState.speedMetersPerSecond) < 0.001) // less than 1 mm per sec
+		{
+			m_drivingSparkMax.set(0); // no point in doing anything
+			m_turningSparkMax.set(0);
+		}
+		else
+		{
+			// Command driving and turning SPARKS MAX towards their respective setpoints.
+			m_drivingPIDController.setReference(optimizedDesiredState.speedMetersPerSecond, CANSparkMax.ControlType.kVelocity);
+			m_turningPIDController.setReference(optimizedDesiredState.angle.getRadians(), CANSparkMax.ControlType.kPosition);
+		}
 
 		m_desiredState = desiredState;
 	}
