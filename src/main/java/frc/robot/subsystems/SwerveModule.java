@@ -7,13 +7,10 @@ package frc.robot.subsystems;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
-//import edu.wpi.first.wpilibj.AnalogEncoder;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-//import com.revrobotics.SparkMaxAbsoluteEncoder.Type;
 import com.revrobotics.SparkMaxPIDController;
-//import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.RelativeEncoder;
 
 import frc.robot.Constants.SwerveModuleConstants;
@@ -27,7 +24,7 @@ public class SwerveModule {
 	private final CANSparkMax m_turningSparkMax;
 
 	private final RelativeEncoder m_drivingEncoder;
-	private final /*AbsoluteEncoder*/RelativeEncoder m_turningEncoder;
+	private final RelativeEncoder m_turningEncoder;
 	private final ThriftyEncoder m_turningAbsoluteEncoder;
 
 	private final SparkMaxPIDController m_drivingPIDController;
@@ -70,9 +67,8 @@ public class SwerveModule {
 		m_turningEncoder.setPositionConversionFactor(SwerveModuleConstants.kTurningEncoderPositionFactor);
 		m_turningEncoder.setVelocityConversionFactor(SwerveModuleConstants.kTurningEncoderVelocityFactor);
 
-		// Invert the turning encoder, since the output shaft rotates in the opposite direction of
-		// the steering motor in the MAXSwerve Module.
-		/*m_turningEncoder.setInverted(ModuleConstants.kTurningEncoderInverted);*/
+		// Invert the turning controller, since the output shaft rotates in the opposite direction of
+		// the steering motor.
 		m_turningSparkMax.setInverted(true);
 
 		// Enable PID wrap around for the turning motor. This will allow the PID

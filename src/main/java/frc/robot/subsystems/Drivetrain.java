@@ -15,7 +15,6 @@ import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.util.WPIUtilJNI;
-//import edu.wpi.first.wpilibj.ADIS16470_IMU;
 import com.kauailabs.navx.frc.AHRS;
 import frc.robot.Constants.DrivetrainConstants;
 import frc.utils.SwerveUtils;
@@ -59,7 +58,6 @@ public class Drivetrain extends SubsystemBase {
 		Ports.Analog.REAR_RIGHT_TURNING_ABSOLUTE_ENCODER);
 
 	// The gyro sensor
-	//private final ADIS16470_IMU m_gyro = new ADIS16470_IMU();
 	private final AHRS m_gyro = new AHRS(); // usign SPI by default, which is what we want.
 
 	// Slew rate filter variables for controlling lateral acceleration
