@@ -274,10 +274,10 @@ public class RobotContainer {
 	public Command getSampleSwerveControllerCommand() {
 		// Create config for trajectory
 		TrajectoryConfig config = new TrajectoryConfig(
-			AutoConstants.kMaxSpeedMetersPerSecond,
-			AutoConstants.kMaxAccelerationMetersPerSecondSquared)
+			AutoConstants.MAX_SPEED_METERS_PER_SECOND,
+			AutoConstants.MAX_ACCELERATION_METERS_PER_SECOND_SQUARED)
 			// Add kinematics to ensure max speed is actually obeyed
-			.setKinematics(DrivetrainConstants.kDriveKinematics);
+			.setKinematics(DrivetrainConstants.DRIVE_KINEMATICS);
 
 		// An example trajectory to follow. All units in meters.
 		Trajectory exampleTrajectory = TrajectoryGenerator.generateTrajectory(
@@ -289,19 +289,19 @@ public class RobotContainer {
 			new Pose2d(3, 0, new Rotation2d(0)),
 			config);
 
-		var thetaController = new ProfiledPIDController(
-			AutoConstants.kPThetaController, 0, 0, AutoConstants.kThetaControllerConstraints);
+		ProfiledPIDController thetaController = new ProfiledPIDController(
+			AutoConstants.THETA_CONTROLLER_P, 0, 0, AutoConstants.THETA_CONTROLLER_CONSTRAINTS);
 			
 		thetaController.enableContinuousInput(-Math.PI, Math.PI);
 
 		SwerveControllerCommand swerveControllerCommand = new SwerveControllerCommand(
 			exampleTrajectory,
 			drivetrain::getPose, // Functional interface to feed supplier
-			DrivetrainConstants.kDriveKinematics,
+			DrivetrainConstants.DRIVE_KINEMATICS,
 
 			// Position controllers
-			new PIDController(AutoConstants.kPXController, 0, 0),
-			new PIDController(AutoConstants.kPYController, 0, 0),
+			new PIDController(AutoConstants.X_CONTROLLER_P, 0, 0),
+			new PIDController(AutoConstants.Y_CONTROLLER_P, 0, 0),
 			thetaController,
 			drivetrain::setModuleStates,
 			drivetrain);
