@@ -10,10 +10,10 @@ import frc.robot.subsystems.Indicator;
  */
 public class IndicatorStop extends InstantCommand {
 
-	private Indicator indicator;
+	//private Indicator indicator;
 
 	public IndicatorStop(Indicator indicator) {
-		this.indicator = indicator;
+		//this.indicator = indicator;
 		addRequirements(indicator);
 	}
 

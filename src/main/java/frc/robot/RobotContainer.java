@@ -32,6 +32,7 @@ import frc.robot.Constants.DrivetrainConstants;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Indicator;
 import frc.robot.commands.indicator.*;
+import frc.robot.auton.*;
 
 
 /*
@@ -48,6 +49,7 @@ public class RobotContainer {
 	
 	public static final String AUTON_DO_NOTHING = "Do Nothing";
 	public static final String AUTON_CUSTOM = "My Auto";
+	public static final String AUTON_SAMPLE_SWERVE = "Sample Swerve";
 	private String autonSelected;
 	private SendableChooser<String> autonChooser = new SendableChooser<>();
 
@@ -125,6 +127,7 @@ public class RobotContainer {
 		
 		autonChooser.setDefaultOption("Do Nothing", AUTON_DO_NOTHING);
 		autonChooser.addOption("My Auto", AUTON_CUSTOM);
+		autonChooser.addOption("Sample Swerve", AUTON_SAMPLE_SWERVE);
 		SmartDashboard.putData("Auto choices", autonChooser);
 
 		gamePieceChooser.setDefaultOption("None", GAME_PIECE_NONE);
@@ -223,6 +226,52 @@ public class RobotContainer {
 	 * @return the command to run in autonomous
 	 */
 	public Command getAutonomousCommand() {
+		autonSelected = autonChooser.getSelected();
+		System.out.println("Auton selected: " + autonSelected);	
+
+		gamePieceSelected = gamePieceChooser.getSelected();
+		System.out.println("Game piece selected: " + gamePieceSelected);		
+
+		startPosition = startPositionChooser.getSelected();
+		System.out.println("Start position: " + startPosition);
+
+		mainTarget = mainTargetChooser.getSelected();
+		System.out.println("Main target: " + mainTarget);
+		
+		cameraOption = cameraOptionChooser.getSelected();
+		System.out.println("Camera option: " + cameraOption);
+		
+		sonarOption = sonarOptionChooser.getSelected();
+		System.out.println("Sonar option: " + sonarOption);
+		
+		releaseSelected = releaseChooser.getSelected();
+		System.out.println("Release chosen: " + releaseSelected);
+
+		autonOption = autonOptionChooser.getSelected();
+		System.out.println("Auton option: " + autonOption);
+		
+
+		switch (autonSelected) {
+			case AUTON_SAMPLE_SWERVE:
+				return getSampleSwerveControllerCommand();
+				//break;
+
+			case AUTON_CUSTOM:
+				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption);
+				//break;
+
+			case AUTON_DO_NOTHING:
+				return null;
+				//break;
+				
+			default:
+				// nothing
+				return null;
+				//break;
+		} // end switch
+	}
+	
+	public Command getSampleSwerveControllerCommand() {
 		// Create config for trajectory
 		TrajectoryConfig config = new TrajectoryConfig(
 			AutoConstants.kMaxSpeedMetersPerSecond,
