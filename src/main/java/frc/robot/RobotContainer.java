@@ -19,6 +19,8 @@ import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.DrivetrainConstants;
 import frc.robot.Constants.OIConstants;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Indicator;
+import frc.robot.commands.indicator.*;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -39,6 +41,8 @@ public class RobotContainer {
 
 	// The robot's subsystems
 	private final Drivetrain m_robotDrive = new Drivetrain();
+
+	private final Indicator indicator = new Indicator(null);
 
 	// The driver's controller
 	XboxController m_driverController = new XboxController(OIConstants.kDriverControllerPort);
@@ -64,6 +68,8 @@ public class RobotContainer {
 					-MathUtil.applyDeadband(m_driverController.getRightX(), OIConstants.kDriveDeadband),
 					true, true),
 				m_robotDrive));
+
+		indicator.setDefaultCommand(new IndicatorScrollRainbow(indicator)); // temp
 	}
 
 	/**
