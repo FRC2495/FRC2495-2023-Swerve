@@ -47,7 +47,7 @@ public class SwerveModule {
 
 		// Setup encoders and PID controllers for the driving and turning SPARKS MAX.
 		m_drivingEncoder = m_drivingSparkMax.getEncoder();
-		m_turningEncoder = m_turningSparkMax/*.getAbsoluteEncoder(Type.kDutyCycle)*/.getEncoder();
+		m_turningEncoder = m_turningSparkMax.getEncoder();
 		m_turningAbsoluteEncoder = new ThriftyEncoder(turningAnalogPort);
 
 		m_drivingPIDController = m_drivingSparkMax.getPIDController();
@@ -62,8 +62,7 @@ public class SwerveModule {
 		m_drivingEncoder.setVelocityConversionFactor(SwerveModuleConstants.DRIVING_ENCODER_VELOCITY_FACTOR_METERS_PER_SECOND);
 
 		// Apply position and velocity conversion factors for the turning encoder. We
-		// want these in radians and radians per second to use with WPILib's swerve
-		// APIs.
+		// want these in radians and radians per second to use with WPILib's swerve APIs.
 		m_turningEncoder.setPositionConversionFactor(SwerveModuleConstants.TURNING_ENCODER_POSITION_FACTOR_RADIANS);
 		m_turningEncoder.setVelocityConversionFactor(SwerveModuleConstants.TURNING_ENCODER_VELOCITY_FACTOR_RADIANS_PER_SECOND);
 
@@ -79,16 +78,14 @@ public class SwerveModule {
 		m_turningPIDController.setPositionPIDWrappingMinInput(SwerveModuleConstants.TURNING_ENCODER_POSITION_PID_MIN_INPUT_RADIANS);
 		m_turningPIDController.setPositionPIDWrappingMaxInput(SwerveModuleConstants.TURNING_ENCODER_POSITION_PID_MAX_INPUT_RADIANS);
 
-		// Set the PID gains for the driving motor. Note these are example gains, and you
-		// may need to tune them for your own robot!
+		// Set the PID gains for the driving motor.
 		m_drivingPIDController.setP(SwerveModuleConstants.DRIVING_P);
 		m_drivingPIDController.setI(SwerveModuleConstants.DRIVING_I);
 		m_drivingPIDController.setD(SwerveModuleConstants.DRIVING_D);
 		m_drivingPIDController.setFF(SwerveModuleConstants.DRIVING_FF);
 		m_drivingPIDController.setOutputRange(SwerveModuleConstants.DRIVING_MIN_OUTPUT_NORMALIZED, SwerveModuleConstants.DRIVING_MAX_OUTPUT_NORMALIZED);
 
-		// Set the PID gains for the turning motor. Note these are example gains, and you
-		// may need to tune them for your own robot!
+		// Set the PID gains for the turning motor.
 		m_turningPIDController.setP(SwerveModuleConstants.TURNING_P);
 		m_turningPIDController.setI(SwerveModuleConstants.TURNING_I);
 		m_turningPIDController.setD(SwerveModuleConstants.TURNING_D);
@@ -115,8 +112,6 @@ public class SwerveModule {
 	 * @return The current state of the module.
 	 */
 	public SwerveModuleState getState() {
-		// Apply chassis angular offset to the encoder position to get the position
-		// relative to the chassis.
 		return new SwerveModuleState(m_drivingEncoder.getVelocity(),
 			new Rotation2d(m_turningEncoder.getPosition()));
 	}
@@ -127,8 +122,6 @@ public class SwerveModule {
 	 * @return The current position of the module.
 	 */
 	public SwerveModulePosition getPosition() {
-		// Apply chassis angular offset to the encoder position to get the position
-		// relative to the chassis.
 		return new SwerveModulePosition(
 			m_drivingEncoder.getPosition(),
 			new Rotation2d(m_turningEncoder.getPosition()));
@@ -143,7 +136,6 @@ public class SwerveModule {
 		// Apply chassis angular offset to the desired state.
 		SwerveModuleState correctedDesiredState = new SwerveModuleState();
 		correctedDesiredState.speedMetersPerSecond = desiredState.speedMetersPerSecond;
-
 		correctedDesiredState.angle = desiredState.angle;
 
 		// Optimize the reference state to avoid spinning further than 90 degrees.
