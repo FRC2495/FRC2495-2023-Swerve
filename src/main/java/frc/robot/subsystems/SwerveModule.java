@@ -33,14 +33,13 @@ public class SwerveModule {
 	private final SparkMaxPIDController m_drivingPIDController;
 	private final SparkMaxPIDController m_turningPIDController;
 
-	private double m_chassisAngularOffset = 0;
 	private SwerveModuleState m_desiredState = new SwerveModuleState(0.0, new Rotation2d());
 
 	/**
 	 * Constructs a SwerveModule and configures the driving and turning motor,
 	 * encoder, and PID controller.
 	 */
-	public SwerveModule(int drivingCANId, int turningCANId, int turningAnalogPort, double chassisAngularOffset) {
+	public SwerveModule(int drivingCANId, int turningCANId, int turningAnalogPort) {
 		m_drivingSparkMax = new CANSparkMax(drivingCANId, MotorType.kBrushless);
 		m_turningSparkMax = new CANSparkMax(turningCANId, MotorType.kBrushless);
 
@@ -112,7 +111,6 @@ public class SwerveModule {
 		m_drivingSparkMax.burnFlash();
 		m_turningSparkMax.burnFlash();
 
-		m_chassisAngularOffset = chassisAngularOffset; // TODO REMOVE ALL REFS TO ANGULAR OFFSET
 		m_desiredState.angle = new Rotation2d(m_turningEncoder.getPosition());
 		m_drivingEncoder.setPosition(0);
 	}
@@ -126,7 +124,7 @@ public class SwerveModule {
 		// Apply chassis angular offset to the encoder position to get the position
 		// relative to the chassis.
 		return new SwerveModuleState(m_drivingEncoder.getVelocity(),
-			new Rotation2d(m_turningEncoder.getPosition() - m_chassisAngularOffset)); // TODO REMOVE ALL REFS TO ANGULAR OFFSET
+			new Rotation2d(m_turningEncoder.getPosition()));
 	}
 
 	/**
@@ -139,7 +137,7 @@ public class SwerveModule {
 		// relative to the chassis.
 		return new SwerveModulePosition(
 			m_drivingEncoder.getPosition(),
-			new Rotation2d(m_turningEncoder.getPosition() - m_chassisAngularOffset)); // TODO REMOVE ALL REFS TO ANGULAR OFFSET
+			new Rotation2d(m_turningEncoder.getPosition()));
 	}
 
 	/**
@@ -152,7 +150,7 @@ public class SwerveModule {
 		SwerveModuleState correctedDesiredState = new SwerveModuleState();
 		correctedDesiredState.speedMetersPerSecond = desiredState.speedMetersPerSecond;
 
-		correctedDesiredState.angle = desiredState.angle.plus(Rotation2d.fromRadians(m_chassisAngularOffset)); // TODO REMOVE ALL REFS TO ANGULAR OFFSET
+		correctedDesiredState.angle = desiredState.angle;
 
 		// Optimize the reference state to avoid spinning further than 90 degrees.
 		SwerveModuleState optimizedDesiredState = SwerveModuleState.optimize(correctedDesiredState,

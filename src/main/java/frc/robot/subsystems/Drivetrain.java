@@ -41,26 +41,22 @@ public class Drivetrain extends SubsystemBase {
 	private final SwerveModule m_frontLeft = new SwerveModule(
 		Ports.CAN.FRONT_LEFT_DRIVING,
 		Ports.CAN.FRONT_LEFT_TURNING,
-		Ports.Analog.FRONT_LEFT_TURNING_ABSOLUTE_ENCODER,
-		DrivetrainConstants.kFrontLeftChassisAngularOffset);
+		Ports.Analog.FRONT_LEFT_TURNING_ABSOLUTE_ENCODER);
 
 	private final SwerveModule m_frontRight = new SwerveModule(
 		Ports.CAN.FRONT_RIGHT_DRIVING,
 		Ports.CAN.FRONT_RIGHT_TURNING,
-		Ports.Analog.FRONT_RIGHT_TURNING_ABSOLUTE_ENCODER,
-		DrivetrainConstants.kFrontRightChassisAngularOffset);
+		Ports.Analog.FRONT_RIGHT_TURNING_ABSOLUTE_ENCODER);
 
 	private final SwerveModule m_rearLeft = new SwerveModule(
 		Ports.CAN.REAR_LEFT_DRIVING,
 		Ports.CAN.REAR_LEFT_TURNING,
-		Ports.Analog.REAR_LEFT_TURNING_ABSOLUTE_ENCODER,
-		DrivetrainConstants.kBackLeftChassisAngularOffset);
+		Ports.Analog.REAR_LEFT_TURNING_ABSOLUTE_ENCODER);
 
 	private final SwerveModule m_rearRight = new SwerveModule(
 		Ports.CAN.REAR_RIGHT_DRIVING,
 		Ports.CAN.REAR_RIGHT_TURNING,
-		Ports.Analog.REAR_RIGHT_TURNING_ABSOLUTE_ENCODER,
-		DrivetrainConstants.kBackRightChassisAngularOffset);
+		Ports.Analog.REAR_RIGHT_TURNING_ABSOLUTE_ENCODER);
 
 	// The gyro sensor
 	//private final ADIS16470_IMU m_gyro = new ADIS16470_IMU();
