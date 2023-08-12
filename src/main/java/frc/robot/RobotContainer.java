@@ -253,7 +253,7 @@ public class RobotContainer {
 
 		switch (autonSelected) {
 			case AUTON_SAMPLE_SWERVE:
-				return getSampleSwerveControllerCommand();
+				return createSwerveControllerCommand(createExampleTrajectory(createTrajectoryConfig()));
 				//break;
 
 			case AUTON_CUSTOM:
@@ -270,8 +270,8 @@ public class RobotContainer {
 				//break;
 		} // end switch
 	}
-	
-	public Command getSampleSwerveControllerCommand() {
+
+	public TrajectoryConfig createTrajectoryConfig() {
 		// Create config for trajectory
 		TrajectoryConfig config = new TrajectoryConfig(
 			AutoConstants.MAX_SPEED_METERS_PER_SECOND,
@@ -279,6 +279,10 @@ public class RobotContainer {
 			// Add kinematics to ensure max speed is actually obeyed
 			.setKinematics(DrivetrainConstants.DRIVE_KINEMATICS);
 
+		return config;
+	}
+
+	public Trajectory createExampleTrajectory(TrajectoryConfig config) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory exampleTrajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the +X direction
@@ -289,27 +293,30 @@ public class RobotContainer {
 			new Pose2d(3, 0, new Rotation2d(0)),
 			config);
 
+		return exampleTrajectory;
+	}
+	
+	public Command createSwerveControllerCommand(Trajectory trajectory) {
+
 		ProfiledPIDController thetaController = new ProfiledPIDController(
 			AutoConstants.THETA_CONTROLLER_P, 0, 0, AutoConstants.THETA_CONTROLLER_CONSTRAINTS);
 			
 		thetaController.enableContinuousInput(-Math.PI, Math.PI);
 
 		SwerveControllerCommand swerveControllerCommand = new SwerveControllerCommand(
-			exampleTrajectory,
+			trajectory, // trajectory to follow
 			drivetrain::getPose, // Functional interface to feed supplier
-			DrivetrainConstants.DRIVE_KINEMATICS,
-
-			// Position controllers
-			new PIDController(AutoConstants.X_CONTROLLER_P, 0, 0),
-			new PIDController(AutoConstants.Y_CONTROLLER_P, 0, 0),
-			thetaController,
-			drivetrain::setModuleStates,
-			drivetrain);
+			DrivetrainConstants.DRIVE_KINEMATICS, // kinematics of the drivetrain
+			new PIDController(AutoConstants.X_CONTROLLER_P, 0, 0), // trajectory tracker PID controller for x position
+			new PIDController(AutoConstants.Y_CONTROLLER_P, 0, 0), // trajectory tracker PID controller for y position
+			thetaController, // trajectory tracker PID controller for rotation
+			drivetrain::setModuleStates, // raw output module states from the position controllers
+			drivetrain); // subsystems to require
 
 		// Reset odometry to the starting pose of the trajectory.
-		drivetrain.resetOdometry(exampleTrajectory.getInitialPose());
+		drivetrain.resetOdometry(trajectory.getInitialPose());
 
-		field.getObject("exampleTrajectory").setTrajectory(exampleTrajectory);
+		field.getObject("trajectory").setTrajectory(trajectory);
 
 		// Run path following command, then stop at the end.
 		return swerveControllerCommand.andThen(() -> drivetrain.drive(0, 0, 0, false, false));
