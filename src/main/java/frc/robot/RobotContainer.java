@@ -206,12 +206,12 @@ public class RobotContainer {
 				() -> drivetrain.setX(),
 				drivetrain));
 
-				driverGamepad.y()
+		driverGamepad.y()
 			.onTrue(new InstantCommand(
 				() -> drivetrain.resetEncoders(),
 				drivetrain).ignoringDisable(true));
 
-				driverGamepad.a()
+		driverGamepad.a()
 			.onTrue(new InstantCommand(
 				() -> drivetrain.zeroHeading(),
 				drivetrain).ignoringDisable(true));      
