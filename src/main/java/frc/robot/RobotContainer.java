@@ -17,7 +17,6 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.DrivetrainConstants;
-import frc.robot.Constants.OIConstants;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Indicator;
 import frc.robot.commands.indicator.*;
@@ -37,6 +36,8 @@ import java.util.List;
  */
 public class RobotContainer {
 
+	public static final double GAMEPAD_AXIS_THRESHOLD = 0.05;
+
 	private final Field2d field = new Field2d(); //  a representation of the field
 
 	// The robot's subsystems
@@ -45,7 +46,7 @@ public class RobotContainer {
 	private final Indicator indicator = new Indicator(null);
 
 	// The driver's controller
-	XboxController m_driverController = new XboxController(OIConstants.kDriverControllerPort);
+	XboxController m_driverController = new XboxController(Ports.USB.GAMEPAD);
 
 	/**
 	 * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -63,9 +64,9 @@ public class RobotContainer {
 			// We are also inverting RightX because we want a positive value when we pull to the left (CCW is positive in mathematics).
 			new RunCommand(
 				() -> m_robotDrive.drive(
-					-MathUtil.applyDeadband(m_driverController.getLeftY(), OIConstants.kDriveDeadband),
-					-MathUtil.applyDeadband(m_driverController.getLeftX(), OIConstants.kDriveDeadband),
-					-MathUtil.applyDeadband(m_driverController.getRightX(), OIConstants.kDriveDeadband),
+					-MathUtil.applyDeadband(m_driverController.getLeftY(), GAMEPAD_AXIS_THRESHOLD),
+					-MathUtil.applyDeadband(m_driverController.getLeftX(), GAMEPAD_AXIS_THRESHOLD),
+					-MathUtil.applyDeadband(m_driverController.getRightX(), GAMEPAD_AXIS_THRESHOLD),
 					true, true),
 				m_robotDrive));
 

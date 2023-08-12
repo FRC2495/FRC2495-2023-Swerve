@@ -31,8 +31,15 @@ public class Ports {
 		 * Analog ports
 		 */
 		public static class Analog{
-			public static final int SONAR = 3;
-			public static final int PRESSURE_SENSOR = 1;
+			//public static final int SONAR = 3;
+			//public static final int PRESSURE_SENSOR = 1;
+
+			// 2023 Off-season
+			// SPARK MAX Absolute encoders
+			public static final int FRONT_LEFT_TURNING_ABSOLUTE_ENCODER = 3;
+			public static final int REAR_LEFT_TURNING_ABSOLUTE_ENCODER = 2;
+			public static final int FRONT_RIGHT_TURNING_ABSOLUTE_ENCODER = 0;
+			public static final int REAR_RIGHT_TURNING_ABSOLUTE_ENCODER = 1;
 		}
 		
 		/**
@@ -113,7 +120,7 @@ public class Ports {
 			public static final int FEEDER = 19;*/
 
 			//2023 Robot
-			public static final int RIGHT_FRONT = 1;
+			/*public static final int RIGHT_FRONT = 1;
 			public static final int RIGHT_REAR = 2;
 			public static final int LEFT_FRONT = 3;
 			public static final int LEFT_REAR = 4;
@@ -127,7 +134,22 @@ public class Ports {
 			public static final int ARM_FOLLOWER = 11;
 			public static final int ROTATOR_MASTER = 12;
 			public static final int ROTATOR_FOLLOWER = 13;
-			public static final int JACK_MASTER = 14;
+			public static final int JACK_MASTER = 14;*/
+
+			//2023 Off-season
+			public static final int PCM = 1;
+			public static final int PDP = 0;	
+
+			// SPARK MAX CAN IDs
+			public static final int FRONT_LEFT_DRIVING = 8;
+			public static final int REAR_LEFT_DRIVING = 6;
+			public static final int FRONT_RIGHT_DRIVING = 2;
+			public static final int REAR_RIGHT_DRIVING = 4;
+
+			public static final int FRONT_LEFT_TURNING = 7;
+			public static final int REAR_LEFT_TURNING = 5;
+			public static final int FRONT_RIGHT_TURNING = 1;
+			public static final int REAR_RIGHT_TURNING = 3;
 		}
 		
 		/**

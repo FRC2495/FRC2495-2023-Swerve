@@ -53,23 +53,6 @@ public final class Constants {
 		public static final double kBackLeftChassisAngularOffset = 0.0; // Math.PI;
 		public static final double kBackRightChassisAngularOffset = 0.0; // Math.PI / 2;
 
-		// SPARK MAX CAN IDs
-		public static final int kFrontLeftDrivingCanId = 8;
-		public static final int kRearLeftDrivingCanId = 6;
-		public static final int kFrontRightDrivingCanId = 2;
-		public static final int kRearRightDrivingCanId = 4;
-
-		public static final int kFrontLeftTurningCanId = 7;
-		public static final int kRearLeftTurningCanId = 5;
-		public static final int kFrontRightTurningCanId = 1;
-		public static final int kRearRightTurningCanId = 3;
-
-		 // SPARK MAX Absolute encoders
-		public static final int kFrontLeftTurningAnalogPort = 3;
-		public static final int kRearLeftTurningAnalogPort = 2;
-		public static final int kFrontRightTurningAnalogPort = 0;
-		public static final int kRearRightTurningAnalogPort = 1;
-
 		public static final boolean kGyroReversed = false;
 	}
 
@@ -124,11 +107,6 @@ public final class Constants {
 
 		public static final int kDrivingMotorCurrentLimit = 40; //50; // amps
 		public static final int kTurningMotorCurrentLimit = 20; // amps
-	}
-
-	public static final class OIConstants {
-		public static final int kDriverControllerPort = 2;
-		public static final double kDriveDeadband = 0.05; //0.05;
 	}
 
 	public static final class AutoConstants {

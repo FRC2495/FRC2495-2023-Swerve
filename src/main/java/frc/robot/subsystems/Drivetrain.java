@@ -20,6 +20,7 @@ import com.kauailabs.navx.frc.AHRS;
 import frc.robot.Constants.DrivetrainConstants;
 import frc.utils.SwerveUtils;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Ports;
 
 /**
  * The {@code Drivetrain} class contains fields and methods pertaining to the function of the drivetrain.
@@ -38,27 +39,27 @@ public class Drivetrain extends SubsystemBase {
 
 	// Create SwerveModules
 	private final SwerveModule m_frontLeft = new SwerveModule(
-		DrivetrainConstants.kFrontLeftDrivingCanId,
-		DrivetrainConstants.kFrontLeftTurningCanId,
-		DrivetrainConstants.kFrontLeftTurningAnalogPort,
+		Ports.CAN.FRONT_LEFT_DRIVING,
+		Ports.CAN.FRONT_LEFT_TURNING,
+		Ports.Analog.FRONT_LEFT_TURNING_ABSOLUTE_ENCODER,
 		DrivetrainConstants.kFrontLeftChassisAngularOffset);
 
 	private final SwerveModule m_frontRight = new SwerveModule(
-		DrivetrainConstants.kFrontRightDrivingCanId,
-		DrivetrainConstants.kFrontRightTurningCanId,
-		DrivetrainConstants.kFrontRightTurningAnalogPort,
+		Ports.CAN.FRONT_RIGHT_DRIVING,
+		Ports.CAN.FRONT_RIGHT_TURNING,
+		Ports.Analog.FRONT_RIGHT_TURNING_ABSOLUTE_ENCODER,
 		DrivetrainConstants.kFrontRightChassisAngularOffset);
 
 	private final SwerveModule m_rearLeft = new SwerveModule(
-		DrivetrainConstants.kRearLeftDrivingCanId,
-		DrivetrainConstants.kRearLeftTurningCanId,
-		DrivetrainConstants.kRearLeftTurningAnalogPort,
+		Ports.CAN.REAR_LEFT_DRIVING,
+		Ports.CAN.REAR_LEFT_TURNING,
+		Ports.Analog.REAR_LEFT_TURNING_ABSOLUTE_ENCODER,
 		DrivetrainConstants.kBackLeftChassisAngularOffset);
 
 	private final SwerveModule m_rearRight = new SwerveModule(
-		DrivetrainConstants.kRearRightDrivingCanId,
-		DrivetrainConstants.kRearRightTurningCanId,
-		DrivetrainConstants.kRearRightTurningAnalogPort,
+		Ports.CAN.REAR_RIGHT_DRIVING,
+		Ports.CAN.REAR_RIGHT_TURNING,
+		Ports.Analog.REAR_RIGHT_TURNING_ABSOLUTE_ENCODER,
 		DrivetrainConstants.kBackRightChassisAngularOffset);
 
 	// The gyro sensor
