@@ -12,23 +12,22 @@ public class StartingPositionOneOneConeTwoCube extends SequentialCommandGroup {
 
             // drop preloaded cone
 
-            // back up WHILE turning 180
+            // Rotate 180 degrees while moving to cube
 
-            // pick up cub
+            // Pick up cube
 
-            // turn to charge station while going to charge station to get ready to shoot cub
+            // Rotate 180 degrees while moving to shelf
 
-            // shoot cub
+            // Drop cube
 
-            // turn around 180 while moving to another cub right behind
+            // Move to second cube while rotating 180 degrees
 
-            // pick up cub
+            // Pick up cube
 
-            // turn to charge station while going to charge station to get ready to shoot cub
+            // Move back to shelf while rotating 180 degrees
 
-            // shoot cub
-
-            // go engag
+            // Drop cube
+ 
             
         ); 
   

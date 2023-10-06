@@ -10,7 +10,25 @@ public class StartingPositionOneOneConeTwoCubeEngage extends SequentialCommandGr
 
         addCommands(
 
-            
+             // drop preloaded cone
+
+            // back up WHILE turning 180
+
+            // pick up cub
+
+            // turn to charge station while going to charge station to get ready to shoot cub
+
+            // shoot cub
+
+            // turn around 180 while moving to another cub right behind
+
+            // pick up cub
+
+            // turn to charge station while going to charge station to get ready to shoot cub
+
+            // shoot cub
+
+            // go engag 
         ); 
   
     }
