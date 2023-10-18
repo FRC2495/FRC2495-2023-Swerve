@@ -201,7 +201,7 @@ public class RobotContainer {
 		// Configure the button bindings
 		configureButtonBindings();
 
-		// Configure default commandsa
+		// Configure default commands
 		drivetrain.setDefaultCommand(
 			// The left stick controls translation of the robot.
 			// Turning is controlled by the X axis of the right stick.
