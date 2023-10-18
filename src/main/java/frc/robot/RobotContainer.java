@@ -33,7 +33,7 @@ import java.util.List;
 import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.DrivetrainConstants;
 import frc.robot.subsystems.Compressor;
-import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.SwerveDrivetrain;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Hinge;
 import frc.robot.subsystems.Indicator;
@@ -114,7 +114,7 @@ public class RobotContainer {
 
 	// motorized devices
 
-	private final Drivetrain drivetrain = new Drivetrain();
+	private final SwerveDrivetrain drivetrain = new SwerveDrivetrain();
 
 	WPI_TalonSRX drawer_master = new WPI_TalonSRX(0);
 
@@ -358,7 +358,7 @@ public class RobotContainer {
 		return field;
 	}
 
-	public Drivetrain getDrivetrain()
+	public SwerveDrivetrain getDrivetrain()
 	{
 		return drivetrain;
 	}

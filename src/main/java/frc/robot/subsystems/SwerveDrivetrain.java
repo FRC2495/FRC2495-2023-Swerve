@@ -24,7 +24,7 @@ import frc.robot.Ports;
 /**
  * The {@code Drivetrain} class contains fields and methods pertaining to the function of the drivetrain.
  */
-public class Drivetrain extends SubsystemBase {
+public class SwerveDrivetrain extends SubsystemBase {
 
 	public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = -1.653; // adjust as needed so that virtual (turn) position of wheel is zero when straight
 	public static final double FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS = -1.650; // adjust as needed so that virtual (turn) position of wheel is zero when straight
@@ -81,7 +81,7 @@ public class Drivetrain extends SubsystemBase {
 		});
 
 	/** Creates a new Drivetrain. */
-	public Drivetrain() {
+	public SwerveDrivetrain() {
 		m_frontLeft.calibrateVirtualPosition(FRONT_LEFT_VIRTUAL_OFFSET_RADIANS); // set virtual position for absolute encoder
 		m_frontRight.calibrateVirtualPosition(FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS);
 		m_rearLeft.calibrateVirtualPosition(REAR_LEFT_VIRTUAL_OFFSET_RADIANS);
