@@ -34,11 +34,8 @@ import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.DrivetrainConstants;
 import frc.robot.subsystems.Compressor;
 import frc.robot.subsystems.Drivetrain;
-<<<<<<< HEAD
 import frc.robot.subsystems.Elevator;
-=======
 import frc.robot.subsystems.Hinge;
->>>>>>> 452bbfc2665f593d3f83c8ce8c488e736e3bbd99
 import frc.robot.subsystems.Indicator;
 import frc.robot.commands.indicator.*;
 import frc.robot.interfaces.IDrawer;
@@ -119,7 +116,6 @@ public class RobotContainer {
 
 	private final Drivetrain drivetrain = new Drivetrain();
 
-<<<<<<< HEAD
 	private final IDrawer drawer = new Drawer(Ports.CAN.drawer_master);
 
 	WPI_TalonSRX drawer_master; {
@@ -146,9 +142,7 @@ public class RobotContainer {
 
 	}
 	
-=======
 	private final Hinge hinge = new Hinge(null, null);
->>>>>>> 452bbfc2665f593d3f83c8ce8c488e736e3bbd99
 
 	// pneumatic devices
 
