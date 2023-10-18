@@ -30,6 +30,7 @@ import java.util.List;
 import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.DrivetrainConstants;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Hinge;
 import frc.robot.subsystems.Indicator;
 import frc.robot.commands.indicator.*;
 import frc.robot.auton.*;
@@ -106,6 +107,8 @@ public class RobotContainer {
 	// motorized devices
 
 	private final Drivetrain drivetrain = new Drivetrain();
+
+	private final Hinge hinge = new Hinge(null, null);
 
 	// pneumatic devices
 
@@ -190,6 +193,8 @@ public class RobotContainer {
 					-MathUtil.applyDeadband(driverGamepad.getRightX(), GAMEPAD_AXIS_THRESHOLD),
 					true, true),
 				drivetrain));
+		
+		
 
 		indicator.setDefaultCommand(new IndicatorScrollRainbow(indicator)); // temp
 	}

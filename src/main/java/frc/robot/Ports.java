@@ -36,10 +36,12 @@ public class Ports {
 
 			// 2023 Off-season
 			// SPARK MAX Absolute encoders
-			public static final int FRONT_LEFT_TURNING_ABSOLUTE_ENCODER = 3;
-			public static final int REAR_LEFT_TURNING_ABSOLUTE_ENCODER = 2;
+			
 			public static final int FRONT_RIGHT_TURNING_ABSOLUTE_ENCODER = 0;
 			public static final int REAR_RIGHT_TURNING_ABSOLUTE_ENCODER = 1;
+			public static final int REAR_LEFT_TURNING_ABSOLUTE_ENCODER = 2;
+			public static final int FRONT_LEFT_TURNING_ABSOLUTE_ENCODER = 3;
+			
 		}
 		
 		/**
@@ -150,6 +152,8 @@ public class Ports {
 			public static final int REAR_LEFT_TURNING = 5;
 			public static final int FRONT_RIGHT_TURNING = 1;
 			public static final int REAR_RIGHT_TURNING = 3;
+
+			// TALON SRX CAN IDS
 		}
 		
 		/**
