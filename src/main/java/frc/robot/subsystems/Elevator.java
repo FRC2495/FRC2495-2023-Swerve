@@ -24,7 +24,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.interfaces.*;
 //import frc.robot.Ports;
 import frc.robot.Robot;
-
+import frc.robot.RobotContainer;
 
 /**
  * The {@code Elevator} class contains fields and methods pertaining to the function of the elevator.
@@ -74,16 +74,12 @@ public class Elevator extends SubsystemBase implements IElevator {
 	private int onTargetCount; // counter indicating how many times/iterations we were on target 
 	private int stalledCount; // counter indicating how many times/iterations we were stalled
 	
-	Robot robot;
 	
-	
-	public Elevator(WPI_TalonSRX elevator_in, /*BaseMotorController arm_follower_in,*/ Robot robot_in) {
+	public Elevator(WPI_TalonSRX elevator_in/*, BaseMotorController elevator_follower_in*/) {
 		
 		elevator = elevator_in;
 		//arm_follower = arm_follower_in;
 				
-		robot = robot_in;
-
 		elevator.configFactoryDefault();
 		//arm_follower.configFactoryDefault();
 		
@@ -404,7 +400,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 	{
 		if (!isMoving) // if we are already doing a move we don't take over
 		{
-			elevator.set(ControlMode.PercentOutput, +MathUtil.applyDeadband(gamepad.getRightY(),OI.GAMEPAD_AXIS_THRESHOLD)*0.6/*0.7*/); // adjust sign if desired
+			elevator.set(ControlMode.PercentOutput, +MathUtil.applyDeadband(gamepad.getRightY(),RobotContainer.GAMEPAD_AXIS_THRESHOLD)*0.6/*0.7*/); // adjust sign if desired
 		}
 	}
 

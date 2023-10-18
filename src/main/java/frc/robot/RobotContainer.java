@@ -116,33 +116,17 @@ public class RobotContainer {
 
 	private final Drivetrain drivetrain = new Drivetrain();
 
-	private final IDrawer drawer = new Drawer(Ports.CAN.drawer_master);
+	WPI_TalonSRX drawer_master = new WPI_TalonSRX(0);
 
-	WPI_TalonSRX drawer_master; {
+	private final IDrawer drawer = new Drawer(drawer_master);
 
-		//BaseMotorController arm_follower;
+	WPI_TalonSRX elevator_master = new WPI_TalonSRX(0);
 
-		drawer_master = new WPI_TalonSRX();
-		//arm_follower = new WPI_TalonSRX(Ports.CAN.ARM_FOLLOWER);
+	private final IElevator elevator = new Elevator(elevator_master);
 
-		drawer_master = new Drawer(drawer_master, /*arm_follower,*/ this);
-
-	}
-
-	private final IElevator elevator = new Elevator(Ports.CAN.elevator_master);
-
-	WPI_TalonSRX elevator_master; {
-
-		//BaseMotorController arm_follower;
-
-		elevator_master = new WPI_TalonSRX();
-		//arm_follower = new WPI_TalonSRX(Ports.CAN.ARM_FOLLOWER);
-
-		elevator_master = new Elevator(elevator_master, /*arm_follower,*/ this);
-
-	}
+	WPI_TalonSRX hinge_master = new WPI_TalonSRX(0);
 	
-	private final Hinge hinge = new Hinge(null, null);
+	private final Hinge hinge = new Hinge(hinge_master);
 
 	// pneumatic devices
 

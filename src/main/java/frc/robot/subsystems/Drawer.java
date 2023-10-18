@@ -24,6 +24,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.interfaces.*;
 //import frc.robot.Ports;
 import frc.robot.Robot;
+import frc.robot.RobotContainer;
 
 
 /**
@@ -77,12 +78,10 @@ public class Drawer extends SubsystemBase implements IDrawer {
 	Robot robot;
 	
 	
-	public Drawer(WPI_TalonSRX drawer_in, /*BaseMotorController arm_follower_in,*/ Robot robot_in) {
+	public Drawer(WPI_TalonSRX drawer_in/*, BaseMotorController drawer_follower_in*/) {
 		
 		drawer = drawer_in;
 		//arm_follower = arm_follower_in;
-				
-		robot = robot_in;
 
 		drawer.configFactoryDefault();
 		//arm_follower.configFactoryDefault();
@@ -404,7 +403,7 @@ public class Drawer extends SubsystemBase implements IDrawer {
 	{
 		if (!isMoving) // if we are already doing a move we don't take over
 		{
-			drawer.set(ControlMode.PercentOutput, +MathUtil.applyDeadband(gamepad.getRightY(),OI.GAMEPAD_AXIS_THRESHOLD)*0.6/*0.7*/); // adjust sign if desired
+			drawer.set(ControlMode.PercentOutput, +MathUtil.applyDeadband(gamepad.getRightY(),RobotContainer.GAMEPAD_AXIS_THRESHOLD)*0.6/*0.7*/); // adjust sign if desired
 		}
 	}
 
