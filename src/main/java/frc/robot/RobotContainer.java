@@ -20,6 +20,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SwerveControllerCommand;
+
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 //import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 //import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
@@ -29,9 +32,14 @@ import java.util.List;
 
 import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.DrivetrainConstants;
+import frc.robot.subsystems.Compressor;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Indicator;
 import frc.robot.commands.indicator.*;
+import frc.robot.interfaces.IDrawer;
+import frc.robot.interfaces.IElevator;
+import frc.robot.subsystems.Drawer;
 import frc.robot.auton.*;
 
 
@@ -107,7 +115,36 @@ public class RobotContainer {
 
 	private final Drivetrain drivetrain = new Drivetrain();
 
+	private final IDrawer drawer = new Drawer(Ports.CAN.drawer_master);
+
+	WPI_TalonSRX drawer_master; {
+
+		//BaseMotorController arm_follower;
+
+		drawer_master = new WPI_TalonSRX();
+		//arm_follower = new WPI_TalonSRX(Ports.CAN.ARM_FOLLOWER);
+
+		drawer_master = new Drawer(drawer_master, /*arm_follower,*/ this);
+
+	}
+
+	private final IElevator elevator = new Elevator(Ports.CAN.elevator_master);
+
+	WPI_TalonSRX elevator_master; {
+
+		//BaseMotorController arm_follower;
+
+		elevator_master = new WPI_TalonSRX();
+		//arm_follower = new WPI_TalonSRX(Ports.CAN.ARM_FOLLOWER);
+
+		elevator_master = new Elevator(elevator_master, /*arm_follower,*/ this);
+
+	}
+	
+
 	// pneumatic devices
+
+	private final Compressor compressor = new Compressor();
 
 	// misc
 
@@ -170,13 +207,15 @@ public class RobotContainer {
 		autonOptionChooser.addOption("Leave Community", AUTON_OPTION_LEAVE_COMMUNITY);
 		autonOptionChooser.addOption("Also Pickup Cone", AUTON_OPTION_ALSO_PICKUP_CONE);
 	
-		SmartDashboard.putData("Auton options", autonOptionChooser);		
+		SmartDashboard.putData("Auton options", autonOptionChooser);
+		
+		
 
 
 		// Configure the button bindings
 		configureButtonBindings();
 
-		// Configure default commands
+		// Configure default commandsa
 		drivetrain.setDefaultCommand(
 			// The left stick controls translation of the robot.
 			// Turning is controlled by the X axis of the right stick.
@@ -192,6 +231,10 @@ public class RobotContainer {
 				drivetrain));
 
 		indicator.setDefaultCommand(new IndicatorScrollRainbow(indicator)); // temp
+
+		
+
+
 	}
 
 	/**
