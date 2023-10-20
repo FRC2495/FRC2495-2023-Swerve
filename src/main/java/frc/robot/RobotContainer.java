@@ -31,16 +31,18 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import java.util.List;
 
 import frc.robot.Constants.AutoConstants;
-import frc.robot.Constants.DrivetrainConstants;
 import frc.robot.subsystems.Compressor;
-import frc.robot.subsystems.SwerveDrivetrain;
+import frc.robot.subsystems.Drawer;
+import frc.robot.Constants.DrivetrainConstants;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Hinge;
 import frc.robot.subsystems.Indicator;
 import frc.robot.commands.indicator.*;
 import frc.robot.interfaces.IDrawer;
 import frc.robot.interfaces.IElevator;
-import frc.robot.subsystems.Drawer;
+import frc.robot.interfaces.IShoulder;
+import frc.robot.subsystems.Shoulder;
+import frc.robot.subsystems.SwerveDrivetrain;
 import frc.robot.auton.*;
 
 
@@ -127,6 +129,10 @@ public class RobotContainer {
 	WPI_TalonSRX hinge_master = new WPI_TalonSRX(0);
 	
 	private final Hinge hinge = new Hinge(hinge_master);
+
+	WPI_TalonSRX shoulder_master = new WPI_TalonSRX(0);
+	
+	private final Shoulder shoulder = new Shoulder(shoulder_master);
 
 	// pneumatic devices
 

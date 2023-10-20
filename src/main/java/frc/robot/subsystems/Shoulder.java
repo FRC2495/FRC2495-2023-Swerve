@@ -28,12 +28,12 @@ public class Shoulder extends SubsystemBase implements IShoulder {
 	// general settings
 	static final int TIMEOUT_MS = 15000;
 	
-	public static final double GEAR_RATIO = 3.0; // TODO change if needed
+	public static final double GEAR_RATIO = 3.0; // todo change if needed
 	
 	public static final int ANGLE_TO_FLOOR_TICKS = 62000*48/64; // todo set proper value
 	//public static final int ANGLE_TO_MIDWAY_TICKS = 75000*48/64;
 	public static final int ANGLE_TO_LEVEL_2_TICKS = 120000*48/64; // todo set proper value
-	public static final int ANGLE_TO_TRAVEL_TICKS = 150000*48/64; // TODO set proper value
+	public static final int ANGLE_TO_TRAVEL_TICKS = 150000*48/64; // todo set proper value
 	
 	/*
 	!!! VIRTUAL_HOME_OFFSET_TICKS is important for moving up,     !!!
@@ -84,10 +84,9 @@ public class Shoulder extends SubsystemBase implements IShoulder {
 	Robot robot; 
 	
 	
-	public Shoulder(WPI_TalonSRX shoulder_in/*, BaseMotorController shoulder_follower_in*/, Robot robot_in) {
+	public Shoulder(WPI_TalonSRX shoulder_in/*, BaseMotorController shoulder_follower_in*/) {
 		shoulder = shoulder_in;
 		//shoulder_follower = shoulder_follower_in;
-		robot = robot_in;
 		
 		shoulder.configFactoryDefault();
 		//shoulder_follower.configFactoryDefault();
