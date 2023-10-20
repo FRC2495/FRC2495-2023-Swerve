@@ -35,15 +35,15 @@ import frc.robot.subsystems.Compressor;
 import frc.robot.subsystems.Drawer;
 import frc.robot.Constants.DrivetrainConstants;
 import frc.robot.subsystems.Elevator;
-import frc.robot.subsystems.Grasper;
+import frc.robot.subsystems.Mouth;
 import frc.robot.subsystems.Indicator;
 import frc.robot.commands.indicator.*;
 import frc.robot.interfaces.IDrawer;
 import frc.robot.interfaces.IElevator;
-import frc.robot.interfaces.IShoulder;
+import frc.robot.interfaces.INeck;
 import frc.robot.interfaces.IRoller;
 import frc.robot.subsystems.Roller;
-import frc.robot.subsystems.Shoulder;
+import frc.robot.subsystems.Neck;
 import frc.robot.subsystems.SwerveDrivetrain;
 import frc.robot.auton.*;
 
@@ -130,7 +130,7 @@ public class RobotContainer {
 
 	WPI_TalonSRX shoulder_master = new WPI_TalonSRX(0);
 	
-	private final Shoulder shoulder = new Shoulder(shoulder_master);
+	private final Neck shoulder = new Neck(shoulder_master);
 
 	WPI_TalonSRX roller_master = new WPI_TalonSRX(0);
 	
@@ -140,7 +140,7 @@ public class RobotContainer {
 
 	private final Compressor compressor = new Compressor();
 
-	private final Grasper grasper = new Grasper();
+	private final Mouth grasper = new Mouth();
 
 
 	// misc

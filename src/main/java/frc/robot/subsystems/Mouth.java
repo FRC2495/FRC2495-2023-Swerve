@@ -10,7 +10,7 @@ import frc.robot.Ports;
 /**
  * The {@code Claw} class contains fields and methods pertaining to the function of the claw.
  */
-public class Grasper extends SubsystemBase {
+public class Mouth extends SubsystemBase {
 	
 	static final int WAIT_MS = 1000;
 	
@@ -22,7 +22,7 @@ public class Grasper extends SubsystemBase {
 		UNKNOWN;
 	}
 
-	public Grasper() {
+	public Mouth() {
 		// the double solenoid valve will send compressed air from the tank wherever needed
 		lockedNot = new DoubleSolenoid(Ports.CAN.PCM, PneumaticsModuleType.REVPH, Ports.PCM.CLAW_CLOSED, Ports.PCM.CLAW_OPEN); // make sure ports are properly sets in Ports.java	
 	}

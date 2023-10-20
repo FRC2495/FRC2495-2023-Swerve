@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 
-public interface IShoulder extends Subsystem {
+public interface INeck extends Subsystem {
 
 	// returns the state of the limit switch
 	public boolean getLimitSwitchState();

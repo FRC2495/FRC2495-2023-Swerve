@@ -23,7 +23,7 @@ import frc.robot.Robot;
 /**
  * The {@code Shoulder} class contains fields and methods pertaining to the function of the shoulder.
  */
-public class Shoulder extends SubsystemBase implements IShoulder {
+public class Neck extends SubsystemBase implements INeck {
 	
 	// general settings
 	static final int TIMEOUT_MS = 15000;
@@ -84,7 +84,7 @@ public class Shoulder extends SubsystemBase implements IShoulder {
 	Robot robot; 
 	
 	
-	public Shoulder(WPI_TalonSRX shoulder_in/*, BaseMotorController shoulder_follower_in*/) {
+	public Neck(WPI_TalonSRX shoulder_in/*, BaseMotorController shoulder_follower_in*/) {
 		shoulder = shoulder_in;
 		//shoulder_follower = shoulder_follower_in;
 		
