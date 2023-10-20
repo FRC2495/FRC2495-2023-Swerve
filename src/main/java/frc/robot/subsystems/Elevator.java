@@ -66,7 +66,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 	//BaseMotorController arm_follower;
 	
 	boolean isMoving;
-	boolean isExtending;
+	boolean isMovingUp;
 	boolean isReallyStalled;
 
 	double tac;
@@ -141,7 +141,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 		elevator.configSetParameter(ParamEnum.eClearPositionOnLimitR, 0, 0, 0, TALON_TIMEOUT_MS);
 		
 		isMoving = false;
-		isExtending = false;
+		isMovingUp = false;
 		isReallyStalled = false;
 		stalledCount = 0;
 	}
@@ -177,7 +177,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 			if (!isMoving) {
 				System.out.println("You have reached the target (elevator moving).");
 				//arm.set(ControlMode.PercentOutput,0);
-				if (isExtending)	{
+				if (isMovingUp)	{
 					stop(); // adjust if needed
 				} else {
 					stop(); // adjust if needed
@@ -225,10 +225,10 @@ public class Elevator extends SubsystemBase implements IElevator {
 		return (int) (elevator.getSelectedSensorVelocity(PRIMARY_PID_LOOP));
 	}
 	
-	public void extend() {
+	public void moveUp() {
 		
 		//setPIDParameters();
-		System.out.println("Extending");
+		System.out.println("Moving Up");
 		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
 
 		tac = -LENGTH_OF_TRAVEL_TICKS;
@@ -236,13 +236,13 @@ public class Elevator extends SubsystemBase implements IElevator {
 		elevator.set(ControlMode.Position,tac);
 		
 		isMoving = true;
-		isExtending = true;
+		isMovingUp = true;
 		onTargetCount = 0;
 		isReallyStalled = false;
 		stalledCount = 0;
 	}
 
-	public void extendPickup() {
+	/*public void extendPickup() {
 		
 		//setPIDParameters();
 		System.out.println("Extending to Pickup");
@@ -253,16 +253,16 @@ public class Elevator extends SubsystemBase implements IElevator {
 		elevator.set(ControlMode.Position,tac);
 		
 		isMoving = true;
-		isExtending = true;
+		isMovingUp = true;
 		onTargetCount = 0;
 		isReallyStalled = false;
 		stalledCount = 0;
-	}
+	}*/
 
-	public void extendMidway() {
+	public void moveMidway() {
 		
 		//setPIDParameters();
-		System.out.println("Extending to Midway");
+		System.out.println("Moving to Midway");
 		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
 
 		tac = -LENGTH_OF_LEVEL_TWO_TICKS;
@@ -270,23 +270,23 @@ public class Elevator extends SubsystemBase implements IElevator {
 		elevator.set(ControlMode.Position,tac);
 		
 		isMoving = true;
-		isExtending = true;
+		isMovingUp = true;
 		onTargetCount = 0;
 		isReallyStalled = false;
 		stalledCount = 0;
 	}
 	
-	public void retract() {
+	public void moveDown() {
 		
 		//setPIDParameters();
-		System.out.println("Retracting");
+		System.out.println("Moving Down");
 		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
 
 		tac = 0; // adjust as needed
 		elevator.set(ControlMode.Position,tac);
 		
 		isMoving = true;
-		isExtending = false;
+		isMovingUp = false;
 		onTargetCount = 0;
 		isReallyStalled = false;
 		stalledCount = 0;
@@ -298,7 +298,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 	
 	public void stay() {	 		
 		isMoving = false;		
-		isExtending = false;
+		isMovingUp = false;
 	}
 
 	public synchronized void stop() {
@@ -307,7 +307,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); // we undo what me might have changed
 		
 		isMoving = false;
-		isExtending = false;
+		isMovingUp = false;
 	}
 	
 	private void setPIDParameters() {		
@@ -358,20 +358,20 @@ public class Elevator extends SubsystemBase implements IElevator {
 		return isMoving;
 	}
 
-	public synchronized boolean isExtending() {
-		return isExtending;
+	public synchronized boolean isMovingUp() {
+		return isMovingUp;
 	}
 
-	public boolean isExtended() {
+	public boolean isUp() {
 		return Math.abs(getEncoderPosition()) > LENGTH_OF_TRAVEL_TICKS * 9/10;
 	}
 	
-	public boolean isRetracted() {
+	public boolean isDown() {
 		return Math.abs(getEncoderPosition()) < LENGTH_OF_TRAVEL_TICKS * 1/10;
 	}
 	
 	public boolean isMidway() {
-		return !isExtended() && !isRetracted();
+		return !isUp() && !isDown();
 	}
 
 	public boolean isDangerous() {

@@ -16,16 +16,16 @@ public interface IElevator extends Subsystem {
 	public boolean tripleCheckMove();
 
 	// extends the arm asynchronously
-	public void extend();
+	public void moveUp();
 
 	// extends the arm asynchronously
 	// public void extendPickup();
 
 	// extends the arm asynchronously
-	public void extendMidway();
+	public void moveMidway();
 	
 	// retracts the arm asynchronously
-	public void retract();
+	public void moveDown();
 	
 	// returns encoder position
 	public double getEncoderPosition();
@@ -34,13 +34,13 @@ public interface IElevator extends Subsystem {
 	public boolean isMoving();
 	
 	// returns if arm is extending
-	public boolean isExtending();	
+	public boolean isMovingUp();	
 
 	// returns if arm is extended
-	public boolean isExtended();
+	public boolean isUp();
 	
 	// returns if arm is extracted
-	public boolean isRetracted();
+	public boolean isDown();
 	
 	// returns if arm is midway
 	public boolean isMidway();
