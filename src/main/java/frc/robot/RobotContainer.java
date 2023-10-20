@@ -36,7 +36,6 @@ import frc.robot.subsystems.Drawer;
 import frc.robot.Constants.DrivetrainConstants;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Grasper;
-import frc.robot.subsystems.Hinge;
 import frc.robot.subsystems.Indicator;
 import frc.robot.commands.indicator.*;
 import frc.robot.interfaces.IDrawer;
@@ -128,10 +127,6 @@ public class RobotContainer {
 	WPI_TalonSRX elevator_master = new WPI_TalonSRX(0);
 
 	private final IElevator elevator = new Elevator(elevator_master);
-
-	WPI_TalonSRX hinge_master = new WPI_TalonSRX(0);
-	
-	private final Hinge hinge = new Hinge(hinge_master);
 
 	WPI_TalonSRX shoulder_master = new WPI_TalonSRX(0);
 	
