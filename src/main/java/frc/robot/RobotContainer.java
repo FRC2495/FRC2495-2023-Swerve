@@ -42,6 +42,8 @@ import frc.robot.commands.indicator.*;
 import frc.robot.interfaces.IDrawer;
 import frc.robot.interfaces.IElevator;
 import frc.robot.interfaces.IShoulder;
+import frc.robot.interfaces.IRoller;
+import frc.robot.subsystems.Roller;
 import frc.robot.subsystems.Shoulder;
 import frc.robot.subsystems.SwerveDrivetrain;
 import frc.robot.auton.*;
@@ -135,11 +137,16 @@ public class RobotContainer {
 	
 	private final Shoulder shoulder = new Shoulder(shoulder_master);
 
+	WPI_TalonSRX roller_master = new WPI_TalonSRX(0);
+	
+	private final Roller roller = new Roller(roller_master);
+
 	// pneumatic devices
 
 	private final Compressor compressor = new Compressor();
 
 	private final Grasper grasper = new Grasper();
+
 
 	// misc
 
