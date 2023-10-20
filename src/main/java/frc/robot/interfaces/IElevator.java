@@ -19,10 +19,10 @@ public interface IElevator extends Subsystem {
 	public void extend();
 
 	// extends the arm asynchronously
-	public void extendPickup();
+	// public void extendPickup();
 
 	// extends the arm asynchronously
-	public void extendLevelTwo();
+	public void extendMidway();
 	
 	// retracts the arm asynchronously
 	public void retract();
@@ -49,7 +49,7 @@ public interface IElevator extends Subsystem {
 	public boolean isDangerous();
 
 	// returns if arm is dangerous for shoulder at floor
-	public boolean isDangerousForShoulderAtFloor();
+	// public boolean isDangerousForShoulderAtFloor();
 
 	// returns if stalled
 	public boolean isStalled();

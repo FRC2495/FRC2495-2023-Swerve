@@ -262,10 +262,10 @@ public class Drawer extends SubsystemBase implements IDrawer {
 		stalledCount = 0;
 	}
 
-	public void extendLevelTwo() {
+	public void extendMidway() {
 		
 		//setPIDParameters();
-		System.out.println("Extending to Level Two");
+		System.out.println("Extending to Midway");
 		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
 
 		tac = -LENGTH_OF_LEVEL_TWO_TICKS;
@@ -381,9 +381,9 @@ public class Drawer extends SubsystemBase implements IDrawer {
 		return !getLimitSwitchState();
 	}
 
-	public boolean isDangerousForShoulderAtFloor() {
+	/*public boolean isDangerousForShoulderAtFloor() {
 		return isExtended();
-	}
+	}*/
 
 	// return if stalled
 	public boolean isStalled() {

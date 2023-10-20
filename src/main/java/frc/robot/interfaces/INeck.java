@@ -21,9 +21,9 @@ public interface INeck extends Subsystem {
 	
 	public void moveUp();
 
-	public void moveLevelTwo();
+	public void moveMidway();
 
-	public void moveFloor();
+	//public void moveFloor();
 	
 	public void moveDown();
 
@@ -37,7 +37,7 @@ public interface INeck extends Subsystem {
 	
 	public boolean isDown();
 	
-	public boolean isLevelTwo();
+	public boolean isMidway();
 
 	public boolean isDangerous();
 

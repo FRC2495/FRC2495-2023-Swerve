@@ -21,7 +21,7 @@ import frc.robot.Robot;
 
 
 /**
- * The {@code Shoulder} class contains fields and methods pertaining to the function of the shoulder.
+ * The {@code Neck} class contains fields and methods pertaining to the function of the neck.
  */
 public class Neck extends SubsystemBase implements INeck {
 	
@@ -31,8 +31,8 @@ public class Neck extends SubsystemBase implements INeck {
 	public static final double GEAR_RATIO = 3.0; // todo change if needed
 	
 	public static final int ANGLE_TO_FLOOR_TICKS = 62000*48/64; // todo set proper value
-	//public static final int ANGLE_TO_MIDWAY_TICKS = 75000*48/64;
-	public static final int ANGLE_TO_LEVEL_2_TICKS = 120000*48/64; // todo set proper value
+	public static final int ANGLE_TO_MIDWAY_TICKS = 75000*48/64;
+	//public static final int ANGLE_TO_LEVEL_2_TICKS = 120000*48/64; // todo set proper value
 	public static final int ANGLE_TO_TRAVEL_TICKS = 150000*48/64; // todo set proper value
 	
 	/*
@@ -73,8 +73,8 @@ public class Neck extends SubsystemBase implements INeck {
 	boolean isMovingUp;
 	boolean isReallyStalled;
 	
-	WPI_TalonSRX shoulder;
-	//BaseMotorController shoulder_follower;
+	WPI_TalonSRX neck;
+	//BaseMotorController neck_follower;
 	
 	double tac;
 
@@ -84,52 +84,52 @@ public class Neck extends SubsystemBase implements INeck {
 	Robot robot; 
 	
 	
-	public Neck(WPI_TalonSRX shoulder_in/*, BaseMotorController shoulder_follower_in*/) {
-		shoulder = shoulder_in;
-		//shoulder_follower = shoulder_follower_in;
+	public Neck(WPI_TalonSRX neck_in/*, BaseMotorController neck_follower_in*/) {
+		neck = neck_in;
+		//neck_follower = neck_follower_in;
 		
-		shoulder.configFactoryDefault();
-		//shoulder_follower.configFactoryDefault();
+		neck.configFactoryDefault();
+		//neck_follower.configFactoryDefault();
 
 		// Mode of operation during Neutral output may be set by using the setNeutralMode() function.
 		// As of right now, there are two options when setting the neutral mode of a motor controller,
 		// brake and coast.	
-		shoulder.setNeutralMode(NeutralMode.Brake);
-		//shoulder_follower.setNeutralMode(NeutralMode.Brake);
+		neck.setNeutralMode(NeutralMode.Brake);
+		//neck_follower.setNeutralMode(NeutralMode.Brake);
 		
 		// Sensor phase is the term used to explain sensor direction.
 		// In order for limit switches and closed-loop features to function properly the sensor and motor has to be in-phase.
 		// This means that the sensor position must move in a positive direction as the motor controller drives positive output.
-		shoulder.setSensorPhase(true);
+		neck.setSensorPhase(true);
 
 		// Enables limit switches
-		shoulder.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, TALON_TIMEOUT_MS);
-		shoulder.configReverseLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, TALON_TIMEOUT_MS);
-		shoulder.overrideLimitSwitchesEnable(true);
+		neck.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, TALON_TIMEOUT_MS);
+		neck.configReverseLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, TALON_TIMEOUT_MS);
+		neck.overrideLimitSwitchesEnable(true);
 
 		// Motor controller output direction can be set by calling the setInverted() function as seen below.
 		// Note: Regardless of invert value, the LEDs will blink green when positive output is requested (by robot code or firmware closed loop).
 		// Only the motor leads are inverted. This feature ensures that sensor phase and limit switches will properly match the LED pattern
 		// (when LEDs are green => forward limit switch and soft limits are being checked). 	
-		shoulder.setInverted(true); // invert if required
-		//shoulder_follower.setInverted(false);
+		neck.setInverted(true); // invert if required
+		//neck_follower.setInverted(false);
 
 		// Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output.
 		// Users will still need to set the motor controller's direction, and neutral mode.
 		// The method follow() allows users to create a motor controller follower of not only the same model, but also other models
 		// , talon to talon, victor to victor, talon to victor, and victor to talon.
-		//shoulder_follower.follow(shoulder);
+		//neck_follower.follow(neck);
 
 		// Motor controllers that are followers can set Status 1 and Status 2 to 255ms(max) using setStatusFramePeriod.
 		// The Follower relies on the master status frame allowing its status frame to be slowed without affecting performance.
 		// This is a useful optimization to manage CAN bus utilization.
-		//shoulderfollower.setStatusFramePeriod(StatusFrame.Status_1_General, 255, TALON_TIMEOUT_MS);
-		//shoulderFollower.setStatusFramePeriod(StatusFrame.Status_2_Feedback0, 255, TALON_TIMEOUT_MS);
+		//neckfollower.setStatusFramePeriod(StatusFrame.Status_1_General, 255, TALON_TIMEOUT_MS);
+		//neckFollower.setStatusFramePeriod(StatusFrame.Status_2_Feedback0, 255, TALON_TIMEOUT_MS);
 
 		setPIDParameters();
 		
 		// use slot 0 for closed-looping
- 		//shoulder.selectProfileSlot(SLOT_0, PRIMARY_PID_LOOP);
+ 		//neck.selectProfileSlot(SLOT_0, PRIMARY_PID_LOOP);
 		
 		// set peak output to max in case if had been reduced previously
 		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
@@ -140,11 +140,11 @@ public class Neck extends SubsystemBase implements INeck {
 		// This ensures the best resolution possible when performing closed-loops in firmware.
 		// CTRE Magnetic Encoder (relative/quadrature) =  4096 units per rotation		
 		// FX Integrated Sensor = 2048 units per rotation
-		shoulder.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor,	PRIMARY_PID_LOOP, TALON_TIMEOUT_MS);
+		neck.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor,	PRIMARY_PID_LOOP, TALON_TIMEOUT_MS);
 
 		// this will reset the encoder automatically when at or past the reverse limit sensor
-		shoulder.configSetParameter(ParamEnum.eClearPositionOnLimitR, 0, 0, 0, TALON_TIMEOUT_MS);
-		shoulder.configSetParameter(ParamEnum.eClearPositionOnLimitF, 1, 0, 0, TALON_TIMEOUT_MS);		
+		neck.configSetParameter(ParamEnum.eClearPositionOnLimitR, 0, 0, 0, TALON_TIMEOUT_MS);
+		neck.configSetParameter(ParamEnum.eClearPositionOnLimitF, 1, 0, 0, TALON_TIMEOUT_MS);		
 		
 		isMoving = false;
 		isMovingUp = false;
@@ -162,8 +162,8 @@ public class Neck extends SubsystemBase implements INeck {
 	public boolean tripleCheckMove() {
 		if (isMoving) {
 			
-			double error = shoulder.getClosedLoopError(PRIMARY_PID_LOOP);
-			//System.out.println("Shoulder moving error: " + Math.abs(error));
+			double error = neck.getClosedLoopError(PRIMARY_PID_LOOP);
+			//System.out.println("Neck moving error: " + Math.abs(error));
 			
 			boolean isOnTarget = (Math.abs(error) < TICK_THRESH);
 			
@@ -172,7 +172,7 @@ public class Neck extends SubsystemBase implements INeck {
 			} else { // if we are not on target in this iteration
 				if (onTargetCount > 0) { // even though we were on target at least once during a previous iteration
 					onTargetCount = 0; // we reset the counter as we are not on target anymore
-					System.out.println("Triple-check failed (shoulder moving).");
+					System.out.println("Triple-check failed (neck moving).");
 				} else {
 					// we are definitely moving
 				}
@@ -183,8 +183,8 @@ public class Neck extends SubsystemBase implements INeck {
 			}
 			
 			if (!isMoving) {
-				System.out.println("You have reached the target (shoulder moving).");
-				//shoulder.set(ControlMode.PercentOutput,0);
+				System.out.println("You have reached the target (neck moving).");
+				//neck.set(ControlMode.PercentOutput,0);
 				if (isMovingUp) {
 					stay();
 				} else {
@@ -231,7 +231,7 @@ public class Neck extends SubsystemBase implements INeck {
 	}
 
 	public int getEncoderVelocity() {
-		return (int) (shoulder.getSelectedSensorVelocity(PRIMARY_PID_LOOP));
+		return (int) (neck.getSelectedSensorVelocity(PRIMARY_PID_LOOP));
 	}
 	
 	public void moveUp() {	
@@ -242,7 +242,7 @@ public class Neck extends SubsystemBase implements INeck {
 		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
 
 		tac = -ANGLE_TO_TRAVEL_TICKS;
-		shoulder.set(ControlMode.Position,tac);
+		neck.set(ControlMode.Position,tac);
 		
 		isMoving = true;
 		isMovingUp = true;
@@ -251,15 +251,15 @@ public class Neck extends SubsystemBase implements INeck {
 		stalledCount = 0;
 	}
 
-	public void moveLevelTwo() {	
+	public void moveMidway() {	
 
 		//setPIDParameters();
-		System.out.println("Moving to Level Two");
+		System.out.println("Moving to Midway");
 		
 		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
 
-		tac = -ANGLE_TO_LEVEL_2_TICKS;
-		shoulder.set(ControlMode.Position,tac);
+		tac = -ANGLE_TO_MIDWAY_TICKS;
+		neck.set(ControlMode.Position,tac);
 		
 		isMoving = true;
 		isMovingUp = true;
@@ -277,7 +277,7 @@ public class Neck extends SubsystemBase implements INeck {
 
 		//tac = ANGLE_TO_TRAVEL_TICKS / 2;
 		tac = -ANGLE_TO_MIDWAY_TICKS;
-		shoulder.set(ControlMode.Position,tac);
+		neck.set(ControlMode.Position,tac);
 		
 		isMoving = true;
 		isMovingUp = true;
@@ -287,7 +287,7 @@ public class Neck extends SubsystemBase implements INeck {
 		
 	}*/
 
-	public void moveFloor() {	
+	/*public void moveFloor() {	
 
 		//setPIDParameters();
 		System.out.println("Moving to Floor");
@@ -295,14 +295,14 @@ public class Neck extends SubsystemBase implements INeck {
 		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
 
 		tac = -ANGLE_TO_FLOOR_TICKS;
-		shoulder.set(ControlMode.Position,tac);
+		neck.set(ControlMode.Position,tac);
 		
 		isMoving = true;
 		isMovingUp = true;
 		onTargetCount = 0;
 		isReallyStalled = false;
 		stalledCount = 0;
-	}
+	}*/
 	
 	public void moveDown() {
 		
@@ -312,7 +312,7 @@ public class Neck extends SubsystemBase implements INeck {
 		setNominalAndPeakOutputs(SUPER_REDUCED_PCT_OUTPUT);
 
 		tac = VIRTUAL_HOME_OFFSET_TICKS;
-		shoulder.set(ControlMode.Position,tac);
+		neck.set(ControlMode.Position,tac);
 		
 		isMoving = true;
 		isMovingUp = false;
@@ -322,11 +322,11 @@ public class Neck extends SubsystemBase implements INeck {
 	}
 
 	public double getPosition() {
-		return shoulder.getSelectedSensorPosition(PRIMARY_PID_LOOP) * GEAR_RATIO / TICKS_PER_REVOLUTION;
+		return neck.getSelectedSensorPosition(PRIMARY_PID_LOOP) * GEAR_RATIO / TICKS_PER_REVOLUTION;
 	}
 
 	public double getEncoderPosition() {
-		return shoulder.getSelectedSensorPosition(PRIMARY_PID_LOOP);
+		return neck.getSelectedSensorPosition(PRIMARY_PID_LOOP);
 	}
 
 	public void stay() {	 		
@@ -336,7 +336,7 @@ public class Neck extends SubsystemBase implements INeck {
 	
 	public void stop() {	 
 
-		shoulder.set(ControlMode.PercentOutput, 0);
+		neck.set(ControlMode.PercentOutput, 0);
 		
 		isMoving = false;
 		isMovingUp = false;		
@@ -345,7 +345,7 @@ public class Neck extends SubsystemBase implements INeck {
 	}	
 	
 	private void setPIDParameters() {		
-		shoulder.configAllowableClosedloopError(SLOT_0, TALON_TICK_THRESH, TALON_TIMEOUT_MS);
+		neck.configAllowableClosedloopError(SLOT_0, TALON_TICK_THRESH, TALON_TIMEOUT_MS);
 		
 		// P is the proportional gain. It modifies the closed-loop output by a proportion (the gain value)
 		// of the closed-loop error.
@@ -372,19 +372,19 @@ public class Neck extends SubsystemBase implements INeck {
 		// In order to calculate feed-forward, you will need to measure your motor's velocity at a specified percent output
 		// (preferably an output close to the intended operating range).
 		
-		shoulder.config_kP(SLOT_0, MOVE_PROPORTIONAL_GAIN, TALON_TIMEOUT_MS);
-		shoulder.config_kI(SLOT_0, MOVE_INTEGRAL_GAIN, TALON_TIMEOUT_MS);
-		shoulder.config_kD(SLOT_0, MOVE_DERIVATIVE_GAIN, TALON_TIMEOUT_MS);
-		shoulder.config_kF(SLOT_0, 0, TALON_TIMEOUT_MS);
+		neck.config_kP(SLOT_0, MOVE_PROPORTIONAL_GAIN, TALON_TIMEOUT_MS);
+		neck.config_kI(SLOT_0, MOVE_INTEGRAL_GAIN, TALON_TIMEOUT_MS);
+		neck.config_kD(SLOT_0, MOVE_DERIVATIVE_GAIN, TALON_TIMEOUT_MS);
+		neck.config_kF(SLOT_0, 0, TALON_TIMEOUT_MS);
 	}
 
 	public void setNominalAndPeakOutputs(double peakOutput)
 	{
-		shoulder.configPeakOutputForward(peakOutput, TALON_TIMEOUT_MS);
-		shoulder.configPeakOutputReverse(-peakOutput, TALON_TIMEOUT_MS);
+		neck.configPeakOutputForward(peakOutput, TALON_TIMEOUT_MS);
+		neck.configPeakOutputReverse(-peakOutput, TALON_TIMEOUT_MS);
 		
-		shoulder.configNominalOutputForward(0, TALON_TIMEOUT_MS);
-		shoulder.configNominalOutputForward(0, TALON_TIMEOUT_MS);
+		neck.configNominalOutputForward(0, TALON_TIMEOUT_MS);
+		neck.configNominalOutputForward(0, TALON_TIMEOUT_MS);
 	}
 
 	public boolean isMoving() {
@@ -403,7 +403,7 @@ public class Neck extends SubsystemBase implements INeck {
 		return Math.abs(getEncoderPosition()) < ANGLE_TO_TRAVEL_TICKS * 1/3;
 	}
 	
-	public boolean isLevelTwo() {
+	public boolean isMidway() {
 		return Math.abs(getEncoderPosition()) < ANGLE_TO_TRAVEL_TICKS * 1/3; //todo fix
 	}
 
@@ -425,7 +425,7 @@ public class Neck extends SubsystemBase implements INeck {
 	{
 		if (!isMoving) // if we are already doing a move we don't take over
 		{
-			shoulder.set(ControlMode.PercentOutput, -joystick.getY());
+			neck.set(ControlMode.PercentOutput, -joystick.getY());
 		}
 	}	
 
@@ -433,7 +433,7 @@ public class Neck extends SubsystemBase implements INeck {
 	{
 		if (!isMoving) // if we are already doing a move we don't take over
 		{
-			shoulder.set(ControlMode.PercentOutput, +MathUtil.applyDeadband(gamepad.getLeftY(),RobotContainer.GAMEPAD_AXIS_THRESHOLD)*0.3); // adjust sign if desired
+			neck.set(ControlMode.PercentOutput, +MathUtil.applyDeadband(gamepad.getLeftY(),RobotContainer.GAMEPAD_AXIS_THRESHOLD)*0.3); // adjust sign if desired
 		}
 	}
 
@@ -443,18 +443,18 @@ public class Neck extends SubsystemBase implements INeck {
 
 	// returns the state of the limit switch
 	public boolean getLimitSwitchState() {
-		return shoulder.getSensorCollection().isRevLimitSwitchClosed();
+		return neck.getSensorCollection().isRevLimitSwitchClosed();
 	}
 
 	public boolean getForwardLimitSwitchState() {
-		return shoulder.getSensorCollection().isFwdLimitSwitchClosed();
+		return neck.getSensorCollection().isFwdLimitSwitchClosed();
 	}
 
 	// MAKE SURE THAT YOU ARE NOT IN A CLOSED LOOP CONTROL MODE BEFORE CALLING THIS METHOD.
 	// OTHERWISE THIS IS EQUIVALENT TO MOVING TO THE DISTANCE TO THE CURRENT ZERO IN REVERSE! 
 	public void resetEncoder() {
-		shoulder.set(ControlMode.PercentOutput,0); // we stop AND MAKE SURE WE DO NOT MOVE WHEN SETTING POSITION
-		shoulder.setSelectedSensorPosition(0, PRIMARY_PID_LOOP, TALON_TIMEOUT_MS); // we mark the virtual zero
+		neck.set(ControlMode.PercentOutput,0); // we stop AND MAKE SURE WE DO NOT MOVE WHEN SETTING POSITION
+		neck.setSelectedSensorPosition(0, PRIMARY_PID_LOOP, TALON_TIMEOUT_MS); // we mark the virtual zero
 	}
 
 }
