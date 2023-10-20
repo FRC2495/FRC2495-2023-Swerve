@@ -35,6 +35,7 @@ import frc.robot.subsystems.Compressor;
 import frc.robot.subsystems.Drawer;
 import frc.robot.Constants.DrivetrainConstants;
 import frc.robot.subsystems.Elevator;
+import frc.robot.subsystems.Grasper;
 import frc.robot.subsystems.Hinge;
 import frc.robot.subsystems.Indicator;
 import frc.robot.commands.indicator.*;
@@ -137,6 +138,8 @@ public class RobotContainer {
 	// pneumatic devices
 
 	private final Compressor compressor = new Compressor();
+
+	private final Grasper grasper = new Grasper();
 
 	// misc
 
