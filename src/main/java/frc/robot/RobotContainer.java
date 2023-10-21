@@ -38,6 +38,7 @@ import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Mouth;
 import frc.robot.subsystems.Indicator;
 import frc.robot.commands.indicator.*;
+import frc.robot.commands.mouth.*;
 import frc.robot.interfaces.IDrawer;
 import frc.robot.interfaces.IElevator;
 import frc.robot.interfaces.INeck;
@@ -140,7 +141,7 @@ public class RobotContainer {
 
 	private final Compressor compressor = new Compressor();
 
-	private final Mouth grasper = new Mouth();
+	private final Mouth mouth = new Mouth();
 
 
 	// misc
@@ -150,7 +151,8 @@ public class RobotContainer {
 	private final Indicator indicator = new Indicator(null);
 
 	// The driver's controller
-	CommandXboxController driverGamepad = new CommandXboxController(Ports.USB.GAMEPAD);
+	CommandXboxController driverGamepad = new CommandXboxController(Ports.USB.DRIVER_GAMEPAD);
+	CommandXboxController copilotGamepad = new CommandXboxController(Ports.USB.COPILOT_GAMEPAD);
 
 	/**
 	 * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -259,7 +261,11 @@ public class RobotContainer {
 		driverGamepad.a()
 			.onTrue(new InstantCommand(
 				() -> drivetrain.zeroHeading(),
-				drivetrain).ignoringDisable(true));      
+				drivetrain).ignoringDisable(true));   
+				
+		copilotGamepad.y().onTrue(new MouthSetOpen(mouth));
+
+		copilotGamepad.x().onTrue(new MouthSetClose(mouth));
 	}
 
 	/**

@@ -6,12 +6,12 @@ import frc.robot.subsystems.Mouth;
 import frc.robot.subsystems.Mouth.Position;
 
 // To set mouth open
-public class MouthClose extends CommandBase {
+public class MouthSetOpen extends CommandBase {
 
 	
 	private Mouth mouth;
 
-	public MouthClose(Mouth mouth) {	
+	public MouthSetOpen(Mouth mouth) {	
 		this.mouth = mouth;
 		addRequirements(mouth);
 	}
@@ -19,8 +19,8 @@ public class MouthClose extends CommandBase {
 	// Called once when the command executes
 	@Override
 	public void initialize() {
-		System.out.println("MouthSetClose: initialize");
-		mouth.setPosition(Position.CLOSED);
+		System.out.println("MouthSetOpen: initialize");
+		mouth.setPosition(Position.OPEN);
 	}
 
 }
