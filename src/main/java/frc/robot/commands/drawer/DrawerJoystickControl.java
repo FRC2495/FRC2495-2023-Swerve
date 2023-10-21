@@ -1,10 +1,11 @@
 
 package frc.robot.commands.drawer;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.RobotContainer;
-import frc.robot.subsystems.SwerveDrivetrain;
 import edu.wpi.first.wpilibj.Joystick;
+
 import frc.robot.subsystems.Drawer;
+import frc.robot.subsystems.SwerveDrivetrain;
 
 /**
  *
@@ -12,12 +13,12 @@ import frc.robot.subsystems.Drawer;
 public class DrawerJoystickControl extends CommandBase {
 
 	private Drawer drawer;
-	private SwerveDrivetrain drivetrain;
+	//private SwerveDrivetrain drivetrain;
 	private Joystick joystick;
 
 	public DrawerJoystickControl(Drawer drawer, SwerveDrivetrain drivetrain, Joystick joystick) {
 		this.drawer = drawer;
-		this.drivetrain = drivetrain;
+		//this.drivetrain = drivetrain;
 		this.joystick = joystick;
 		
 		addRequirements(

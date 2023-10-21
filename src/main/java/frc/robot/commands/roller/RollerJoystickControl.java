@@ -1,9 +1,11 @@
 
 package frc.robot.commands.roller;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.SwerveDrivetrain;
 import edu.wpi.first.wpilibj.Joystick;
+
 import frc.robot.subsystems.Roller;
+import frc.robot.subsystems.SwerveDrivetrain;
 
 /**
  *
@@ -11,12 +13,12 @@ import frc.robot.subsystems.Roller;
 public class RollerJoystickControl extends CommandBase {
 
 	private Roller roller;
-	private SwerveDrivetrain drivetrain;
+	//private SwerveDrivetrain drivetrain;
 	private Joystick joystick;
 
 	public RollerJoystickControl(Roller roller, SwerveDrivetrain drivetrain, Joystick joystick) {
 		this.roller = roller;
-		this.drivetrain = drivetrain;
+		//this.drivetrain = drivetrain;
 		this.joystick = joystick;
 		
 		addRequirements(

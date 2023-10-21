@@ -21,7 +21,7 @@ import frc.robot.subsystems.Elevator;
 	// Called just before this Command runs the first time
 	@Override
 	public void initialize() {
-		System.out.println("ElevatorMoveUpWithStallDetection initialize");
+		System.out.println("ElevatorMoveUpWithStallDetection: initialize");
 		elevator.moveUp();
 	}
 

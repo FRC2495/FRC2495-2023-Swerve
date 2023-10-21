@@ -20,7 +20,7 @@ import frc.robot.subsystems.Drawer;
 	// Called just before this Command runs the first time
 	@Override
 	public void initialize() {
-		System.out.println("DrawerExtendWithStallDetection initialize");
+		System.out.println("DrawerExtendWithStallDetection: initialize");
 		drawer.extend();
 	}
 

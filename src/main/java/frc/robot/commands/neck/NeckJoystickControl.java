@@ -1,9 +1,11 @@
 
 package frc.robot.commands.neck;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.SwerveDrivetrain;
 import edu.wpi.first.wpilibj.Joystick;
+
 import frc.robot.subsystems.Neck;
+import frc.robot.subsystems.SwerveDrivetrain;
 
 /**
  *
@@ -11,12 +13,12 @@ import frc.robot.subsystems.Neck;
 public class NeckJoystickControl extends CommandBase {
 
 	private Neck neck;
-	private SwerveDrivetrain drivetrain;
+	//private SwerveDrivetrain drivetrain;
 	private Joystick joystick;
 
 	public NeckJoystickControl(Neck neck, SwerveDrivetrain drivetrain, Joystick joystick) {
 		this.neck = neck;
-		this.drivetrain = drivetrain;
+		//this.drivetrain = drivetrain;
 		this.joystick = joystick;
 		
 		addRequirements(
