@@ -34,21 +34,25 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import java.util.List;
 
 import frc.robot.Constants.AutoConstants;
-import frc.robot.subsystems.Compressor;
-import frc.robot.subsystems.Drawer;
 import frc.robot.Constants.DrivetrainConstants;
-import frc.robot.subsystems.Elevator;
-import frc.robot.subsystems.Mouth;
-import frc.robot.subsystems.Indicator;
-import frc.robot.commands.indicator.*;
-import frc.robot.commands.mouth.*;
-import frc.robot.interfaces.IDrawer;
+
 import frc.robot.interfaces.IElevator;
+import frc.robot.interfaces.IDrawer;
 import frc.robot.interfaces.INeck;
 import frc.robot.interfaces.IRoller;
-import frc.robot.subsystems.Roller;
-import frc.robot.subsystems.Neck;
+
 import frc.robot.subsystems.SwerveDrivetrain;
+import frc.robot.subsystems.Elevator;
+import frc.robot.subsystems.Drawer;
+import frc.robot.subsystems.Neck;
+import frc.robot.subsystems.Roller;
+import frc.robot.subsystems.Compressor;
+import frc.robot.subsystems.Mouth;
+import frc.robot.subsystems.Indicator;
+
+import frc.robot.commands.indicator.*;
+import frc.robot.commands.mouth.*;
+
 import frc.robot.auton.*;
 
 
@@ -136,18 +140,17 @@ public class RobotContainer {
 
 	WPI_TalonFX neck_master = new WPI_TalonFX(Ports.CAN.NECK);
 	
-	private final Neck neck = new Neck(neck_master);
+	private final INeck neck = new Neck(neck_master);
 
 	WPI_TalonSRX roller_master = new WPI_TalonSRX(Ports.CAN.ROLLER);
 	
-	private final Roller roller = new Roller(roller_master);
+	private final IRoller roller = new Roller(roller_master);
 	
 	// pneumatic devices
 
 	private final Compressor compressor = new Compressor();
 
 	private final Mouth mouth = new Mouth();
-
 
 	// misc
 
