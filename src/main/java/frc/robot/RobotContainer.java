@@ -23,6 +23,8 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SwerveControllerCommand;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 //import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 //import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
@@ -122,19 +124,21 @@ public class RobotContainer {
 
 	private final SwerveDrivetrain drivetrain = new SwerveDrivetrain();
 
-	WPI_TalonSRX drawer_master = new WPI_TalonSRX(0);
+	WPI_TalonSRX drawer_master = new WPI_TalonSRX(Ports.CAN.DRAWER);
 
 	private final IDrawer drawer = new Drawer(drawer_master);
 
-	WPI_TalonSRX elevator_master = new WPI_TalonSRX(0);
+	WPI_TalonSRX elevator_master = new WPI_TalonSRX(Ports.CAN.ELEVATOR_MASTER);
 
-	private final IElevator elevator = new Elevator(elevator_master);
+	WPI_VictorSPX elevator_follower = new WPI_VictorSPX(Ports.CAN.ELEVATOR_FOLLOWER);
 
-	WPI_TalonSRX shoulder_master = new WPI_TalonSRX(0);
+	private final IElevator elevator = new Elevator(elevator_master, elevator_follower);
+
+	WPI_TalonFX neck_master = new WPI_TalonFX(Ports.CAN.NECK);
 	
-	private final Neck shoulder = new Neck(shoulder_master);
+	private final Neck neck = new Neck(neck_master);
 
-	WPI_TalonSRX roller_master = new WPI_TalonSRX(0);
+	WPI_TalonSRX roller_master = new WPI_TalonSRX(Ports.CAN.ROLLER);
 	
 	private final Roller roller = new Roller(roller_master);
 	

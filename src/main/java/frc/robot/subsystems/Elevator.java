@@ -13,7 +13,7 @@ import com.ctre.phoenix.ParamEnum;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 //import com.ctre.phoenix.motorcontrol.StatusFrame;
-//import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
+import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.math.MathUtil;
@@ -63,7 +63,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 	private final static int MOVE_STALLED_MINIMUM_COUNT = MOVE_ON_TARGET_MINIMUM_COUNT * 2 + 30; // number of times/iterations we need to be stalled to really be stalled
 
 	WPI_TalonSRX elevator; 
-	//BaseMotorController arm_follower;
+	BaseMotorController elevator_follower;
 	
 	boolean isMoving;
 	boolean isMovingUp;
@@ -75,19 +75,19 @@ public class Elevator extends SubsystemBase implements IElevator {
 	private int stalledCount; // counter indicating how many times/iterations we were stalled
 	
 	
-	public Elevator(WPI_TalonSRX elevator_in/*, BaseMotorController elevator_follower_in*/) {
+	public Elevator(WPI_TalonSRX elevator_in, BaseMotorController elevator_follower_in) {
 		
 		elevator = elevator_in;
-		//arm_follower = arm_follower_in;
+		elevator_follower = elevator_follower_in;
 				
 		elevator.configFactoryDefault();
-		//arm_follower.configFactoryDefault();
+		elevator_follower.configFactoryDefault();
 		
 		// Mode of operation during Neutral output may be set by using the setNeutralMode() function.
 		// As of right now, there are two options when setting the neutral mode of a motor controller,
 		// brake and coast.
 		elevator.setNeutralMode(NeutralMode.Brake);
-		//arm_follower.setNeutralMode(NeutralMode.Brake);
+		elevator_follower.setNeutralMode(NeutralMode.Brake);
 				
 		// Sensor phase is the term used to explain sensor direction.
 		// In order for limit switches and closed-loop features to function properly the sensor and motor has to be in-phase.
@@ -105,7 +105,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 		// Only the motor leads are inverted. This feature ensures that sensor phase and limit switches will properly match the LED pattern
 		// (when LEDs are green => forward limit switch and soft limits are being checked).
 		elevator.setInverted(false);  // TODO switch to false if required if switching to Talon FX
-		//arm_follower.setInverted(true);  // TODO comment out if switching to Talon FX
+		elevator_follower.setInverted(true);  // TODO comment out if switching to Talon FX
 		
 		// Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output.
 		// Users will still need to set the motor controller's direction, and neutral mode.

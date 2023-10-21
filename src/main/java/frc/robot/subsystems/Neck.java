@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 //import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
@@ -73,7 +74,7 @@ public class Neck extends SubsystemBase implements INeck {
 	boolean isMovingUp;
 	boolean isReallyStalled;
 	
-	WPI_TalonSRX neck;
+	WPI_TalonFX neck;
 	//BaseMotorController neck_follower;
 	
 	double tac;
@@ -84,7 +85,7 @@ public class Neck extends SubsystemBase implements INeck {
 	Robot robot; 
 	
 	
-	public Neck(WPI_TalonSRX neck_in/*, BaseMotorController neck_follower_in*/) {
+	public Neck(WPI_TalonFX neck_in/*, BaseMotorController neck_follower_in*/) {
 		neck = neck_in;
 		//neck_follower = neck_follower_in;
 		
@@ -443,11 +444,11 @@ public class Neck extends SubsystemBase implements INeck {
 
 	// returns the state of the limit switch
 	public boolean getLimitSwitchState() {
-		return neck.getSensorCollection().isRevLimitSwitchClosed();
+		return neck.getSensorCollection().isRevLimitSwitchClosed()>0?true:false;
 	}
 
 	public boolean getForwardLimitSwitchState() {
-		return neck.getSensorCollection().isFwdLimitSwitchClosed();
+		return neck.getSensorCollection().isFwdLimitSwitchClosed()>0?true:false;
 	}
 
 	// MAKE SURE THAT YOU ARE NOT IN A CLOSED LOOP CONTROL MODE BEFORE CALLING THIS METHOD.
