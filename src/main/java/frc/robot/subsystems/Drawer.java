@@ -23,7 +23,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.interfaces.*;
 //import frc.robot.Ports;
-import frc.robot.Robot;
 import frc.robot.RobotContainer;
 
 
@@ -35,8 +34,7 @@ public class Drawer extends SubsystemBase implements IDrawer {
 	
 	// general settings
 	public static final int LENGTH_OF_TRAVEL_TICKS = 590000*3/4; // 610000; // TODO adjust as needed (halve for Talon FX)
-	public static final int LENGTH_OF_PICKUP_TICKS = 550000*3/4; // TODO adjust as needed (halve for Talon FX)
-	public static final int LENGTH_OF_LEVEL_TWO_TICKS = 510000*3/4; // TODO adjust as needed (halve for Talon FX)
+	public static final int LENGTH_OF_MIDWAY_TICKS = 510000*3/4; // TODO adjust as needed (halve for Talon FX)
 
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final int WAIT_MS = 1000;
@@ -64,7 +62,7 @@ public class Drawer extends SubsystemBase implements IDrawer {
 	private final static int MOVE_STALLED_MINIMUM_COUNT = MOVE_ON_TARGET_MINIMUM_COUNT * 2 + 30; // number of times/iterations we need to be stalled to really be stalled
 
 	WPI_TalonSRX drawer; 
-	//BaseMotorController arm_follower;
+	//BaseMotorController drawer_follower;
 	
 	boolean isMoving;
 	boolean isExtending;
@@ -75,22 +73,20 @@ public class Drawer extends SubsystemBase implements IDrawer {
 	private int onTargetCount; // counter indicating how many times/iterations we were on target 
 	private int stalledCount; // counter indicating how many times/iterations we were stalled
 	
-	Robot robot;
-	
 	
 	public Drawer(WPI_TalonSRX drawer_in/*, BaseMotorController drawer_follower_in*/) {
 		
 		drawer = drawer_in;
-		//arm_follower = arm_follower_in;
+		//drawer_follower = drawer_follower_in;
 
 		drawer.configFactoryDefault();
-		//arm_follower.configFactoryDefault();
+		//drawer_follower.configFactoryDefault();
 		
 		// Mode of operation during Neutral output may be set by using the setNeutralMode() function.
 		// As of right now, there are two options when setting the neutral mode of a motor controller,
 		// brake and coast.
 		drawer.setNeutralMode(NeutralMode.Brake);
-		//arm_follower.setNeutralMode(NeutralMode.Brake);
+		//drawer_follower.setNeutralMode(NeutralMode.Brake);
 				
 		// Sensor phase is the term used to explain sensor direction.
 		// In order for limit switches and closed-loop features to function properly the sensor and motor has to be in-phase.
@@ -108,13 +104,13 @@ public class Drawer extends SubsystemBase implements IDrawer {
 		// Only the motor leads are inverted. This feature ensures that sensor phase and limit switches will properly match the LED pattern
 		// (when LEDs are green => forward limit switch and soft limits are being checked).
 		drawer.setInverted(false);  // TODO switch to false if required if switching to Talon FX
-		//arm_follower.setInverted(true);  // TODO comment out if switching to Talon FX
+		//drawer_follower.setInverted(true);  // TODO comment out if switching to Talon FX
 		
 		// Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output.
 		// Users will still need to set the motor controller's direction, and neutral mode.
 		// The method follow() allows users to create a motor controller follower of not only the same model, but also other models
 		// , talon to talon, victor to victor, talon to victor, and victor to talon.
-		//arm_follower.follow(arm);
+		//drawer_follower.follow(arm);
 
 		// Motor controllers that are followers can set Status 1 and Status 2 to 255ms(max) using setStatusFramePeriod.
 		// The Follower relies on the master status frame allowing its status frame to be slowed without affecting performance.
@@ -245,30 +241,13 @@ public class Drawer extends SubsystemBase implements IDrawer {
 		stalledCount = 0;
 	}
 
-	public void extendPickup() {
-		
-		//setPIDParameters();
-		System.out.println("Extending to Pickup");
-		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
-
-		tac = -LENGTH_OF_PICKUP_TICKS;
-		
-		drawer.set(ControlMode.Position,tac);
-		
-		isMoving = true;
-		isExtending = true;
-		onTargetCount = 0;
-		isReallyStalled = false;
-		stalledCount = 0;
-	}
-
 	public void extendMidway() {
 		
 		//setPIDParameters();
 		System.out.println("Extending to Midway");
 		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
 
-		tac = -LENGTH_OF_LEVEL_TWO_TICKS;
+		tac = -LENGTH_OF_MIDWAY_TICKS;
 		
 		drawer.set(ControlMode.Position,tac);
 		
@@ -380,10 +359,6 @@ public class Drawer extends SubsystemBase implements IDrawer {
 	public boolean isDangerous() {
 		return !getLimitSwitchState();
 	}
-
-	/*public boolean isDangerousForShoulderAtFloor() {
-		return isExtended();
-	}*/
 
 	// return if stalled
 	public boolean isStalled() {

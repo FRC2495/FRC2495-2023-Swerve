@@ -15,41 +15,35 @@ public interface IElevator extends Subsystem {
 	// This method should be called to assess the progress of a move
 	public boolean tripleCheckMove();
 
-	// extends the arm asynchronously
+	// extends the elevator asynchronously
 	public void moveUp();
 
-	// extends the arm asynchronously
-	// public void extendPickup();
-
-	// extends the arm asynchronously
+	// extends the elevator asynchronously
 	public void moveMidway();
 	
-	// retracts the arm asynchronously
+	// retracts the elevator asynchronously
 	public void moveDown();
 	
 	// returns encoder position
 	public double getEncoderPosition();
 	
-	// returns if arm is moving
+	// returns if elevator is moving
 	public boolean isMoving();
 	
-	// returns if arm is extending
+	// returns if elevator is extending
 	public boolean isMovingUp();	
 
-	// returns if arm is extended
+	// returns if elevator is extended
 	public boolean isUp();
 	
-	// returns if arm is extracted
+	// returns if elevator is extracted
 	public boolean isDown();
 	
-	// returns if arm is midway
+	// returns if elevator is midway
 	public boolean isMidway();
 
-	// returns if arm is dangerous
+	// returns if elevator is dangerous
 	public boolean isDangerous();
-
-	// returns if arm is dangerous for shoulder at floor
-	// public boolean isDangerousForShoulderAtFloor();
 
 	// returns if stalled
 	public boolean isStalled();
@@ -57,10 +51,10 @@ public interface IElevator extends Subsystem {
 	// checks if drivetrain might be stalled
 	public boolean tripleCheckIfStalled();
 
-	// keeps the arm in position
+	// keeps the elevator in position
 	public void stay();	
 		
-	// stops the arm, cuts power
+	// stops the elevator, cuts power
 	public void stop();
 
 	// NOTE THAT THIS METHOD WILL IMPACT BOTH OPEN AND CLOSED LOOP MODES

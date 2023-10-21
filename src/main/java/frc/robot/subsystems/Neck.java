@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 //import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
 import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
@@ -31,9 +30,7 @@ public class Neck extends SubsystemBase implements INeck {
 	
 	public static final double GEAR_RATIO = 3.0; // todo change if needed
 	
-	public static final int ANGLE_TO_FLOOR_TICKS = 62000*48/64; // todo set proper value
 	public static final int ANGLE_TO_MIDWAY_TICKS = 75000*48/64;
-	//public static final int ANGLE_TO_LEVEL_2_TICKS = 120000*48/64; // todo set proper value
 	public static final int ANGLE_TO_TRAVEL_TICKS = 150000*48/64; // todo set proper value
 	
 	/*
@@ -268,42 +265,6 @@ public class Neck extends SubsystemBase implements INeck {
 		isReallyStalled = false;
 		stalledCount = 0;
 	}
-
-	/*public void moveMidway() {
-		
-		//setPIDParameters();
-		System.out.println("Moving Midway");
-		
-		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT); // we may need to check if we were up in which case we may want to reduce output
-
-		//tac = ANGLE_TO_TRAVEL_TICKS / 2;
-		tac = -ANGLE_TO_MIDWAY_TICKS;
-		neck.set(ControlMode.Position,tac);
-		
-		isMoving = true;
-		isMovingUp = true;
-		onTargetCount = 0;
-		isReallyStalled = false;
-		stalledCount = 0;
-		
-	}*/
-
-	/*public void moveFloor() {	
-
-		//setPIDParameters();
-		System.out.println("Moving to Floor");
-		
-		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
-
-		tac = -ANGLE_TO_FLOOR_TICKS;
-		neck.set(ControlMode.Position,tac);
-		
-		isMoving = true;
-		isMovingUp = true;
-		onTargetCount = 0;
-		isReallyStalled = false;
-		stalledCount = 0;
-	}*/
 	
 	public void moveDown() {
 		
@@ -405,12 +366,8 @@ public class Neck extends SubsystemBase implements INeck {
 	}
 	
 	public boolean isMidway() {
-		return Math.abs(getEncoderPosition()) < ANGLE_TO_TRAVEL_TICKS * 1/3; //todo fix
-	}
-
-	/*public boolean isMidway() {
 		return !isUp() && !isDown();
-	}*/
+	}
 
 	public boolean isDangerous() {
 		return isDown();

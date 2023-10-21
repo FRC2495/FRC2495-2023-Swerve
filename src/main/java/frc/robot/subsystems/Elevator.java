@@ -23,7 +23,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.interfaces.*;
 //import frc.robot.Ports;
-import frc.robot.Robot;
 import frc.robot.RobotContainer;
 
 /**
@@ -34,8 +33,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 	
 	// general settings
 	public static final int LENGTH_OF_TRAVEL_TICKS = 590000*3/4; // 610000; // TODO adjust as needed (halve for Talon FX)
-	public static final int LENGTH_OF_PICKUP_TICKS = 550000*3/4; // TODO adjust as needed (halve for Talon FX)
-	public static final int LENGTH_OF_LEVEL_TWO_TICKS = 510000*3/4; // TODO adjust as needed (halve for Talon FX)
+	public static final int LENGTH_OF_MIDWAY_TICKS = 510000*3/4; // TODO adjust as needed (halve for Talon FX)
 
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final int WAIT_MS = 1000;
@@ -242,30 +240,13 @@ public class Elevator extends SubsystemBase implements IElevator {
 		stalledCount = 0;
 	}
 
-	/*public void extendPickup() {
-		
-		//setPIDParameters();
-		System.out.println("Extending to Pickup");
-		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
-
-		tac = -LENGTH_OF_PICKUP_TICKS;
-		
-		elevator.set(ControlMode.Position,tac);
-		
-		isMoving = true;
-		isMovingUp = true;
-		onTargetCount = 0;
-		isReallyStalled = false;
-		stalledCount = 0;
-	}*/
-
 	public void moveMidway() {
 		
 		//setPIDParameters();
 		System.out.println("Moving to Midway");
 		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
 
-		tac = -LENGTH_OF_LEVEL_TWO_TICKS;
+		tac = -LENGTH_OF_MIDWAY_TICKS;
 		
 		elevator.set(ControlMode.Position,tac);
 		
@@ -377,10 +358,6 @@ public class Elevator extends SubsystemBase implements IElevator {
 	public boolean isDangerous() {
 		return !getLimitSwitchState();
 	}
-
-	/*public boolean isDangerousForShoulderAtFloor() {
-		return isExtended();
-	}*/
 
 	// return if stalled
 	public boolean isStalled() {

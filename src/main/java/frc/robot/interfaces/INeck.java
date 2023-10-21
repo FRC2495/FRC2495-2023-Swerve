@@ -11,19 +11,12 @@ public interface INeck extends Subsystem {
 
 	public boolean getForwardLimitSwitchState();
 	
-	// homes the shoulder
-	// This is done in two steps:
-	// step 1: if not already at the switch, we go down slowly until we hit the limit switch.
-	// step 2: we go back up a little and mark the position as the virtual/logical zero.
-
 	// This method should be called to assess the progress of a move
 	public boolean tripleCheckMove();
 	
 	public void moveUp();
 
 	public void moveMidway();
-
-	//public void moveFloor();
 	
 	public void moveDown();
 
@@ -44,7 +37,7 @@ public interface INeck extends Subsystem {
 	// return if stalled
 	public boolean isStalled();
 
-	// checks if drivetrain might be stalled
+	// checks if might be stalled
 	public boolean tripleCheckIfStalled();
 
 	public void stay();

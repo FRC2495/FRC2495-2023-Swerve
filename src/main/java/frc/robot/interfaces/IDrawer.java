@@ -15,41 +15,35 @@ public interface IDrawer extends Subsystem {
 	// This method should be called to assess the progress of a move
 	public boolean tripleCheckMove();
 
-	// extends the arm asynchronously
+	// extends the drawer asynchronously
 	public void extend();
 
-	// extends the arm asynchronously
+	// extends the drawer asynchronously
 	public void extendMidway();
-
-	// extends the arm asynchronously
-	//public void extendLevelTwo();
 	
-	// retracts the arm asynchronously
+	// retracts the drawer asynchronously
 	public void retract();
 	
 	// returns encoder position
 	public double getEncoderPosition();
 	
-	// returns if arm is moving
+	// returns if drawer is moving
 	public boolean isMoving();
 	
-	// returns if arm is extending
+	// returns if drawer is extending
 	public boolean isExtending();	
 
-	// returns if arm is extended
+	// returns if drawer is extended
 	public boolean isExtended();
 	
-	// returns if arm is extracted
+	// returns if drawer is extracted
 	public boolean isRetracted();
 	
-	// returns if arm is midway
+	// returns if drawer is midway
 	public boolean isMidway();
 
-	// returns if arm is dangerous
+	// returns if drawer is dangerous
 	public boolean isDangerous();
-
-	// returns if arm is dangerous for shoulder at floor
-	// public boolean isDangerousForShoulderAtFloor();
 
 	// returns if stalled
 	public boolean isStalled();
@@ -57,10 +51,10 @@ public interface IDrawer extends Subsystem {
 	// checks if drivetrain might be stalled
 	public boolean tripleCheckIfStalled();
 
-	// keeps the arm in position
+	// keeps the drawer in position
 	public void stay();	
 		
-	// stops the arm, cuts power
+	// stops the drawer, cuts power
 	public void stop();
 
 	// NOTE THAT THIS METHOD WILL IMPACT BOTH OPEN AND CLOSED LOOP MODES
