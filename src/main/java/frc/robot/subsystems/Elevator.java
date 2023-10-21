@@ -356,7 +356,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 	}
 
 	public boolean isDangerous() {
-		return !getLimitSwitchState();
+		return !getForwardLimitSwitchState();
 	}
 
 	// return if stalled
@@ -385,7 +385,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 		return tac;
 	}	
 
-	public boolean getLimitSwitchState() {
+	public boolean getForwardLimitSwitchState() {
 		return elevator.getSensorCollection().isFwdLimitSwitchClosed();
 	}
 

@@ -400,7 +400,7 @@ public class Neck extends SubsystemBase implements INeck {
 	}
 
 	// returns the state of the limit switch
-	public boolean getLimitSwitchState() {
+	public boolean getReverseLimitSwitchState() {
 		return neck.getSensorCollection().isRevLimitSwitchClosed()>0?true:false;
 	}
 

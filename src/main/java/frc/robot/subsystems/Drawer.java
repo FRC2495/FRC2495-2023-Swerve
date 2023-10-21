@@ -357,7 +357,7 @@ public class Drawer extends SubsystemBase implements IDrawer {
 	}
 
 	public boolean isDangerous() {
-		return !getLimitSwitchState();
+		return !getForwardLimitSwitchState();
 	}
 
 	// return if stalled
@@ -386,7 +386,7 @@ public class Drawer extends SubsystemBase implements IDrawer {
 		return tac;
 	}	
 
-	public boolean getLimitSwitchState() {
+	public boolean getForwardLimitSwitchState() {
 		return drawer.getSensorCollection().isFwdLimitSwitchClosed();
 	}
 

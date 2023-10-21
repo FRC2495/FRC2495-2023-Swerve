@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj2.command.Subsystem;
 public interface INeck extends Subsystem {
 
 	// returns the state of the limit switch
-	public boolean getLimitSwitchState();
+	public boolean getReverseLimitSwitchState();
 
 	public boolean getForwardLimitSwitchState();
 	

@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.XboxController;
 
 public interface IDrawer extends Subsystem {
 	// returns the state of the limit switch
-	public boolean getLimitSwitchState();
+	public boolean getForwardLimitSwitchState();
 
 	// returns the state of the reverse limit switch
 	public boolean getReverseLimitSwitchState();
