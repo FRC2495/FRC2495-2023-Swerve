@@ -154,6 +154,11 @@ public class Ports {
 			public static final int REAR_RIGHT_TURNING = 3;
 
 			// TALON SRX CAN IDS
+			public static final int ELEVATOR_MASTER = 9;
+			public static final int ELEVATOR_FOLLOWER = 10;
+			public static final int DRAWER = 11;
+			public static final int NECK = 12;
+			public static final int ROLLER = 13;
 		}
 		
 		/**
