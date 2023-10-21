@@ -8,7 +8,7 @@ import frc.robot.Ports;
 
 
 /**
- * The {@code Claw} class contains fields and methods pertaining to the function of the claw.
+ * The {@code Claw} class contains fields and methods pertaining to the function of the mouth.
  */
 public class Mouth extends SubsystemBase {
 	
@@ -17,14 +17,14 @@ public class Mouth extends SubsystemBase {
     DoubleSolenoid lockedNot;
     
     public enum Position {
-		CLOSED, // The claw is closed
-		OPEN, // The claw is open
+		CLOSED, // The mouth is closed
+		OPEN, // The mouth is open
 		UNKNOWN;
 	}
 
 	public Mouth() {
 		// the double solenoid valve will send compressed air from the tank wherever needed
-		lockedNot = new DoubleSolenoid(Ports.CAN.PCM, PneumaticsModuleType.REVPH, Ports.PCM.CLAW_CLOSED, Ports.PCM.CLAW_OPEN); // make sure ports are properly sets in Ports.java	
+		lockedNot = new DoubleSolenoid(Ports.CAN.PCM, PneumaticsModuleType.REVPH, Ports.PCM.MOUTH_CLOSED, Ports.PCM.MOUTH_OPEN); // make sure ports are properly sets in Ports.java	
 	}
 	
 	/*@Override

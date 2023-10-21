@@ -22,7 +22,7 @@ public class Ports {
 		/**
 		 * Digital ports
 		 */
-		public static class Digital{
+		public static class Digital {
 			public static final int CHECK_PRESSURE = 0;
 			
 		}
@@ -30,7 +30,7 @@ public class Ports {
 		/**
 		 * Analog ports
 		 */
-		public static class Analog{
+		public static class Analog {
 			//public static final int SONAR = 3;
 			//public static final int PRESSURE_SENSOR = 1;
 
@@ -40,21 +40,20 @@ public class Ports {
 			public static final int FRONT_RIGHT_TURNING_ABSOLUTE_ENCODER = 0;
 			public static final int REAR_RIGHT_TURNING_ABSOLUTE_ENCODER = 1;
 			public static final int REAR_LEFT_TURNING_ABSOLUTE_ENCODER = 2;
-			public static final int FRONT_LEFT_TURNING_ABSOLUTE_ENCODER = 3;
-			
+			public static final int FRONT_LEFT_TURNING_ABSOLUTE_ENCODER = 3;			
 		}
 		
 		/**
 		 * Relays
 		 */
-		public static class Relay{
+		public static class Relay {
 			public static final int COMPRESSOR_RELAY = 0;
 		}
 		
 		/**
 		 * CAN Ids
 		 */
-		public static class CAN{
+		public static class CAN {
 			/* 2017 robot
 			public static final int RIGHT_REAR = 3;
 			public static final int RIGHT_FRONT = 4;
@@ -164,7 +163,7 @@ public class Ports {
 		/**
 		 * USB ports
 		 */
-		public static class USB{
+		public static class USB {
 			public static final int RIGHT = 0;
 			public static final int LEFT = 1;
 			public static final int DRIVER_GAMEPAD = 2;
@@ -174,7 +173,7 @@ public class Ports {
 		/**
 		 * PCM ports
 		 */
-		public static class PCM{
+		public static class PCM {
 			/* 2017 robot
 			public static final int INTAKE_IN = 0;
 			public static final int INTAKE_OUT = 1;
@@ -216,13 +215,17 @@ public class Ports {
 			public static final int REAR_ELBOWS_CLOSED = 5;*/
 
 			// 2023 robot
-			public static final int GEAR_HIGH = 1;
+			/*public static final int GEAR_HIGH = 1;
 			public static final int GEAR_LOW = 0;
 			public static final int CLAW_CLOSED = 3;
 			public static final int CLAW_OPEN = 2;
 			public static final int BRAKE_ENGAGED = 5;
-			public static final int BRAKE_RELEASED = 4;
-		 		}
+			public static final int BRAKE_RELEASED = 4;*/
+
+			//2023 Off-season
+			public static final int MOUTH_CLOSED = 3;
+			public static final int MOUTH_OPEN = 2;
+		}
 
 		/**
 		 * PWM ports
