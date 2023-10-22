@@ -50,9 +50,9 @@ import frc.robot.subsystems.Compressor;
 import frc.robot.subsystems.Mouth;
 import frc.robot.subsystems.Indicator;
 
-import frc.robot.commands.indicator.*;
+import frc.robot.commands.roller.*;
 import frc.robot.commands.mouth.*;
-
+import frc.robot.commands.indicator.*;
 import frc.robot.auton.*;
 
 
@@ -130,21 +130,21 @@ public class RobotContainer {
 
 	WPI_TalonSRX drawer_master = new WPI_TalonSRX(Ports.CAN.DRAWER);
 
-	private final IDrawer drawer = new Drawer(drawer_master);
+	private final /*I*/Drawer drawer = new Drawer(drawer_master);
 
 	WPI_TalonSRX elevator_master = new WPI_TalonSRX(Ports.CAN.ELEVATOR_MASTER);
 
 	WPI_VictorSPX elevator_follower = new WPI_VictorSPX(Ports.CAN.ELEVATOR_FOLLOWER);
 
-	private final IElevator elevator = new Elevator(elevator_master, elevator_follower);
+	private final /*I*/Elevator elevator = new Elevator(elevator_master, elevator_follower);
 
 	WPI_TalonFX neck_master = new WPI_TalonFX(Ports.CAN.NECK);
 	
-	private final INeck neck = new Neck(neck_master);
+	private final /*I*/Neck neck = new Neck(neck_master);
 
 	WPI_TalonSRX roller_master = new WPI_TalonSRX(Ports.CAN.ROLLER);
 	
-	private final IRoller roller = new Roller(roller_master);
+	private final /*I*/Roller roller = new Roller(roller_master);
 	
 	// pneumatic devices
 
@@ -237,10 +237,11 @@ public class RobotContainer {
 					true, true),
 				drivetrain));
 		
-		
+		roller.setDefaultCommand(new RollerStop(roller)); // we stop by default
+
+		compressor.checkCompressor(); //we compress in the background
 
 		indicator.setDefaultCommand(new IndicatorScrollRainbow(indicator)); // temp
-
 
 	}
 
