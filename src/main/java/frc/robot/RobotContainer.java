@@ -440,9 +440,50 @@ public class RobotContainer {
 		return mouth;
 	}
 
+
 	public Joystick getLeftJoystick()
 	{
 		return null;
 	}
 
+
+	public SendableChooser<String> getAutonChooser()
+	{
+		return autonChooser;
+	}
+	
+	public SendableChooser<String> getGamePieceChooser()
+	{
+		return gamePieceChooser;
+	}
+
+	public SendableChooser<String> getStartPositionChooser()
+	{
+		return startPositionChooser;
+	}
+
+	public SendableChooser<String> getMainTargetChooser()
+	{
+		return mainTargetChooser;
+	}
+
+	public SendableChooser<String> getCameraOptionChooser()
+	{
+		return cameraOptionChooser;
+	}
+
+	public SendableChooser<String> getSonarOptionChooser()
+	{
+		return sonarOptionChooser;
+	}
+
+	public SendableChooser<String> getReleaseChooser()
+	{
+		return releaseChooser;
+	}
+
+	public SendableChooser<String> getAutonOptionChooser()
+	{
+		return autonOptionChooser;
+	}
 }
