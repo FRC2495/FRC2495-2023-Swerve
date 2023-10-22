@@ -240,7 +240,7 @@ public class RobotContainer {
 					true, true),
 				drivetrain));
 		
-		roller.setDefaultCommand(new RollerStop(roller)); // we stop by default
+		roller.setDefaultCommand(new RollerStopForever(roller)); // we stop by default
 
 		compressor.checkCompressor(); //we compress in the background
 
