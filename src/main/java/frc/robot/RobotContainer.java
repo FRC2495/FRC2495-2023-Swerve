@@ -36,10 +36,10 @@ import java.util.List;
 import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.DrivetrainConstants;
 
-import frc.robot.interfaces.IElevator;
+/*import frc.robot.interfaces.IElevator;
 import frc.robot.interfaces.IDrawer;
 import frc.robot.interfaces.INeck;
-import frc.robot.interfaces.IRoller;
+import frc.robot.interfaces.IRoller;*/
 
 import frc.robot.subsystems.SwerveDrivetrain;
 import frc.robot.subsystems.Elevator;
@@ -53,6 +53,7 @@ import frc.robot.subsystems.Indicator;
 import frc.robot.commands.roller.*;
 import frc.robot.commands.mouth.*;
 import frc.robot.commands.indicator.*;
+import frc.robot.commands.groups.*;
 import frc.robot.auton.*;
 
 
@@ -216,13 +217,14 @@ public class RobotContainer {
 	
 		SmartDashboard.putData("Auton options", autonOptionChooser);
 		
-		
-
 
 		// Configure the button bindings
+
 		configureButtonBindings();
 
+
 		// Configure default commands
+
 		drivetrain.setDefaultCommand(
 			// The left stick controls translation of the robot.
 			// Turning is controlled by the X axis of the right stick.
@@ -255,6 +257,14 @@ public class RobotContainer {
 	 * {@link JoystickButton}.
 	 */
 	private void configureButtonBindings() {
+
+		// driver
+
+		driverGamepad.a()
+			.onTrue(new InstantCommand(
+				() -> drivetrain.zeroHeading(),
+				drivetrain).ignoringDisable(true));   
+
 		driverGamepad.x()
 			.whileTrue(new RunCommand(
 				() -> drivetrain.setX(),
@@ -265,14 +275,23 @@ public class RobotContainer {
 				() -> drivetrain.resetEncoders(),
 				drivetrain).ignoringDisable(true));
 
-		driverGamepad.a()
-			.onTrue(new InstantCommand(
-				() -> drivetrain.zeroHeading(),
-				drivetrain).ignoringDisable(true));   
-				
-		copilotGamepad.y().onTrue(new MouthSetOpen(mouth));
+		
+		// copilot
+		
+		copilotGamepad.a()
+			.onTrue(new RollerRoll(roller));
 
-		copilotGamepad.x().onTrue(new MouthSetClose(mouth));
+		copilotGamepad.b()
+			.onTrue(new RollerRelease(roller));
+
+		copilotGamepad.x()
+			.onTrue(new MouthSetClose(mouth));
+
+		copilotGamepad.y()
+			.onTrue(new MouthSetOpen(mouth));
+
+		copilotGamepad.start()
+			.onTrue(new AlmostEverythingStop(elevator, drawer, neck, roller));
 	}
 
 	/**
