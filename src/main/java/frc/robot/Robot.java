@@ -197,6 +197,9 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putBoolean("Neck isUp", m_robotContainer.getNeck().isUp());
 		SmartDashboard.putBoolean("Neck isDangerous", m_robotContainer.getNeck().isDangerous());
 
+		SmartDashboard.putBoolean("Roller IsRolling?", m_robotContainer.getRoller().isRolling());
+		SmartDashboard.putBoolean("Roller IsReleasing?", m_robotContainer.getRoller().isReleasing());
+
 		SmartDashboard.putString("Mouth Position", m_robotContainer.getMouth().getPosition().toString());
 
 
