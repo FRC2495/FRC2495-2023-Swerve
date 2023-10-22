@@ -129,27 +129,27 @@ public class RobotContainer {
 
 	// sensors
 
-	public static HMAccelerometer accelerometer = new HMAccelerometer();
+	private final HMAccelerometer accelerometer = new HMAccelerometer();
 
 	// motorized devices
 
 	private final SwerveDrivetrain drivetrain = new SwerveDrivetrain();
 
-	WPI_TalonSRX drawer_master = new WPI_TalonSRX(Ports.CAN.DRAWER);
+	private final WPI_TalonSRX drawer_master = new WPI_TalonSRX(Ports.CAN.DRAWER);
 
 	private final /*I*/Drawer drawer = new Drawer(drawer_master);
 
-	WPI_TalonSRX elevator_master = new WPI_TalonSRX(Ports.CAN.ELEVATOR_MASTER);
+	private final WPI_TalonSRX elevator_master = new WPI_TalonSRX(Ports.CAN.ELEVATOR_MASTER);
 
-	WPI_VictorSPX elevator_follower = new WPI_VictorSPX(Ports.CAN.ELEVATOR_FOLLOWER);
+	private final WPI_VictorSPX elevator_follower = new WPI_VictorSPX(Ports.CAN.ELEVATOR_FOLLOWER);
 
 	private final /*I*/Elevator elevator = new Elevator(elevator_master, elevator_follower);
 
-	WPI_TalonFX neck_master = new WPI_TalonFX(Ports.CAN.NECK);
+	private final WPI_TalonFX neck_master = new WPI_TalonFX(Ports.CAN.NECK);
 	
 	private final /*I*/Neck neck = new Neck(neck_master);
 
-	WPI_TalonSRX roller_master = new WPI_TalonSRX(Ports.CAN.ROLLER);
+	private final WPI_TalonSRX roller_master = new WPI_TalonSRX(Ports.CAN.ROLLER);
 	
 	private final /*I*/Roller roller = new Roller(roller_master);
 	
