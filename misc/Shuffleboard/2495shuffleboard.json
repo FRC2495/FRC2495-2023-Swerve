@@ -1820,7 +1820,7 @@
       }
     },
     {
-      "title": "DIAGArmAndRotator",
+      "title": "DIAGElevatorAndDrawer",
       "autoPopulate": false,
       "autoPopulatePrefix": "",
       "widgetPane": {
@@ -1837,8 +1837,8 @@
             ],
             "content": {
               "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Arm Enc Position",
-              "_title": "SmartDashboard/Arm Enc Position",
+              "_source0": "network_table:///SmartDashboard/Elevator Enc Position",
+              "_title": "SmartDashboard/Elevator Enc Position",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -1850,23 +1850,8 @@
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Arm IsMoving?",
-              "_title": "SmartDashboard/Arm IsMoving?",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "0,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Arm Limit Switch",
-              "_title": "SmartDashboard/Arm Limit Switch",
+              "_source0": "network_table:///SmartDashboard/Elevator IsMoving?",
+              "_title": "SmartDashboard/Elevator IsMoving?",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
@@ -1880,8 +1865,23 @@
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Arm Reverse Limit Switch",
-              "_title": "SmartDashboard/Arm Reverse Limit Switch",
+              "_source0": "network_table:///SmartDashboard/Elevator Forward Limit Switch",
+              "_title": "SmartDashboard/Elevator Forward Limit Switch",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "0,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Elevator Reverse Limit Switch",
+              "_title": "SmartDashboard/Elevator Reverse Limit Switch",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
@@ -1895,8 +1895,8 @@
             ],
             "content": {
               "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Arm Target",
-              "_title": "SmartDashboard/Arm Target",
+              "_source0": "network_table:///SmartDashboard/Elevator Target",
+              "_title": "SmartDashboard/Elevator Target",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -1908,8 +1908,8 @@
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Arm isStalled?",
-              "_title": "SmartDashboard/Arm isStalled?",
+              "_source0": "network_table:///SmartDashboard/Elevator isStalled?",
+              "_title": "SmartDashboard/Elevator isStalled?",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
@@ -1923,8 +1923,8 @@
             ],
             "content": {
               "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Rotator Enc Position",
-              "_title": "SmartDashboard/Rotator Enc Position",
+              "_source0": "network_table:///SmartDashboard/Drawer Enc Position",
+              "_title": "SmartDashboard/Drawer Enc Position",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -1936,23 +1936,8 @@
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Rotator IsMoving?",
-              "_title": "SmartDashboard/Rotator IsMoving?",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "5,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Rotator Limit Switch",
-              "_title": "SmartDashboard/Rotator Limit Switch",
+              "_source0": "network_table:///SmartDashboard/Drawer IsMoving?",
+              "_title": "SmartDashboard/Drawer IsMoving?",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
@@ -1966,8 +1951,23 @@
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Rotator Reverse Limit Switch",
-              "_title": "SmartDashboard/Rotator Reverse Limit Switch",
+              "_source0": "network_table:///SmartDashboard/Drawer Forward Limit Switch",
+              "_title": "SmartDashboard/Drawer Forward Limit Switch",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "5,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Drawer Reverse Limit Switch",
+              "_title": "SmartDashboard/Drawer Reverse Limit Switch",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
@@ -1981,8 +1981,8 @@
             ],
             "content": {
               "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Rotator Target",
-              "_title": "SmartDashboard/Rotator Target",
+              "_source0": "network_table:///SmartDashboard/Drawer Target",
+              "_title": "SmartDashboard/Drawer Target",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -1994,23 +1994,8 @@
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Rotator isStalled?",
-              "_title": "SmartDashboard/Rotator isStalled?",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "6,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Rotator isFlipped",
-              "_title": "SmartDashboard/Rotator isFlipped",
+              "_source0": "network_table:///SmartDashboard/Drawer isStalled?",
+              "_title": "SmartDashboard/Drawer isStalled?",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
@@ -2024,8 +2009,23 @@
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Rotator isRested",
-              "_title": "SmartDashboard/Rotator isRested",
+              "_source0": "network_table:///SmartDashboard/Drawer isExtended",
+              "_title": "SmartDashboard/Drawer isExtended",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "6,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Drawer isRetracted",
+              "_title": "SmartDashboard/Drawer isRetracted",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
@@ -2039,38 +2039,8 @@
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Rotator isSideway",
-              "_title": "SmartDashboard/Rotator isSideway",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "3,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Arm isExtended",
-              "_title": "SmartDashboard/Arm isExtended",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "2,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Arm isMidway",
-              "_title": "SmartDashboard/Arm isMidway",
+              "_source0": "network_table:///SmartDashboard/Drawer isMidway",
+              "_title": "SmartDashboard/Drawer isMidway",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
@@ -2084,151 +2054,53 @@
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Arm isRetracted",
-              "_title": "SmartDashboard/Arm isRetracted",
+              "_source0": "network_table:///SmartDashboard/Elevator isUp",
+              "_title": "SmartDashboard/Elevator isUp",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "0,2": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Arm isDangerous",
-              "_title": "SmartDashboard/Arm isDangerous",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "7,1": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Rotator isDangerous",
-              "_title": "SmartDashboard/Rotator isDangerous",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "3,3": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Shoulder isDangerous",
-              "_title": "SmartDashboard/Shoulder isDangerous",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "0,3": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Arm isDangerousForFloor",
-              "_title": "SmartDashboard/Arm isDangerousForFloor",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          }
-        }
-      }
-    },
-    {
-      "title": "DIAGShoulder",
-      "autoPopulate": false,
-      "autoPopulatePrefix": "",
-      "widgetPane": {
-        "gridSize": 128.0,
-        "showGrid": true,
-        "hgap": 16.0,
-        "vgap": 16.0,
-        "titleType": 0,
-        "tiles": {
-          "2,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Shoulder Position",
-              "_title": "SmartDashboard/Shoulder Position",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "3,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Shoulder Enc Position",
-              "_title": "SmartDashboard/Shoulder Enc Position",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "3,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Shoulder Target",
-              "_title": "SmartDashboard/Shoulder Target",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "2,2": {
+          "1,2": {
             "size": [
               1,
               1
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Shoulder IsMoving?",
-              "_title": "SmartDashboard/Shoulder IsMoving?",
+              "_source0": "network_table:///SmartDashboard/Elevator isMidway",
+              "_title": "SmartDashboard/Elevator isMidway",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "4,0": {
+          "1,3": {
             "size": [
               1,
               1
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Shoulder isUp",
-              "_title": "SmartDashboard/Shoulder isUp",
+              "_source0": "network_table:///SmartDashboard/Elevator isDown",
+              "_title": "SmartDashboard/Elevator isDown",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "0,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Elevator isDangerous",
+              "_title": "SmartDashboard/Elevator isDangerous",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
@@ -2242,57 +2114,80 @@
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Shoulder Limit Switch",
-              "_title": "SmartDashboard/Shoulder Limit Switch",
+              "_source0": "network_table:///SmartDashboard/Drawer isDangerous",
+              "_title": "SmartDashboard/Drawer isDangerous",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "4,1": {
+          "3,3": {
             "size": [
               1,
               1
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Shoulder isMidway",
-              "_title": "SmartDashboard/Shoulder isMidway",
+              "_source0": "network_table:///SmartDashboard/Neck isDangerous",
+              "_title": "SmartDashboard/Neck isDangerous",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
               "Colors/Color when false": "#8B0000FF"
             }
-          },
-          "4,2": {
+          }
+        }
+      }
+    },
+    {
+      "title": "DIAGNeck",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {
+          "6,1": {
             "size": [
               1,
               1
             ],
             "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Shoulder isDown",
-              "_title": "SmartDashboard/Shoulder isDown",
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Neck Position",
+              "_title": "SmartDashboard/Neck Position",
               "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
+              "_showGlyph": false
             }
           },
-          "5,2": {
+          "6,0": {
             "size": [
               1,
               1
             ],
             "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Shoulder Forward Limit Switch",
-              "_title": "SmartDashboard/Shoulder Forward Limit Switch",
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Neck Enc Position",
+              "_title": "SmartDashboard/Neck Enc Position",
               "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
+              "_showGlyph": false
+            }
+          },
+          "7,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Neck Target",
+              "_title": "SmartDashboard/Neck Target",
+              "_glyph": 148,
+              "_showGlyph": false
             }
           },
           "2,0": {
@@ -2302,23 +2197,113 @@
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Shoulder isDangerous",
-              "_title": "SmartDashboard/Shoulder isDangerous",
+              "_source0": "network_table:///SmartDashboard/Neck IsMoving?",
+              "_title": "SmartDashboard/Neck IsMoving?",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "6,0": {
+          "2,1": {
             "size": [
-              1,
+              2,
               1
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Shoulder isStalled?",
-              "_title": "SmartDashboard/Shoulder isStalled?",
+              "_source0": "network_table:///SmartDashboard/Neck isUp",
+              "_title": "SmartDashboard/Neck isUp",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "0,3": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Neck Reverse Limit Switch",
+              "_title": "SmartDashboard/Neck Reverse Limit Switch",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "2,2": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Neck isMidway",
+              "_title": "SmartDashboard/Neck isMidway",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "2,3": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Neck isDown",
+              "_title": "SmartDashboard/Neck isDown",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "0,1": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Neck Forward Limit Switch",
+              "_title": "SmartDashboard/Neck Forward Limit Switch",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "0,0": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Neck isDangerous",
+              "_title": "SmartDashboard/Neck isDangerous",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "4,0": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Neck isStalled?",
+              "_title": "SmartDashboard/Neck isStalled?",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
@@ -2332,23 +2317,8 @@
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Arm isDangerous",
-              "_title": "SmartDashboard/Arm isDangerous",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "8,1": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Arm isDangerousForFloor",
-              "_title": "SmartDashboard/Arm isDangerousForFloor",
+              "_source0": "network_table:///SmartDashboard/Elevator isDangerous",
+              "_title": "SmartDashboard/Elevator isDangerous",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
@@ -2362,8 +2332,8 @@
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Rotator isDangerous",
-              "_title": "SmartDashboard/Rotator isDangerous",
+              "_source0": "network_table:///SmartDashboard/Drawer isDangerous",
+              "_title": "SmartDashboard/Drawer isDangerous",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
