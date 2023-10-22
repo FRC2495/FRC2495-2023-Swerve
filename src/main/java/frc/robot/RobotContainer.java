@@ -408,4 +408,29 @@ public class RobotContainer {
 	{
 		return null;
 	}
+
+	public Elevator getElevator()
+	{
+		return elevator;
+	}
+
+	public Drawer getDrawer()
+	{
+		return drawer;
+	}
+
+	public Neck getNeck()
+	{
+		return neck;
+	}
+
+	public Roller getRoller()
+	{
+		return roller;
+	}
+
+	public Mouth getMouth()
+	{
+		return mouth;
+	}
 }
