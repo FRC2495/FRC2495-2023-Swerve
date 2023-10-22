@@ -50,6 +50,7 @@ import frc.robot.subsystems.Compressor;
 import frc.robot.subsystems.Mouth;
 import frc.robot.subsystems.Indicator;
 
+import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.roller.*;
 import frc.robot.commands.mouth.*;
 import frc.robot.commands.indicator.*;
@@ -261,28 +262,22 @@ public class RobotContainer {
 		// driver
 
 		driverGamepad.a()
-			.onTrue(new InstantCommand(
-				() -> drivetrain.zeroHeading(),
-				drivetrain).ignoringDisable(true));   
+			.onTrue(new DrivetrainZeroHeading(drivetrain));   
 
 		driverGamepad.x()
-			.whileTrue(new RunCommand(
-				() -> drivetrain.setX(),
-				drivetrain));
+			.whileTrue(new DrivetrainSetXFormation(drivetrain));
 
 		driverGamepad.y()
-			.onTrue(new InstantCommand(
-				() -> drivetrain.resetEncoders(),
-				drivetrain).ignoringDisable(true));
+			.onTrue(new DrivetrainResetEncoders(drivetrain));
 
 		
 		// copilot
 		
 		copilotGamepad.a()
-			.onTrue(new RollerRoll(roller));
+			.whileTrue(new RollerRoll(roller));
 
 		copilotGamepad.b()
-			.onTrue(new RollerRelease(roller));
+			.whileTrue(new RollerRelease(roller));
 
 		copilotGamepad.x()
 			.onTrue(new MouthSetClose(mouth));
