@@ -356,7 +356,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 	}
 
 	public boolean isDangerous() {
-		return !getForwardLimitSwitchState();
+		return false;
 	}
 
 	// return if stalled
