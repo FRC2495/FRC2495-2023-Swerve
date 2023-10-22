@@ -285,6 +285,9 @@ public class RobotContainer {
 		copilotGamepad.y()
 			.onTrue(new MouthSetOpen(mouth));
 
+		copilotGamepad.back()
+			.onTrue(new DrivetrainAndGyroReset(drivetrain));
+
 		copilotGamepad.start()
 			.onTrue(new AlmostEverythingStop(elevator, drawer, neck, roller));
 	}
