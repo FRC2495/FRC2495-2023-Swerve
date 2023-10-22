@@ -13,9 +13,12 @@ import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.trajectory.Trajectory;
 import edu.wpi.first.math.trajectory.TrajectoryConfig;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
+
+import edu.wpi.first.wpilibj.Joystick;
 //import edu.wpi.first.wpilibj.XboxController;
 //import edu.wpi.first.wpilibj.XboxController.Button;
-import edu.wpi.first.wpilibj.Joystick;
+//import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+//import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController; 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
@@ -26,8 +29,6 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
-//import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-//import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -35,6 +36,8 @@ import java.util.List;
 
 import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.DrivetrainConstants;
+
+import frc.robot.sensors.*;
 
 /*import frc.robot.interfaces.IElevator;
 import frc.robot.interfaces.IDrawer;
@@ -126,6 +129,8 @@ public class RobotContainer {
 
 	// sensors
 
+	public static HMAccelerometer accelerometer = new HMAccelerometer();
+
 	// motorized devices
 
 	private final SwerveDrivetrain drivetrain = new SwerveDrivetrain();
@@ -163,6 +168,7 @@ public class RobotContainer {
 	// The driver's controller
 	CommandXboxController driverGamepad = new CommandXboxController(Ports.USB.DRIVER_GAMEPAD);
 	CommandXboxController copilotGamepad = new CommandXboxController(Ports.USB.COPILOT_GAMEPAD);
+
 
 	/**
 	 * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -399,14 +405,14 @@ public class RobotContainer {
 		return field;
 	}
 
+	public HMAccelerometer getAccelerometer()
+	{
+		return accelerometer;
+	}
+
 	public SwerveDrivetrain getDrivetrain()
 	{
 		return drivetrain;
-	}
-
-	public Joystick getLeftJoystick()
-	{
-		return null;
 	}
 
 	public Elevator getElevator()
@@ -433,4 +439,10 @@ public class RobotContainer {
 	{
 		return mouth;
 	}
+
+	public Joystick getLeftJoystick()
+	{
+		return null;
+	}
+
 }
