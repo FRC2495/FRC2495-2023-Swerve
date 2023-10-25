@@ -168,6 +168,7 @@ public class Ports {
 			public static final int LEFT = 1;
 			public static final int DRIVER_GAMEPAD = 2;
 			public static final int COPILOT_GAMEPAD = 3;
+			public static final int MAIN = 4;
 		}
 		
 		/**

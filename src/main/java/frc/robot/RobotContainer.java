@@ -64,8 +64,6 @@ import frc.robot.commands.indicator.*;
 import frc.robot.commands.groups.*;
 import frc.robot.auton.*;
 
-import frc.robot.Ports;
-
 
 /*
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -76,6 +74,7 @@ import frc.robot.Ports;
 public class RobotContainer {
 
 	public static final double GAMEPAD_AXIS_THRESHOLD = 0.05;
+	public static final double JOYSTICK_AXIS_THRESHOLD = 0.05;
 
 	// choosers (for auton)
 	
@@ -174,8 +173,9 @@ public class RobotContainer {
 	// The driver's controller
 	CommandXboxController driverGamepad = new CommandXboxController(Ports.USB.DRIVER_GAMEPAD);
 	CommandXboxController copilotGamepad = new CommandXboxController(Ports.USB.COPILOT_GAMEPAD);
-	CommandJoystick joyLeft = new CommandJoystick(Ports.USB.LEFT);
-	CommandJoystick joyRight = new CommandJoystick(Ports.USB.RIGHT);
+	/*CommandJoystick joyLeft = new CommandJoystick(Ports.USB.LEFT);
+	CommandJoystick joyRight = new CommandJoystick(Ports.USB.RIGHT);*/
+	CommandJoystick joyMain = new CommandJoystick(Ports.USB.MAIN);
 	
 
 	/**
@@ -248,9 +248,9 @@ public class RobotContainer {
 			// We are also inverting RightX because we want a positive value when we pull to the left (CCW is positive in mathematics).
 			new RunCommand(
 				() -> drivetrain.drive(
-					-MathUtil.applyDeadband(driverGamepad.getLeftY(), GAMEPAD_AXIS_THRESHOLD),
-					-MathUtil.applyDeadband(driverGamepad.getLeftX(), GAMEPAD_AXIS_THRESHOLD),
-					-MathUtil.applyDeadband(driverGamepad.getRightX(), GAMEPAD_AXIS_THRESHOLD),
+					-MathUtil.applyDeadband(joyMain.getY(), JOYSTICK_AXIS_THRESHOLD),
+					-MathUtil.applyDeadband(joyMain.getX(), JOYSTICK_AXIS_THRESHOLD),
+					-MathUtil.applyDeadband(joyMain.getZ(), JOYSTICK_AXIS_THRESHOLD),
 					true, true),
 				drivetrain));
 		
@@ -273,20 +273,27 @@ public class RobotContainer {
 	 */
 	private void configureButtonBindings() {
 
-		// temp joystick
+		// joystick
 
-		joyRight.button(8)
-			.whileTrue(new RollerJoystickControl(roller, drivetrain, getLeftJoystick()));
+		joyMain.button(7)
+			.whileTrue(new RollerJoystickControl(roller, drivetrain, getMainJoystick()));
 		
-		joyRight.button(9)
-			.whileTrue(new NeckJoystickControl(neck, drivetrain, getLeftJoystick()));
+		joyMain.button(8)
+			.whileTrue(new NeckJoystickControl(neck, drivetrain, getMainJoystick()));
 		
-		joyRight.button(10)
-			.whileTrue(new DrawerJoystickControl(drawer, drivetrain, getLeftJoystick()));
+		joyMain.button(9)
+			.whileTrue(new DrawerJoystickControl(drawer, drivetrain, getMainJoystick()));
 		
-		joyRight.button(11)
-			.whileTrue(new ElevatorJoystickControl(elevator, drivetrain, getLeftJoystick()));
+		joyMain.button(10)
+			.whileTrue(new ElevatorJoystickControl(elevator, drivetrain, getMainJoystick()));
 
+		joyMain.button(11)
+			.whileTrue(new DrivetrainZeroHeading(drivetrain));
+		
+		joyMain.button(12)
+			.whileTrue(new DrivetrainSetXFormation(drivetrain));
+
+	
 
 		// driver
 
@@ -465,9 +472,9 @@ public class RobotContainer {
 	}
 
 
-	public Joystick getLeftJoystick()
+	public Joystick getMainJoystick()
 	{
-		return joyLeft.getHID();
+		return joyMain.getHID();
 	}
 
 
