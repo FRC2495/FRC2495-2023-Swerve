@@ -1,14 +1,14 @@
 
 package frc.robot.commands.roller;
 
-import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.subsystems.Roller;
 
 /**
  *
  */
-public class RollerRoll extends InstantCommand {
+public class RollerRoll extends CommandBase {
 
 	private Roller roller;
 

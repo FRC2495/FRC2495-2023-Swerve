@@ -172,7 +172,7 @@ public class RobotContainer {
 	private final Indicator indicator = new Indicator(null);
 
 	// The driver's controller
-	CommandXboxController driverGamepad = new CommandXboxController(Ports.USB.DRIVER_GAMEPAD);
+	//CommandXboxController driverGamepad = new CommandXboxController(Ports.USB.DRIVER_GAMEPAD);
 	CommandXboxController copilotGamepad = new CommandXboxController(Ports.USB.COPILOT_GAMEPAD);
 	/*CommandJoystick joyLeft = new CommandJoystick(Ports.USB.LEFT);
 	CommandJoystick joyRight = new CommandJoystick(Ports.USB.RIGHT);*/
@@ -298,16 +298,16 @@ public class RobotContainer {
 
 		// driver
 
-		driverGamepad.a()
+		/*driverGamepad.a()
 			.onTrue(new DrivetrainZeroHeading(drivetrain));   
 
 		driverGamepad.x()
 			.whileTrue(new DrivetrainSetXFormation(drivetrain));
 
 		driverGamepad.y()
-			.onTrue(new DrivetrainResetEncoders(drivetrain));
+			.onTrue(new DrivetrainResetEncoders(drivetrain));*/
 		
-		
+			
 		
 		// copilot
 		
