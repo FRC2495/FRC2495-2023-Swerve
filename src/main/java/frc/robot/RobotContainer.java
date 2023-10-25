@@ -15,6 +15,7 @@ import edu.wpi.first.math.trajectory.TrajectoryConfig;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 //import edu.wpi.first.wpilibj.XboxController;
 //import edu.wpi.first.wpilibj.XboxController.Button;
 //import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -24,6 +25,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SwerveControllerCommand;
+
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
@@ -52,13 +54,17 @@ import frc.robot.subsystems.Roller;
 import frc.robot.subsystems.Compressor;
 import frc.robot.subsystems.Mouth;
 import frc.robot.subsystems.Indicator;
-
+import frc.robot.commands.drawer.DrawerJoystickControl;
 import frc.robot.commands.drivetrain.*;
+import frc.robot.commands.elevator.ElevatorJoystickControl;
 import frc.robot.commands.roller.*;
 import frc.robot.commands.mouth.*;
+import frc.robot.commands.neck.NeckJoystickControl;
 import frc.robot.commands.indicator.*;
 import frc.robot.commands.groups.*;
 import frc.robot.auton.*;
+
+import frc.robot.Ports;
 
 
 /*
@@ -168,7 +174,9 @@ public class RobotContainer {
 	// The driver's controller
 	CommandXboxController driverGamepad = new CommandXboxController(Ports.USB.DRIVER_GAMEPAD);
 	CommandXboxController copilotGamepad = new CommandXboxController(Ports.USB.COPILOT_GAMEPAD);
-
+	CommandJoystick joyLeft = new CommandJoystick(Ports.USB.LEFT);
+	CommandJoystick joyRight = new CommandJoystick(Ports.USB.RIGHT);
+	
 
 	/**
 	 * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -265,6 +273,21 @@ public class RobotContainer {
 	 */
 	private void configureButtonBindings() {
 
+		// temp joystick
+
+		joyRight.button(8)
+			.whileTrue(new RollerJoystickControl(roller, drivetrain, getLeftJoystick()));
+		
+		joyRight.button(9)
+			.whileTrue(new NeckJoystickControl(neck, drivetrain, getLeftJoystick()));
+		
+		joyRight.button(10)
+			.whileTrue(new DrawerJoystickControl(drawer, drivetrain, getLeftJoystick()));
+		
+		joyRight.button(11)
+			.whileTrue(new ElevatorJoystickControl(elevator, drivetrain, getLeftJoystick()));
+
+
 		// driver
 
 		driverGamepad.a()
@@ -275,7 +298,8 @@ public class RobotContainer {
 
 		driverGamepad.y()
 			.onTrue(new DrivetrainResetEncoders(drivetrain));
-
+		
+		
 		
 		// copilot
 		
@@ -443,7 +467,7 @@ public class RobotContainer {
 
 	public Joystick getLeftJoystick()
 	{
-		return null;
+		return joyLeft.getHID();
 	}
 
 
