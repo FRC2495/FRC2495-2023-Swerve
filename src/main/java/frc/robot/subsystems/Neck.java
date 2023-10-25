@@ -370,7 +370,7 @@ public class Neck extends SubsystemBase implements INeck {
 	}
 
 	public boolean isDangerous() {
-		return false;
+		return isUp();
 	}
 
 	// return if stalled

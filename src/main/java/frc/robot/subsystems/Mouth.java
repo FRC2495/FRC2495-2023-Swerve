@@ -79,4 +79,9 @@ public class Mouth extends SubsystemBase {
 			}
 		}
 	}
+
+	public boolean isDangerous() {
+		return getPosition() == Position.CLOSED;
+	}
+
 }
