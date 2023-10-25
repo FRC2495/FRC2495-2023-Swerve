@@ -16,6 +16,10 @@ public class MouthSafetyCheck implements BooleanSupplier
 {
     private Mouth mouth;
 
+    public MouthSafetyCheck(Mouth mouth) {
+		this.mouth = mouth;
+	}
+
     @Override
     public boolean getAsBoolean() {
         return !mouth.isDangerous();

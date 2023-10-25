@@ -8,7 +8,7 @@ import frc.robot.subsystems.Drawer;
 /**
  *
  */
-/*public*/ class DrawerExtendWithStallDetection extends CommandBase {
+public class DrawerExtendWithStallDetection extends CommandBase {
 
 	private Drawer drawer;
 

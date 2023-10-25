@@ -54,6 +54,7 @@ import frc.robot.subsystems.Roller;
 import frc.robot.subsystems.Compressor;
 import frc.robot.subsystems.Mouth;
 import frc.robot.subsystems.Indicator;
+import frc.robot.commands.drawer.*;
 import frc.robot.commands.drawer.DrawerJoystickControl;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.elevator.ElevatorJoystickControl;
@@ -327,6 +328,9 @@ public class RobotContainer {
 
 		copilotGamepad.start()
 			.onTrue(new AlmostEverythingStop(elevator, drawer, neck, roller));
+
+		copilotGamepad.rightTrigger()
+			.onTrue(new DrawerExtendWithStallDetection(drawer));
 	}
 
 	/**

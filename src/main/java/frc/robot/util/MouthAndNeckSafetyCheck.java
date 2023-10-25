@@ -6,22 +6,25 @@ package frc.robot.util;
 
 import java.util.function.BooleanSupplier;
 
+import frc.robot.subsystems.Mouth;
 import frc.robot.subsystems.Neck;
 
 /** The purpose of this class is to check if it's okay to extend the arm or to rotate the rotator.
  * 
  * It's the case when the shoulder is not in the danger zone.
  */
-public class NeckSafetyCheck implements BooleanSupplier
+public class MouthAndNeckSafetyCheck implements BooleanSupplier
 {
+    private Mouth mouth;
     private Neck neck;
 
-    public NeckSafetyCheck(Neck neck) {
+    public MouthAndNeckSafetyCheck(Mouth mouth, Neck neck) {
+        this.mouth = mouth;
 		this.neck = neck;
 	}
 
     @Override
     public boolean getAsBoolean() {
-        return !neck.isDangerous();
+        return !mouth.isDangerous() && !neck.isDangerous();
     }
 }
