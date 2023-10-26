@@ -357,7 +357,7 @@ public class Drawer extends SubsystemBase implements IDrawer {
 	}
 
 	public boolean isDangerous() {
-		return false;
+		return isRetracted();
 	}
 
 	// return if stalled

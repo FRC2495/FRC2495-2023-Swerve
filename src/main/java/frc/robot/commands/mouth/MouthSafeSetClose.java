@@ -11,9 +11,9 @@ import frc.robot.subsystems.Neck;
 /**
  *
  */
-public class MouthSafeSetOpen extends ConditionalCommand {
+public class MouthSafeSetClose extends ConditionalCommand {
 
-	public MouthSafeSetOpen(Mouth mouth, Neck neck) {
-		super(new MouthSetOpen(mouth), new DoNothing(), new NeckSafetyCheck(neck));
+	public MouthSafeSetClose(Mouth mouth, Neck neck) {
+		super(new MouthSetClose(mouth), new DoNothing(), new NeckSafetyCheck(neck));
 	}
 }

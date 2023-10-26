@@ -23,9 +23,8 @@ import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController; 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
+//import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SwerveControllerCommand;
-
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
@@ -54,13 +53,13 @@ import frc.robot.subsystems.Roller;
 import frc.robot.subsystems.Compressor;
 import frc.robot.subsystems.Mouth;
 import frc.robot.subsystems.Indicator;
-import frc.robot.commands.drawer.*;
-import frc.robot.commands.drawer.DrawerJoystickControl;
+
 import frc.robot.commands.drivetrain.*;
-import frc.robot.commands.elevator.ElevatorJoystickControl;
+import frc.robot.commands.elevator.*;
+import frc.robot.commands.drawer.*;
+import frc.robot.commands.neck.*;
 import frc.robot.commands.roller.*;
 import frc.robot.commands.mouth.*;
-import frc.robot.commands.neck.NeckJoystickControl;
 import frc.robot.commands.indicator.*;
 import frc.robot.commands.groups.*;
 import frc.robot.auton.*;
@@ -293,7 +292,6 @@ public class RobotContainer {
 		
 		joyMain.button(12)
 			.whileTrue(new DrivetrainSetXFormation(drivetrain));
-
 	
 
 		// driver
@@ -307,8 +305,7 @@ public class RobotContainer {
 		driverGamepad.y()
 			.onTrue(new DrivetrainResetEncoders(drivetrain));*/
 		
-			
-		
+				
 		// copilot
 		
 		copilotGamepad.a()
@@ -318,7 +315,7 @@ public class RobotContainer {
 			.whileTrue(new RollerRelease(roller));
 
 		copilotGamepad.x()
-			.onTrue(new MouthSetClose(mouth));
+			.onTrue(new MouthSafeSetClose(mouth,neck));
 
 		copilotGamepad.y()
 			.onTrue(new MouthSetOpen(mouth));

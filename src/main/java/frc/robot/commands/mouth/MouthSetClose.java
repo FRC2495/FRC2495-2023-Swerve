@@ -6,7 +6,7 @@ import frc.robot.subsystems.Mouth;
 import frc.robot.subsystems.Mouth.Position;
 
 // To set mouth open
-public class MouthSetClose extends CommandBase {
+/*public*/ class MouthSetClose extends CommandBase {
 
 	
 	private Mouth mouth;
