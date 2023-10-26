@@ -8,9 +8,9 @@ import java.util.function.BooleanSupplier;
 
 import frc.robot.subsystems.Mouth;
 
-/** The purpose of this class is to check if it's okay to extend the arm or to rotate the rotator.
+/** The purpose of this class is to check if it's okay to move the neck up.
  * 
- * It's the case when the shoulder is not in the danger zone.
+ * It's the case when the mouth is not in the danger zone.
  */
 public class MouthSafetyCheck implements BooleanSupplier
 {
