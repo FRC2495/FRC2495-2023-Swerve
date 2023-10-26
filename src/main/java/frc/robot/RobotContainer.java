@@ -275,6 +275,9 @@ public class RobotContainer {
 
 		// joystick
 
+		joyMain.button(6)
+			.onTrue(new DrivetrainResetEncoders(drivetrain));
+
 		joyMain.button(7)
 			.whileTrue(new RollerJoystickControl(roller, drivetrain, getMainJoystick()));
 		
@@ -288,7 +291,7 @@ public class RobotContainer {
 			.whileTrue(new ElevatorJoystickControl(elevator, drivetrain, getMainJoystick()));
 
 		joyMain.button(11)
-			.whileTrue(new DrivetrainZeroHeading(drivetrain));
+			.onTrue(new DrivetrainZeroHeading(drivetrain));
 		
 		joyMain.button(12)
 			.whileTrue(new DrivetrainSetXFormation(drivetrain));
