@@ -92,7 +92,7 @@ public class Drawer extends SubsystemBase implements IDrawer {
 		// In order for limit switches and closed-loop features to function properly the sensor and motor has to be in-phase.
 		// This means that the sensor position must move in a positive direction as the motor controller drives positive output.
 		
-		drawer.setSensorPhase(true); // false for SRX // TODO switch to true if required if switching to Talon FX
+		drawer.setSensorPhase(false); // false for SRX // TODO switch to true if required if switching to Talon FX
 		
 		//Enable limit switches
 		drawer.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, TALON_TIMEOUT_MS);
