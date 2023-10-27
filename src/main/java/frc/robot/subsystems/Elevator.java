@@ -91,7 +91,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 		// In order for limit switches and closed-loop features to function properly the sensor and motor has to be in-phase.
 		// This means that the sensor position must move in a positive direction as the motor controller drives positive output.
 		
-		elevator.setSensorPhase(true); // false for SRX // TODO switch to true if required if switching to Talon FX
+		elevator.setSensorPhase(false); // false for SRX // TODO switch to true if required if switching to Talon FX
 		
 		//Enable limit switches
 		elevator.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, TALON_TIMEOUT_MS);
@@ -369,7 +369,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 	{
 		if (!isMoving) // if we are already doing a move we don't take over
 		{
-			elevator.set(ControlMode.PercentOutput, +joystick.getY()); // adjust sign if desired
+			elevator.set(ControlMode.PercentOutput, -joystick.getY()); // adjust sign if desired
 		}
 	}
 
