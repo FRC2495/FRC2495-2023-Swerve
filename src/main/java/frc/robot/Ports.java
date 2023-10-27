@@ -224,8 +224,8 @@ public class Ports {
 			public static final int BRAKE_RELEASED = 4;*/
 
 			//2023 Off-season
-			public static final int MOUTH_CLOSED = 3;
-			public static final int MOUTH_OPEN = 2;
+			public static final int MOUTH_CLOSED = 0;
+			public static final int MOUTH_OPEN = 1;
 		}
 
 		/**
