@@ -73,8 +73,8 @@ import frc.robot.auton.*;
  */
 public class RobotContainer {
 
-	public static final double GAMEPAD_AXIS_THRESHOLD = 0.05;
-	public static final double JOYSTICK_AXIS_THRESHOLD = 0.05;
+	public static final double GAMEPAD_AXIS_THRESHOLD = 0.15;
+	public static final double JOYSTICK_AXIS_THRESHOLD = 0.15;
 
 	// choosers (for auton)
 	
