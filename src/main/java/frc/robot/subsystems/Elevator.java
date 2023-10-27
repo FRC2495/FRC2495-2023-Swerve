@@ -32,8 +32,8 @@ public class Elevator extends SubsystemBase implements IElevator {
 
 	
 	// general settings
-	public static final int LENGTH_OF_TRAVEL_TICKS = 590000*3/4; // 610000; // TODO adjust as needed (halve for Talon FX)
-	public static final int LENGTH_OF_MIDWAY_TICKS = 510000*3/4; // TODO adjust as needed (halve for Talon FX)
+	public static final int LENGTH_OF_TRAVEL_TICKS = 900000; // 900000; // TODO adjust as needed (halve for Talon FX)
+	public static final int LENGTH_OF_MIDWAY_TICKS = 450000; // TODO adjust as needed (halve for Talon FX)
 
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final int WAIT_MS = 1000;
