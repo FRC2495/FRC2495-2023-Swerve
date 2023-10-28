@@ -30,15 +30,15 @@ public class Neck extends SubsystemBase implements INeck {
 	
 	public static final double GEAR_RATIO = 3.0; // todo change if needed
 	
-	public static final int ANGLE_TO_MIDWAY_TICKS = 75000*48/64;
-	public static final int ANGLE_TO_TRAVEL_TICKS = 150000*48/64; // todo set proper value
+	public static final int ANGLE_TO_MIDWAY_TICKS = 180000;
+	public static final int ANGLE_TO_TRAVEL_TICKS = 90000; // todo set proper value
 	
 	/*
 	!!! VIRTUAL_HOME_OFFSET_TICKS is important for moving up,     !!!
 	!!! if this is changed make sure to check to see if moveUp() works !!!
 	(it's used as an error margin for moving up, since we can't reliably check when it's up)
 	*/
-	static final double VIRTUAL_HOME_OFFSET_TICKS = -1000; // position of virtual home compared to physical home
+	static final double VIRTUAL_HOME_OFFSET_TICKS = 1000; // position of virtual home compared to physical home
 	
 	static final double MAX_PCT_OUTPUT = 1.0; // ~full speed
 	
@@ -141,8 +141,8 @@ public class Neck extends SubsystemBase implements INeck {
 		neck.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor,	PRIMARY_PID_LOOP, TALON_TIMEOUT_MS);
 
 		// this will reset the encoder automatically when at or past the reverse limit sensor
-		neck.configSetParameter(ParamEnum.eClearPositionOnLimitR, 0, 0, 0, TALON_TIMEOUT_MS);
-		neck.configSetParameter(ParamEnum.eClearPositionOnLimitF, 1, 0, 0, TALON_TIMEOUT_MS);		
+		neck.configSetParameter(ParamEnum.eClearPositionOnLimitR, 1, 0, 0, TALON_TIMEOUT_MS);
+		neck.configSetParameter(ParamEnum.eClearPositionOnLimitF, 0, 0, 0, TALON_TIMEOUT_MS);		
 		
 		isMoving = false;
 		isMovingUp = false;
@@ -358,11 +358,11 @@ public class Neck extends SubsystemBase implements INeck {
 	}
 	
 	public boolean isUp() {
-		return Math.abs(getEncoderPosition()) > ANGLE_TO_TRAVEL_TICKS * 2/3;
+		return Math.abs(getEncoderPosition()) < ANGLE_TO_TRAVEL_TICKS * 1/3;
 	}
 	
 	public boolean isDown() {
-		return Math.abs(getEncoderPosition()) < ANGLE_TO_TRAVEL_TICKS * 1/3;
+		return Math.abs(getEncoderPosition()) > ANGLE_TO_TRAVEL_TICKS * 2/3;
 	}
 	
 	public boolean isMidway() {
