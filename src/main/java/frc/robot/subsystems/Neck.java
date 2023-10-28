@@ -239,7 +239,7 @@ public class Neck extends SubsystemBase implements INeck {
 		
 		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
 
-		tac = -ANGLE_TO_TRAVEL_TICKS;
+		tac = VIRTUAL_HOME_OFFSET_TICKS;
 		neck.set(ControlMode.Position,tac);
 		
 		isMoving = true;
@@ -256,7 +256,7 @@ public class Neck extends SubsystemBase implements INeck {
 		
 		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
 
-		tac = -ANGLE_TO_MIDWAY_TICKS;
+		tac = ANGLE_TO_MIDWAY_TICKS;
 		neck.set(ControlMode.Position,tac);
 		
 		isMoving = true;
@@ -273,7 +273,7 @@ public class Neck extends SubsystemBase implements INeck {
 		
 		setNominalAndPeakOutputs(SUPER_REDUCED_PCT_OUTPUT);
 
-		tac = VIRTUAL_HOME_OFFSET_TICKS;
+		tac = ANGLE_TO_TRAVEL_TICKS;
 		neck.set(ControlMode.Position,tac);
 		
 		isMoving = true;
