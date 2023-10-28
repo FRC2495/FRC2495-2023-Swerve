@@ -337,6 +337,30 @@ public class RobotContainer {
 
 		copilotGamepad.rightTrigger()
 			.onTrue(new DrawerExtendWithStallDetection(drawer));
+
+		copilotGamepad.leftTrigger()
+			.onTrue(new DrawerSafeRetractWithStallDetection(drawer, mouth, neck));
+
+		copilotGamepad.povUp()
+			.onTrue(new ElevatorMoveUpWithStallDetection(elevator));
+
+		copilotGamepad.povDown()
+			.onTrue(new ElevatorMoveDownWithStallDetection(elevator));
+
+		copilotGamepad.povRight()
+			.onTrue(new ElevatorMoveMidwayWithStallDetection(elevator));
+
+		/*copilotGamepad.povLeft()
+			.onTrue(new ElevatorMoveUpWithStallDetection(elevator));*/
+
+		copilotGamepad.leftBumper()
+			.onTrue(new NeckMoveDownWithStallDetection(neck));
+
+		copilotGamepad.rightBumper()
+			.onTrue(new NeckSafeMoveUpWithStallDetection(neck, mouth));
+
+		/*copilotGamepad.leftBumper()
+			.onTrue(new NeckMoveDownWithStallDetection(neck));*/
 	}
 
 	/**

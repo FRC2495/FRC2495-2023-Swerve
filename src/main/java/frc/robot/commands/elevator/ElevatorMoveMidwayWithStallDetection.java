@@ -8,7 +8,7 @@ import frc.robot.subsystems.Elevator;
 /**
  *
  */
-/*public*/ class ElevatorMoveMidwayWithStallDetection extends CommandBase {
+public class ElevatorMoveMidwayWithStallDetection extends CommandBase {
 
 	private Elevator elevator;
 
