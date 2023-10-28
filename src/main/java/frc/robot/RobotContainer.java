@@ -275,6 +275,9 @@ public class RobotContainer {
 
 		// joystick
 
+		joyMain.povUp()
+			.whileTrue(new DrivetrainZeroHeading(drivetrain));		
+
 		joyMain.button(2)
 			.whileTrue(new DrivetrainSetXFormation(drivetrain));		
 
