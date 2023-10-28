@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.RobotContainer;
 //import frc.robot.auton.blue.*;
 //import frc.robot.auton.common.*;
+import frc.robot.auton.sp4.StartingPositionFourTwoCubeEngage;
 
 public class CustomAuton extends SequentialCommandGroup {
 
@@ -33,7 +34,7 @@ public class CustomAuton extends SequentialCommandGroup {
      * @param autonOption_in   auton option
     */
     public CustomAuton(String gamePiece_in, String startPosition_in, String mainTarget_in, String cameraOption_in,
-            String sonarOption_in, String autonOption_in) {
+            String sonarOption_in, String autonOption_in, RobotContainer container) {
 
 		gamePiece = gamePiece_in;
 		startPosition = startPosition_in;
@@ -341,7 +342,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
-								//addCommands(new PutDownTwoConesAndDock());
+								addCommands(new StartingPositionFourTwoCubeEngage(container));
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
 								//TODO
