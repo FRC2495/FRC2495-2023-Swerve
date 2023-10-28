@@ -2387,7 +2387,7 @@
         "vgap": 16.0,
         "titleType": 0,
         "tiles": {
-          "6,0": {
+          "7,0": {
             "size": [
               2,
               1
@@ -2402,7 +2402,7 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "4,0": {
+          "5,0": {
             "size": [
               2,
               1
@@ -2417,7 +2417,7 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "1,0": {
+          "2,0": {
             "size": [
               2,
               1
@@ -2428,6 +2428,21 @@
               "_title": "SmartDashboard/Mouth Position",
               "_glyph": 148,
               "_showGlyph": false
+            }
+          },
+          "0,0": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Mouth isDangerous",
+              "_title": "SmartDashboard/Mouth isDangerous",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
             }
           }
         }

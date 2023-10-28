@@ -201,6 +201,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putBoolean("Roller IsReleasing?", m_robotContainer.getRoller().isReleasing());
 
 		SmartDashboard.putString("Mouth Position", m_robotContainer.getMouth().getPosition().toString());
+		SmartDashboard.putBoolean("Mouth isDangerous", m_robotContainer.getMouth().isDangerous());
 
 
 		SmartDashboard.putString("Auton selected", m_robotContainer.getAutonChooser().getSelected());	
