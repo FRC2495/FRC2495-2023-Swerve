@@ -174,9 +174,9 @@ public class RobotContainer {
 
 	// The driver's and copilot's joystick(s) and controller(s)
 
-	/*CommandJoystick joyLeft = new CommandJoystick(Ports.USB.LEFT);
-	CommandJoystick joyRight = new CommandJoystick(Ports.USB.RIGHT);*/
-	CommandJoystick joyMain = new CommandJoystick(Ports.USB.MAIN);
+	/*CommandJoystick joyLeft = new CommandJoystick(Ports.USB.LEFT_JOYSTICK);
+	CommandJoystick joyRight = new CommandJoystick(Ports.USB.RIGHT_JOYSTICK);*/
+	CommandJoystick joyMain = new CommandJoystick(Ports.USB.MAIN_JOYSTICK);
 	//CommandXboxController driverGamepad = new CommandXboxController(Ports.USB.DRIVER_GAMEPAD);
 	CommandXboxController copilotGamepad = new CommandXboxController(Ports.USB.COPILOT_GAMEPAD);
 	
