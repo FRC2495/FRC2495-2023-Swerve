@@ -120,7 +120,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 		setPIDParameters();
 		
 		// use slot 0 for closed-looping
- 		//arm.selectProfileSlot(SLOT_0, PRIMARY_PID_LOOP);
+ 		//elevator.selectProfileSlot(SLOT_0, PRIMARY_PID_LOOP);
 		
 		// set peak output to max in case if had been reduced previously
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
@@ -174,7 +174,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 			
 			if (!isMoving) {
 				System.out.println("You have reached the target (elevator moving).");
-				//arm.set(ControlMode.PercentOutput,0);
+				//elevator.set(ControlMode.PercentOutput,0);
 				if (isMovingUp)	{
 					stop(); // adjust if needed
 				} else {

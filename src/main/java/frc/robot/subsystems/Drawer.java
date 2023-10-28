@@ -110,18 +110,18 @@ public class Drawer extends SubsystemBase implements IDrawer {
 		// Users will still need to set the motor controller's direction, and neutral mode.
 		// The method follow() allows users to create a motor controller follower of not only the same model, but also other models
 		// , talon to talon, victor to victor, talon to victor, and victor to talon.
-		//drawer_follower.follow(arm);
+		//drawer_follower.follow(drawer);
 
 		// Motor controllers that are followers can set Status 1 and Status 2 to 255ms(max) using setStatusFramePeriod.
 		// The Follower relies on the master status frame allowing its status frame to be slowed without affecting performance.
 		// This is a useful optimization to manage CAN bus utilization.
-		//armfollower.setStatusFramePeriod(StatusFrame.Status_1_General, 255, TALON_TIMEOUT_MS);
-		//armFollower.setStatusFramePeriod(StatusFrame.Status_2_Feedback0, 255, TALON_TIMEOUT_MS);
+		//drawer_follower.setStatusFramePeriod(StatusFrame.Status_1_General, 255, TALON_TIMEOUT_MS);
+		//drawer_follower.setStatusFramePeriod(StatusFrame.Status_2_Feedback0, 255, TALON_TIMEOUT_MS);
 
 		setPIDParameters();
 		
 		// use slot 0 for closed-looping
- 		//arm.selectProfileSlot(SLOT_0, PRIMARY_PID_LOOP);
+ 		//drawer.selectProfileSlot(SLOT_0, PRIMARY_PID_LOOP);
 		
 		// set peak output to max in case if had been reduced previously
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
@@ -175,7 +175,7 @@ public class Drawer extends SubsystemBase implements IDrawer {
 			
 			if (!isMoving) {
 				System.out.println("You have reached the target (drawer moving).");
-				//arm.set(ControlMode.PercentOutput,0);
+				//drawer.set(ControlMode.PercentOutput,0);
 				if (isExtending)	{
 					stop(); // adjust if needed
 				} else {
