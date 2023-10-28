@@ -13,9 +13,9 @@ import frc.robot.subsystems.Neck;
 /**
  *
  */
-public class MouthSafeSetClose extends ConditionalCommand {
+public class MouthSafeClose extends ConditionalCommand {
 
-	public MouthSafeSetClose(Mouth mouth, Neck neck, XboxController gamepad) {
-		super(new MouthSetClose(mouth), new GamepadRumble(gamepad,true), new NeckSafetyCheck(neck));
+	public MouthSafeClose(Mouth mouth, Neck neck, XboxController gamepad) {
+		super(new MouthClose(mouth), new GamepadRumble(gamepad,true), new NeckSafetyCheck(neck));
 	}
 }
