@@ -15,6 +15,7 @@ import edu.wpi.first.math.trajectory.TrajectoryConfig;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 //import edu.wpi.first.wpilibj.XboxController;
 //import edu.wpi.first.wpilibj.XboxController.Button;
@@ -62,6 +63,7 @@ import frc.robot.commands.roller.*;
 import frc.robot.commands.mouth.*;
 import frc.robot.commands.indicator.*;
 import frc.robot.commands.groups.*;
+import frc.robot.commands.gamepad.*;
 import frc.robot.auton.*;
 
 
@@ -324,7 +326,7 @@ public class RobotContainer {
 			.whileTrue(new RollerRelease(roller));
 
 		copilotGamepad.x()
-			.onTrue(new MouthSafeSetClose(mouth,neck));
+			.onTrue(new MouthSafeSetClose(mouth, neck, getCopilotGamepad()));
 
 		copilotGamepad.y()
 			.onTrue(new MouthSetOpen(mouth));
@@ -339,7 +341,7 @@ public class RobotContainer {
 			.onTrue(new DrawerExtendWithStallDetection(drawer));
 
 		copilotGamepad.leftTrigger()
-			.onTrue(new DrawerSafeRetractWithStallDetection(drawer, mouth, neck));
+			.onTrue(new DrawerSafeRetractWithStallDetection(drawer, mouth, neck, getCopilotGamepad()));
 
 		copilotGamepad.povUp()
 			.onTrue(new ElevatorMoveUpWithStallDetection(elevator));
@@ -357,10 +359,13 @@ public class RobotContainer {
 			.onTrue(new NeckMoveDownWithStallDetection(neck));
 
 		copilotGamepad.rightBumper()
-			.onTrue(new NeckSafeMoveUpWithStallDetection(neck, mouth));
+			.onTrue(new NeckSafeMoveUpWithStallDetection(neck, mouth, getCopilotGamepad()));
 
 		/*copilotGamepad.leftBumper()
 			.onTrue(new NeckMoveDownWithStallDetection(neck));*/
+
+		copilotGamepad.rightStick()
+			.onTrue(new GamepadRumble(getCopilotGamepad(),false));
 	}
 
 	/**
@@ -511,6 +516,10 @@ public class RobotContainer {
 		return joyMain.getHID();
 	}
 
+	public XboxController getCopilotGamepad()
+	{
+		return copilotGamepad.getHID();
+	}
 
 	public SendableChooser<String> getAutonChooser()
 	{
