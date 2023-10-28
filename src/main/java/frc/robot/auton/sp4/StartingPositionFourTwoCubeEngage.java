@@ -45,7 +45,7 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
 			// Start at the origin facing the -X direction
 			new Pose2d(0, 0, Rotation2d.fromDegrees(180.0)),
 			// Pass through these waypoints
-			List.of(new Translation2d(Units.inchesToMeters(AutonConstants.DISTANCE_FROM_START_OF_CHARGING_STATION_TO_DOCKED_AT_CHARGING_STATION), 0)),
+			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(Units.inchesToMeters(AutonConstants.DISTANCE_FROM_START_OF_CHARGING_STATION_TO_DOCKED_AT_CHARGING_STATION + AutonConstants.DISTANCE_FROM_DOCK_TO_OUTSIDE_COMMUNITY), 0, new Rotation2d(0)),
 			config);
