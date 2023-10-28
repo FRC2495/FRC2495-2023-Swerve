@@ -279,7 +279,10 @@ public class RobotContainer {
 		// driver (joystick)
 
 		joyMain.povUp()
-			.whileTrue(new DrivetrainZeroHeading(drivetrain));		
+			.onTrue(new DrivetrainZeroHeading(drivetrain));	
+
+		joyMain.povDown()
+			.onTrue(new DrivetrainOppositeHeading(drivetrain));	
 
 
 		joyMain.button(2)
