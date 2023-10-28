@@ -275,10 +275,11 @@ public class RobotContainer {
 	 */
 	private void configureButtonBindings() {
 
-		// joystick
+		// driver (joystick)
 
 		joyMain.povUp()
 			.whileTrue(new DrivetrainZeroHeading(drivetrain));		
+
 
 		joyMain.button(2)
 			.whileTrue(new DrivetrainSetXFormation(drivetrain));		
@@ -303,21 +304,9 @@ public class RobotContainer {
 		
 		joyMain.button(12)
 			.whileTrue(new DrivetrainSetXFormation(drivetrain));
-	
-
-		// driver
-
-		/*driverGamepad.a()
-			.onTrue(new DrivetrainZeroHeading(drivetrain));   
-
-		driverGamepad.x()
-			.whileTrue(new DrivetrainSetXFormation(drivetrain));
-
-		driverGamepad.y()
-			.onTrue(new DrivetrainResetEncoders(drivetrain));*/
-		
+			
 				
-		// copilot
+		// copilot (gamepad)
 		
 		copilotGamepad.a()
 			.whileTrue(new RollerRoll(roller));
@@ -337,23 +326,26 @@ public class RobotContainer {
 		copilotGamepad.start()
 			.onTrue(new AlmostEverythingStop(elevator, drawer, neck, roller));
 
-		copilotGamepad.rightTrigger()
-			.onTrue(new DrawerExtendWithStallDetection(drawer));
 
 		copilotGamepad.leftTrigger()
 			.onTrue(new DrawerSafeRetractWithStallDetection(drawer, mouth, neck, getCopilotGamepad()));
 
-		copilotGamepad.povUp()
-			.onTrue(new ElevatorMoveUpWithStallDetection(elevator));
+		copilotGamepad.rightTrigger()
+			.onTrue(new DrawerExtendWithStallDetection(drawer));
+
 
 		copilotGamepad.povDown()
 			.onTrue(new ElevatorMoveDownWithStallDetection(elevator));
 
+		copilotGamepad.povLeft()
+			.onTrue(new ElevatorMoveMidwayWithStallDetection(elevator));
+
 		copilotGamepad.povRight()
 			.onTrue(new ElevatorMoveMidwayWithStallDetection(elevator));
 
-		/*copilotGamepad.povLeft()
-			.onTrue(new ElevatorMoveUpWithStallDetection(elevator));*/
+		copilotGamepad.povUp()
+			.onTrue(new ElevatorMoveUpWithStallDetection(elevator));
+
 
 		copilotGamepad.leftBumper()
 			.onTrue(new NeckMoveDownWithStallDetection(neck));
@@ -361,8 +353,9 @@ public class RobotContainer {
 		copilotGamepad.rightBumper()
 			.onTrue(new NeckSafeMoveUpWithStallDetection(neck, mouth, getCopilotGamepad()));
 
-		/*copilotGamepad.leftBumper()
-			.onTrue(new NeckMoveDownWithStallDetection(neck));*/
+
+		copilotGamepad.leftStick()
+			.onTrue(new GamepadRumble(getCopilotGamepad(),false));			
 
 		copilotGamepad.rightStick()
 			.onTrue(new GamepadRumble(getCopilotGamepad(),false));
@@ -509,7 +502,6 @@ public class RobotContainer {
 	{
 		return mouth;
 	}
-
 
 	public Joystick getMainJoystick()
 	{
