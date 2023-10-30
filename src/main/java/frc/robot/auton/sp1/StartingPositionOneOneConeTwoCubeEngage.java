@@ -10,7 +10,7 @@ public class StartingPositionOneOneConeTwoCubeEngage extends SequentialCommandGr
 
         addCommands(
 
-             // drop preloaded cone
+            // drop preloaded cone
 
             // back up WHILE turning 180
 

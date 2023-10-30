@@ -14,6 +14,11 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 import frc.robot.RobotContainer;
 import frc.robot.auton.AutonConstants;
+import frc.robot.auton.common.*;
+import frc.robot.commands.drawer.*;
+import frc.robot.commands.elevator.*;
+import frc.robot.commands.neck.*;
+import frc.robot.commands.roller.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
@@ -24,17 +29,41 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
         addCommands(
 
             // Drop preloaded cube
+            new ElevatorMoveUpWithStallDetection(null),
+
+            new DrawerExtendWithStallDetection(null),
+
+            new RollerRelease(null),
+
+            // Shrink
+            new DrawerSafeRetractWithStallDetection(null, null, null, null),
+
+            new ElevatorMoveDownWithStallDetection(null),
 
             // Move to cube directly over charge station
-            container.createSwerveControllerCommand(createTrajectory(container.createTrajectoryConfig()))
+            container.createSwerveControllerCommand(createTrajectory(container.createTrajectoryConfig())),
 
-            // Pick up the cube
-            
+            // Get ready to pick up the cube
+            new DrawerExtendWithStallDetection(null),
+
+            new NeckMoveDownWithStallDetection(null),
+
+            new RollerRoll(null),
+
+            // Move forward to pick up cube
+
+
+            // Shrink
+            new DrawerSafeRetractWithStallDetection(null, null, null, null),
+
+            new NeckSafeMoveUpWithStallDetection(null, null, null),
+
             // Rotate 180 degrees and move back to shelf over charge station
 
-            // Drop cube
-            
-            // Engage by moving backwards onto charge station
+
+            // Shoot cube
+            new RollerRelease(null)
+
         ); 
   
     }
