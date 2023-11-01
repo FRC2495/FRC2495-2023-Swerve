@@ -44,7 +44,6 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
             container.createSwerveControllerCommand(createTrajectory(container.createTrajectoryConfig())),
 
             // Get ready to pick up the cube
-            new DrawerExtendWithStallDetection(null),
 
             new NeckMoveDownWithStallDetection(null),
 
@@ -54,7 +53,6 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
 
 
             // Shrink
-            new DrawerSafeRetractWithStallDetection(null, null, null, null),
 
             new NeckSafeMoveUpWithStallDetection(null, null, null),
 

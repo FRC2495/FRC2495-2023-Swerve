@@ -2,8 +2,7 @@ package frc.robot.auton.sp2;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.elevator.*;
-import frc.robot.commands.neck.NeckMoveDownWithStallDetection;
-import frc.robot.commands.neck.NeckSafeMoveUpWithStallDetection;
+import frc.robot.commands.neck.*;
 import frc.robot.commands.drawer.*;
 import frc.robot.commands.roller.*;
 

@@ -8,9 +8,9 @@ import frc.robot.commands.elevator.*;
 import frc.robot.commands.roller.*;
 
 
-public class DropTopCube extends SequentialCommandGroup{
+public class DropTopCone extends SequentialCommandGroup{
     
-    public DropTopCube(RobotContainer container) {
+    public DropTopCone(RobotContainer container) {
 
         addCommands(
             

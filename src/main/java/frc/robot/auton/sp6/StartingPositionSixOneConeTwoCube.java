@@ -1,5 +1,11 @@
 package frc.robot.auton.sp6;
 
+import frc.robot.auton.common.*;
+import frc.robot.commands.elevator.*;
+import frc.robot.commands.neck.*;
+import frc.robot.commands.drawer.*;
+import frc.robot.commands.roller.*;
+
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 // GP = game piece
@@ -10,23 +16,56 @@ public class StartingPositionSixOneConeTwoCube extends SequentialCommandGroup {
 
         addCommands(
 
-        // Drop preloaded cone
-        
-        // Move to first cube while rotating 180 degrees
+        // drop preloaded cone
+        new ElevatorMoveUpWithStallDetection(null),
 
-        // Pick up cube
+        new DrawerExtendWithStallDetection(null),
 
-        // Move into community and shoot the cube
+        new RollerRelease(null),
 
-        // turn to second cube and move there
+        // Shrink
 
-        // Pick up cube
+        new DrawerSafeRetractWithStallDetection(null, null, null, null),
 
-        // Turn to charge station and move into community
+        new ElevatorMoveDownWithStallDetection(null),
 
-        // Shoot the cube
+        // Rotate 180 degrees while moving to cube
 
-        // Engage
+        // Grab mechanism open
+
+        new NeckMoveDownWithStallDetection(null),
+
+        new RollerRoll(null), // todo change to timed command 
+
+        // Move forward to pick up cube
+
+        new NeckSafeMoveUpWithStallDetection(null, null, null),
+
+        // Rotate 180 degrees while moving to shelf
+
+        // Drop cube
+        new ElevatorMoveUpWithStallDetection(null),
+
+        new DrawerExtendWithStallDetection(null),
+
+        new RollerRelease(null), // todo change to timed command 
+
+        // Move to second cube while rotating 180 degrees
+
+        // Grab mechanism open
+
+        new NeckMoveDownWithStallDetection(null),
+
+        new RollerRoll(null), // todo change to timed command 
+
+        // Move forward to pick up cube
+
+        // Move back to shelf while rotating 180 degrees
+
+        // Drop cube
+
+        new RollerRelease(null)
+
             
         ); 
   
