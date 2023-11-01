@@ -62,7 +62,7 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
 
 
             // Shoot cube
-            new RollerRelease(null)
+            new RollerRelease(null) // todo change to more powerful
 
         ); 
   
