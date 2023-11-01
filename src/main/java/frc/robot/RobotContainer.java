@@ -78,6 +78,13 @@ public class RobotContainer {
 	public static final double GAMEPAD_AXIS_THRESHOLD = 0.15;
 	public static final double JOYSTICK_AXIS_THRESHOLD = 0.15;
 
+	public static final int LX = 0;
+	public static final int LY = 1;
+	public static final int LT = 2;
+	public static final int RT = 3;
+	public static final int RX = 4;
+	public static final int RY = 5;
+
 	// choosers (for auton)
 	
 	public static final String AUTON_DO_NOTHING = "Do Nothing";
@@ -363,6 +370,32 @@ public class RobotContainer {
 
 		copilotGamepad.rightStick()
 			.onTrue(new GamepadRumble(getCopilotGamepad(),false));
+
+
+		copilotGamepad.axisGreaterThan(LY,GAMEPAD_AXIS_THRESHOLD)
+			.whileTrue(new ElevatorGamepadControl(elevator, drivetrain, getCopilotGamepad()));
+
+		copilotGamepad.axisLessThan(LY,-GAMEPAD_AXIS_THRESHOLD)
+			.whileTrue(new ElevatorGamepadControl(elevator, drivetrain, getCopilotGamepad()));
+
+		/*copilotGamepad.axisGreaterThan(LX,GAMEPAD_AXIS_THRESHOLD)
+			.whileTrue();
+
+		copilotGamepad.axisLessThan(LX,-GAMEPAD_AXIS_THRESHOLD)
+			.whileTrue();*/
+
+		copilotGamepad.axisGreaterThan(RY,GAMEPAD_AXIS_THRESHOLD)
+			.whileTrue(new NeckGamepadControl(neck, drivetrain, getCopilotGamepad()));
+
+		copilotGamepad.axisLessThan(RY,-GAMEPAD_AXIS_THRESHOLD)
+			.whileTrue(new NeckGamepadControl(neck, drivetrain, getCopilotGamepad()));
+
+		copilotGamepad.axisGreaterThan(RX,GAMEPAD_AXIS_THRESHOLD)
+			.whileTrue(new DrawerGamepadControl(drawer, drivetrain, getCopilotGamepad()));
+
+		copilotGamepad.axisLessThan(RX,-GAMEPAD_AXIS_THRESHOLD)
+			.whileTrue(new DrawerGamepadControl(drawer, drivetrain, getCopilotGamepad()));	
+			
 	}
 
 	/**
