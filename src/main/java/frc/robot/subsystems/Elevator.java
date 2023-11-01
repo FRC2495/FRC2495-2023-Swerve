@@ -377,7 +377,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 	{
 		if (!isMoving) // if we are already doing a move we don't take over
 		{
-			elevator.set(ControlMode.PercentOutput, +MathUtil.applyDeadband(gamepad.getLeftY(),RobotContainer.GAMEPAD_AXIS_THRESHOLD)*0.1/*0.7*/); // adjust sign if desired
+			elevator.set(ControlMode.PercentOutput, +MathUtil.applyDeadband(gamepad.getLeftY(),RobotContainer.GAMEPAD_AXIS_THRESHOLD)*0.6/*0.7*/); // adjust sign if desired
 		}
 	}
 
