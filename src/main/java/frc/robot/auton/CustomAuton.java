@@ -13,6 +13,7 @@ import frc.robot.RobotContainer;
 //import frc.robot.auton.blue.*;
 //import frc.robot.auton.common.*;
 import frc.robot.auton.sp4.StartingPositionFourTwoCubeEngage;
+import frc.robot.subsystems.*;
 
 public class CustomAuton extends SequentialCommandGroup {
 
@@ -34,7 +35,8 @@ public class CustomAuton extends SequentialCommandGroup {
      * @param autonOption_in   auton option
     */
     public CustomAuton(String gamePiece_in, String startPosition_in, String mainTarget_in, String cameraOption_in,
-            String sonarOption_in, String autonOption_in, RobotContainer container) {
+            String sonarOption_in, String autonOption_in, RobotContainer container,
+			Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth) {
 
 		gamePiece = gamePiece_in;
 		startPosition = startPosition_in;

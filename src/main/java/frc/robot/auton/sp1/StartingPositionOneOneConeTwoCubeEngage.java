@@ -20,80 +20,81 @@ import frc.robot.commands.elevator.*;
 import frc.robot.commands.neck.*;
 import frc.robot.commands.roller.*;
 import frc.robot.RobotContainer;
+import frc.robot.subsystems.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionOneOneConeTwoCubeEngage extends SequentialCommandGroup {
 
-    public StartingPositionOneOneConeTwoCubeEngage(RobotContainer container){
+    public StartingPositionOneOneConeTwoCubeEngage(RobotContainer container, Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth){
 
         addCommands(
 
             // Drop preloaded cube
-            new ElevatorMoveUpWithStallDetection(null),
+            new ElevatorMoveUpWithStallDetection(elevator),
 
-            new DrawerExtendWithStallDetection(null),
+            new DrawerExtendWithStallDetection(drawer),
  
-            new RollerRelease(null),
+            new RollerRelease(roller),
  
             // Shrink
-            new DrawerSafeRetractWithStallDetection(null, null, null, null),
+            new DrawerSafeRetractWithStallDetection(drawer, mouth, neck, container.getCopilotGamepad()),
  
-            new ElevatorMoveDownWithStallDetection(null),
+            new ElevatorMoveDownWithStallDetection(elevator),
  
             // Move to cube
              
              
             // Get ready to pick up the cube
  
-            new NeckMoveDownWithStallDetection(null),
+            new NeckMoveDownWithStallDetection(neck),
  
-            new RollerRoll(null),
+            new RollerRoll(roller),
  
             // Move forward to pick up cube
  
  
             // Shrink
  
-            new NeckSafeMoveUpWithStallDetection(null, null, null),
+            new NeckSafeMoveUpWithStallDetection(neck, mouth, container.getCopilotGamepad()),
  
             // Shoot cube
-            new RollerRelease(null), // todo change to more powerful
+            new RollerRelease(roller), // todo change to more powerful
 
             // Turn 180
 
 
             // Get ready to pick up the cube
-            new DrawerExtendWithStallDetection(null),
+            new DrawerExtendWithStallDetection(drawer),
  
-            new NeckMoveDownWithStallDetection(null),
+            new NeckMoveDownWithStallDetection(neck),
 
-            new RollerRoll(null),
+            new RollerRoll(roller),
 
             // Move forward to pick up cube
 
             // Turn 180 and move so robot is touching charge station
 
             // Shoot cube
-            new RollerRelease(null), // todo change to more powerful
+            new RollerRelease(roller), // todo change to more powerful
             
             // Turn 180
 
 
             // Get ready to pick up the cube
-            new DrawerExtendWithStallDetection(null),
+            new DrawerExtendWithStallDetection(drawer),
  
-            new NeckMoveDownWithStallDetection(null),
+            new NeckMoveDownWithStallDetection(neck),
 
-            new RollerRoll(null),
+            new RollerRoll(roller),
 
             // Move forward to pick up cube
 
             // Engage
 
-            
+
             // Shoot cube
-            new RollerRelease(null) // todo change to more powerful
+            new RollerRelease(roller) // todo change to more powerful
 
         ); 
   

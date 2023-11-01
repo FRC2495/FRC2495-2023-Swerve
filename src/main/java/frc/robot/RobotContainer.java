@@ -402,7 +402,8 @@ public class RobotContainer {
 				//break;
 
 			case AUTON_CUSTOM:
-				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption, this);
+				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption, this,
+					elevator, drawer, roller, neck, mouth);
 				//break;
 
 			case AUTON_DO_NOTHING:
