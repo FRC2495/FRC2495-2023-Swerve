@@ -31,7 +31,7 @@ public class Neck extends SubsystemBase implements INeck {
 	public static final double GEAR_RATIO = 3.0; // todo change if needed
 	
 	public static final int ANGLE_TO_MIDWAY_TICKS = 180000;
-	public static final int ANGLE_TO_TRAVEL_TICKS = 90000; // todo set proper value
+	public static final int ANGLE_TO_TRAVEL_TICKS = 180000; // todo set proper value
 	
 	/*
 	!!! VIRTUAL_HOME_OFFSET_TICKS is important for moving up,     !!!
