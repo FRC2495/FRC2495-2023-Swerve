@@ -378,7 +378,7 @@ public class Drawer extends SubsystemBase implements IDrawer {
 	{
 		if (!isMoving) // if we are already doing a move we don't take over
 		{
-			drawer.set(ControlMode.PercentOutput, +MathUtil.applyDeadband(gamepad.getRightX(),RobotContainer.GAMEPAD_AXIS_THRESHOLD)*0.6/*0.7*/); // adjust sign if desired
+			drawer.set(ControlMode.PercentOutput, -MathUtil.applyDeadband(gamepad.getRightX(),RobotContainer.GAMEPAD_AXIS_THRESHOLD)*0.6/*0.7*/); // adjust sign if desired
 		}
 	}
 
