@@ -313,10 +313,10 @@ public class RobotContainer {
 		// copilot (gamepad)
 		
 		copilotGamepad.a()
-			.whileTrue(new RollerRoll(roller));
-
-		copilotGamepad.b()
 			.whileTrue(new RollerRelease(roller));
+		
+		copilotGamepad.b()
+			.whileTrue(new RollerRoll(roller));
 
 		copilotGamepad.x()
 			.onTrue(new MouthSafeClose(mouth, neck, getCopilotGamepad()));
