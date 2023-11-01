@@ -271,13 +271,13 @@ public class SwerveDrivetrain extends SubsystemBase {
 		m_gyro.setAngleAdjustment(180);
 	}
 
-	/**
+	/** in dash
 	 * Returns the heading of the robot.
 	 *
 	 * @return the robot's heading in degrees, from -180 to 180
 	 */
 	public double getHeading() {
-		return Rotation2d.fromDegrees(GYRO_ORIENTATION * m_gyro.getAngle()).getDegrees();
+		return Rotation2d.fromDegrees(-1 * GYRO_ORIENTATION * m_gyro.getAngle()).getDegrees();
 	}
 
 	/**
