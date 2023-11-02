@@ -29,7 +29,7 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
         addCommands(
 
             // Drop preloaded cube
-            new ElevatorMoveUpWithStallDetection(null),
+            /*new ElevatorMoveUpWithStallDetection(null),
 
             new DrawerExtendWithStallDetection(null),
 
@@ -38,14 +38,16 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
             // Shrink
             new DrawerSafeRetractWithStallDetection(null, null, null, null),
 
-            new ElevatorMoveDownWithStallDetection(null),
+            new ElevatorMoveDownWithStallDetection(null),*/
 
             // Move to cube directly over charge station
-            container.createSwerveControllerCommand(createTrajectory(container.createTrajectoryConfig())),
+            //container.createSwerveControllerCommand(createTrajectory(container.createTrajectoryConfig()))
+
+            container.createSwerveControllerCommand(createTrajectory4(container.createTrajectoryConfig()))
 
             // Get ready to pick up the cube
 
-            new NeckMoveDownWithStallDetection(null),
+            /*new NeckMoveDownWithStallDetection(null),
 
             new RollerRoll(null),
 
@@ -60,7 +62,7 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
 
 
             // Shoot cube
-            new RollerRelease(null) // todo change to more powerful
+            new RollerRelease(null) // todo change to more powerful*/
 
         ); 
   
@@ -72,7 +74,7 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
 			// Start at the origin facing the -X direction
 			new Pose2d(0, 0, Rotation2d.fromDegrees(180.0)),
 			// Pass through these waypoints
-			List.of(),
+			List.of(new Translation2d(1, 1)),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(Units.inchesToMeters(AutonConstants.DISTANCE_FROM_START_OF_CHARGING_STATION_TO_DOCKED_AT_CHARGING_STATION + AutonConstants.DISTANCE_FROM_DOCK_TO_OUTSIDE_COMMUNITY), 0, new Rotation2d(0)),
 			config);
@@ -80,5 +82,48 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
 		return trajectory;
 	}
    
+
+    public Trajectory createTrajectory2(TrajectoryConfig config) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the +X direction
+			new Pose2d(0, 0, new Rotation2d(0)),
+			// Pass through these two interior waypoints, making an 's' curve path
+			List.of(new Translation2d(1, 1), new Translation2d(2, -1)),
+			// End 3 meters straight ahead of where we started, facing forward
+			new Pose2d(3, 0, new Rotation2d(0)),
+			config);
+
+		return trajectory;
+	}
+
+
+    public Trajectory createTrajectory3(TrajectoryConfig config) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the +X direction
+			new Pose2d(0, 0, Rotation2d.fromDegrees(180.0)),
+			// Pass through these two interior waypoints, making an 's' curve path
+			List.of(new Translation2d(1, 1) ),
+			// End 3 meters straight ahead of where we started, facing forward
+			new Pose2d(5, 0, Rotation2d.fromDegrees(180.0)),
+			config);
+
+		return trajectory;
+	}
+
+    public Trajectory createTrajectory4(TrajectoryConfig config) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the +X direction
+			new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
+			// Pass through these two interior waypoints, making an 's' curve path
+			List.of(),
+			// End 3 meters straight ahead of where we started, facing forward
+			new Pose2d(5, 0, Rotation2d.fromDegrees(0)),
+			config);
+
+		return trajectory;
+	}
 
 }
