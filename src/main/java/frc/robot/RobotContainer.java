@@ -373,10 +373,10 @@ public class RobotContainer {
 
 
 		copilotGamepad.axisGreaterThan(LY,GAMEPAD_AXIS_THRESHOLD)
-			.whileTrue(new ElevatorGamepadControl(elevator, drivetrain, getCopilotGamepad()));
+			.whileTrue(new ElevatorGamepadControl(elevator, getCopilotGamepad()));
 
 		copilotGamepad.axisLessThan(LY,-GAMEPAD_AXIS_THRESHOLD)
-			.whileTrue(new ElevatorGamepadControl(elevator, drivetrain, getCopilotGamepad()));
+			.whileTrue(new ElevatorGamepadControl(elevator, getCopilotGamepad()));
 
 		/*copilotGamepad.axisGreaterThan(LX,GAMEPAD_AXIS_THRESHOLD)
 			.whileTrue();
@@ -385,16 +385,16 @@ public class RobotContainer {
 			.whileTrue();*/
 
 		copilotGamepad.axisGreaterThan(RY,GAMEPAD_AXIS_THRESHOLD)
-			.whileTrue(new NeckGamepadControl(neck, drivetrain, getCopilotGamepad()));
+			.whileTrue(new NeckGamepadControl(neck, getCopilotGamepad()));
 
 		copilotGamepad.axisLessThan(RY,-GAMEPAD_AXIS_THRESHOLD)
-			.whileTrue(new NeckGamepadControl(neck, drivetrain, getCopilotGamepad()));
+			.whileTrue(new NeckGamepadControl(neck, getCopilotGamepad()));
 
 		copilotGamepad.axisGreaterThan(RX,GAMEPAD_AXIS_THRESHOLD)
-			.whileTrue(new DrawerGamepadControl(drawer, drivetrain, getCopilotGamepad()));
+			.whileTrue(new DrawerGamepadControl(drawer, getCopilotGamepad()));
 
 		copilotGamepad.axisLessThan(RX,-GAMEPAD_AXIS_THRESHOLD)
-			.whileTrue(new DrawerGamepadControl(drawer, drivetrain, getCopilotGamepad()));	
+			.whileTrue(new DrawerGamepadControl(drawer, getCopilotGamepad()));	
 			
 	}
 
