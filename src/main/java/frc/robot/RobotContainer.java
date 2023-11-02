@@ -461,6 +461,15 @@ public class RobotContainer {
 		return config;
 	}
 
+	public TrajectoryConfig createReverseTrajectoryConfig() {
+
+		TrajectoryConfig config = createTrajectoryConfig();
+
+		config.setReversed(true); // in reverse!
+
+		return config;
+	}
+
 	public Trajectory createExampleTrajectory(TrajectoryConfig config) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory exampleTrajectory = TrajectoryGenerator.generateTrajectory(
