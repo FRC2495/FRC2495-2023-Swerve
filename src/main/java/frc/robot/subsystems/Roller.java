@@ -34,12 +34,14 @@ public class Roller extends SubsystemBase implements IRoller{
 
 	static final int ROLL_DISTANCE_INCHES = 13;
 	static final int RELEASE_DISTANCE_INCHES = 17;
+	static final int SHOOT_DISTANCE_INCHES = 17;
 	
 	WPI_TalonSRX roller;
 	//BaseMotorController grasperLeft; 
 		
 	boolean isRolling;
 	boolean isReleasing;
+	boolean isShooting;
 	
 		
 	public Roller(WPI_TalonSRX roller_in) {
@@ -91,6 +93,7 @@ public class Roller extends SubsystemBase implements IRoller{
 		
 		isRolling = true;
 		isReleasing = false;
+		isShooting = false;
 	}
 	
 	public void release() {
@@ -100,13 +103,26 @@ public class Roller extends SubsystemBase implements IRoller{
 		
 		isReleasing = true;
 		isRolling = false;
+		isShooting = false;
 	}
+
+	public void shoot() {
+		//SwitchedCamera.setUsbCamera(Ports.UsbCamera.GRASPER_CAMERA);
+
+		roller.set(ControlMode.PercentOutput, -MAX_PCT_OUTPUT);
+		
+		isRolling = true;
+		isReleasing = false;
+		isShooting = false;
+	}
+	
 	
 	public void stop() {
 		roller.set(ControlMode.PercentOutput, 0);
 		
 		isRolling = false;
 		isReleasing = false;
+		isShooting = false;
 	}
 	
 		
@@ -126,6 +142,10 @@ public class Roller extends SubsystemBase implements IRoller{
 	
 	public boolean isReleasing(){
 		return isReleasing;
+	}
+
+	public boolean isShooting(){
+		return isShooting;
 	}
 
 	// for debug purpose only

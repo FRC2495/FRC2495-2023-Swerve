@@ -9,6 +9,8 @@ public interface IRoller extends Subsystem {
 	public void roll();
 	
 	public void release();
+
+	public void shoot();
 	
 	public void stop();
 		
@@ -19,6 +21,8 @@ public interface IRoller extends Subsystem {
 	
 	public boolean isReleasing();
 
+	public boolean isShooting();
+	
 	// for debug purpose only
 	public void joystickControl(Joystick joystick);
 
