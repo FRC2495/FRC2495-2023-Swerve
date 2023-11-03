@@ -10,9 +10,11 @@ package frc.robot.auton;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 import frc.robot.RobotContainer;
+import frc.robot.auton.sp2.StartingPositionTwoTwoCube;
 //import frc.robot.auton.blue.*;
 //import frc.robot.auton.common.*;
 import frc.robot.auton.sp4.StartingPositionFourTwoCubeEngage;
+import frc.robot.auton.sp5.StartingPositionFiveThreeCube;
 import frc.robot.subsystems.*;
 
 public class CustomAuton extends SequentialCommandGroup {
@@ -326,7 +328,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
-								//TODO
+								addCommands(new StartingPositionTwoTwoCube(container, elevator, drawer, roller, neck, mouth));
 								break;
 							default:
 								// nothing
@@ -801,7 +803,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
-								//TODO
+								addCommands(new StartingPositionFiveThreeCube(container, elevator, drawer, roller, neck, mouth));
 								break;
 							default:
 								// nothing

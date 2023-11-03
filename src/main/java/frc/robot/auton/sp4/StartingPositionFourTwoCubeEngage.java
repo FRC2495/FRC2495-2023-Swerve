@@ -60,11 +60,8 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
 
             new NeckSafeMoveUpWithStallDetection(neck, mouth, container.getCopilotGamepad()),
 
-            // Rotate 180 degrees and move back to shelf over charge station
+            // Move back to shelf over charge station*/
 
-
-            // Shoot cube
-            new RollerRelease(roller) // todo change to more powerful*/
 
         ); 
   
