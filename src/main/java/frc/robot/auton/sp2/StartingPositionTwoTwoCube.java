@@ -48,6 +48,10 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 
             container.createSwerveControllerCommand(createTrajectory(container.createReverseTrajectoryConfig())),
 
+			// Move forward to second part of kturn
+
+			container.createSwerveControllerCommand(createTrajectory2(container.createTrajectoryConfig())),
+
             // Grab mechanism open
 
             new NeckMoveDownWithStallDetection(neck),
@@ -56,17 +60,17 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 
             // Move forward to pick up cube
 
-            container.createSwerveControllerCommand(createTrajectory2(container.createReverseTrajectoryConfig())),
+            container.createSwerveControllerCommand(createTrajectory3(container.createTrajectoryConfig())),
 
             new NeckSafeMoveUpWithStallDetection(neck, mouth, container.getCopilotGamepad()),
 
             // Move to first part of kturn
 
-            container.createSwerveControllerCommand(createTrajectory3(container.createTrajectoryConfig())),
+            container.createSwerveControllerCommand(createTrajectory4(container.createReverseTrajectoryConfig())),
 
             // Move back to cube node
 
-            container.createSwerveControllerCommand(createTrajectory4(container.createTrajectoryConfig())),
+            container.createSwerveControllerCommand(createTrajectory5(container.createTrajectoryConfig())),
 
             // Drop cube for mid node
 
@@ -110,7 +114,7 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_NODE_TO_OUTSIDE_COMMUNITY_METERS, AutonConstants.DISTANCE_FROM_OUTSIDE_COMMUNITY_TO_FIRST_KTURN_METERS, new Rotation2d(180)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_NODE_TO_OUTSIDE_COMMUNITY_METERS, AutonConstants.DISTANCE_FROM_OUTSIDE_COMMUNITY_TO_FIRST_KTURN_METERS, new Rotation2d(90)),
 			config);
 
 		return trajectory;
@@ -120,11 +124,11 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(0, 0, Rotation2d.fromDegrees(180.0)),
+			new Pose2d(0, 0, Rotation2d.fromDegrees(90.0)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(Units.inchesToMeters(AutonConstants.DISTANCE_FROM_FIRST_KTURN_METERS_TO_FIRST_CUBE_PICKUP_METERS), AutonConstants.DISTANCE_FROM_FIRST_KTURN_METERS_TO_AREA_BEFORE_FIRST_CUBE_PICKUP_METERS, new Rotation2d(0)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_FIRST_KTURN_METERS_TO_FIRST_CUBE_PICKUP_METERS, -AutonConstants.DISTANCE_FROM_FIRST_KTURN_METERS_TO_AREA_BEFORE_FIRST_CUBE_PICKUP_METERS, new Rotation2d(0)),
 			config);
 
 		return trajectory;
@@ -134,11 +138,11 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(0, 0, Rotation2d.fromDegrees(180.0)),
+			new Pose2d(0, 0, Rotation2d.fromDegrees(0.0)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_FIRST_KTURN_METERS_TO_FIRST_CUBE_PICKUP_METERS, AutonConstants.DISTANCE_FROM_FIRST_KTURN_METERS_TO_AREA_BEFORE_FIRST_CUBE_PICKUP_METERS, new Rotation2d(180)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_FIRST_KTURN_METERS_TO_FIRST_CUBE_PICKUP_METERS, -AutonConstants.DISTANCE_FROM_FIRST_KTURN_METERS_TO_AREA_BEFORE_FIRST_CUBE_PICKUP_METERS, new Rotation2d(0)),
 			config);
 
 		return trajectory;
@@ -148,11 +152,25 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(0, 0, Rotation2d.fromDegrees(180.0)),
+			new Pose2d(0, 0, Rotation2d.fromDegrees(0.0)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_NODE_TO_OUTSIDE_COMMUNITY_METERS, AutonConstants.DISTANCE_FROM_OUTSIDE_COMMUNITY_TO_FIRST_KTURN_METERS, new Rotation2d(180)),
+			new Pose2d(-AutonConstants.DISTANCE_FROM_FIRST_KTURN_METERS_TO_FIRST_CUBE_PICKUP_METERS, AutonConstants.DISTANCE_FROM_FIRST_KTURN_METERS_TO_AREA_BEFORE_FIRST_CUBE_PICKUP_METERS, new Rotation2d(90)),
+			config);
+
+		return trajectory;
+	}
+
+	public Trajectory createTrajectory5(TrajectoryConfig config) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the -X direction
+			new Pose2d(0, 0, Rotation2d.fromDegrees(0.0)),
+			// Pass through these waypoints
+			List.of(),
+			// End straight ahead of where we started, facing forward
+			new Pose2d(-AutonConstants.DISTANCE_FROM_NODE_TO_OUTSIDE_COMMUNITY_METERS, -AutonConstants.DISTANCE_FROM_OUTSIDE_COMMUNITY_TO_FIRST_KTURN_METERS, new Rotation2d(180)),
 			config);
 
 		return trajectory;
