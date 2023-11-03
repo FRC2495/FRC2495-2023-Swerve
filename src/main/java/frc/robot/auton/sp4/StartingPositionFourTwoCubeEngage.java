@@ -45,7 +45,7 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
             // Move to cube directly over charge station
             //container.createSwerveControllerCommand(createTrajectory(container.createTrajectoryConfig()))
 
-            container.createSwerveControllerCommand(createTrajectory4(container.createTrajectoryConfig()))
+            container.createSwerveControllerCommand(createTrajectory(container.createReverseTrajectoryConfig()))
 
             // Get ready to pick up the cube
 
@@ -127,5 +127,6 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
 
 		return trajectory;
 	}
+
 
 }

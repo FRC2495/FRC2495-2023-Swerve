@@ -53,6 +53,9 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
 								//TODO
 								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
 								break;
@@ -60,6 +63,9 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -70,16 +76,47 @@ public class CustomAuton extends SequentialCommandGroup {
 					case RobotContainer.MAIN_TARGET_CONE_NODE:
 						switch (autonOption) {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
-								//addCommands(new DropConeOnTopNodeAndShrink());
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
-								//addCommands(new StartingPositionOneBOneConeAndLeaveCommunity());
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
-								//addCommands(new StartingPositionOneBOneConeAndLeaveCommunityAndPickupCone());
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
+								//TODO
+								break;
+							default:
+								// nothing
+								break;
+						}	
+						break;
+					case RobotContainer.MAIN_TARGET_CUBE_NODE:
+						switch (autonOption) {
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
+								//TODO
 								break;
 							default:
 								// nothing
@@ -89,15 +126,46 @@ public class CustomAuton extends SequentialCommandGroup {
 					case RobotContainer.MAIN_TARGET_TWO_CONE_NODES:
 						switch (autonOption) {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
-								//addCommands(new StartingPositionOneBTwoCones());
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
-								//addCommands(new StartingPositionOneBTwoConesAndLeaveCommunity());
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
+								//TODO
+								break;
+							default:
+								// nothing
+								break;
+						}	
+						break;
+					case RobotContainer.MAIN_TARGET_TWO_CUBE_NODES:
+						switch (autonOption) {
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -110,6 +178,9 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
 								//TODO
 								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
 								break;
@@ -117,6 +188,9 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -127,14 +201,19 @@ public class CustomAuton extends SequentialCommandGroup {
 					default:
 						// nothing
 						break;
+						
 				}
 				break;
+				
 
 			case RobotContainer.START_POSITION_2:
 				switch (mainTarget) {
 					case RobotContainer.MAIN_TARGET_CHARGING_STATION:
 						switch (autonOption) {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
@@ -144,6 +223,9 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -156,6 +238,9 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
 								//TODO
 								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
 								break;
@@ -163,6 +248,34 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
+								//TODO
+								break;
+							default:
+								// nothing
+								break;
+						}	
+						break;
+					case RobotContainer.MAIN_TARGET_CUBE_NODE:
+						switch (autonOption) {
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -175,6 +288,9 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
 								//TODO
 								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
 								break;
@@ -182,6 +298,9 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -189,9 +308,12 @@ public class CustomAuton extends SequentialCommandGroup {
 								break;
 						}	
 						break;
-					case RobotContainer.MAIN_TARGET_NOWHERE:
+					case RobotContainer.MAIN_TARGET_TWO_CUBE_NODES:
 						switch (autonOption) {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
@@ -201,6 +323,35 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
+								//TODO
+								break;
+							default:
+								// nothing
+								break;
+						}	
+						break;
+						
+					case RobotContainer.MAIN_TARGET_NOWHERE:
+						switch (autonOption) {
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -221,13 +372,19 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
 								//TODO
 								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
-								//addCommands(new StartingPositionThreeOrFourBDock());
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
-								//addCommands(new StartingPositionThreeOrFourBDockAndLeaveCommunity());
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -238,15 +395,46 @@ public class CustomAuton extends SequentialCommandGroup {
 					case RobotContainer.MAIN_TARGET_CONE_NODE:
 						switch (autonOption) {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
-								//addCommands(new DropConeOnTopNodeAndShrink());
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
-								//addCommands(new PutDownOneConeAndDock());
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
-								//addCommands(new PutDownOneConeAndLeaveCommunityAndThenDock());
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
+								//TODO
+								break;
+							default:
+								// nothing
+								break;
+						}	
+						break;
+					case RobotContainer.MAIN_TARGET_CUBE_NODE:
+						switch (autonOption) {
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -259,13 +447,44 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
 								//TODO
 								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
-								//addCommands(new PutDownTwoConesAndDock());
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
+								//TODO
+								break;
+							default:
+								// nothing
+								break;
+						}	
+						break;
+					case RobotContainer.MAIN_TARGET_TWO_CUBE_NODES:
+						switch (autonOption) {
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -278,6 +497,9 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
 								//TODO
 								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
 								break;
@@ -285,6 +507,9 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -305,13 +530,19 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
 								//TODO
 								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
-								//addCommands(new StartingPositionThreeOrFourBDock());
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
-								//addCommands(new StartingPositionThreeOrFourBDockAndLeaveCommunity());
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -322,15 +553,46 @@ public class CustomAuton extends SequentialCommandGroup {
 					case RobotContainer.MAIN_TARGET_CONE_NODE:
 						switch (autonOption) {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
-								//addCommands(new DropConeOnTopNodeAndShrink());
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
-								//addCommands(new PutDownOneConeAndDock());
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
-								//addCommands(new PutDownOneConeAndLeaveCommunityAndThenDock());
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
+								//TODO
+								break;
+							default:
+								// nothing
+								break;
+						}	
+						break;
+					case RobotContainer.MAIN_TARGET_CUBE_NODE:
+						switch (autonOption) {
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -343,13 +605,44 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
 								//TODO
 								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
-								addCommands(new StartingPositionFourTwoCubeEngage(container));
+								addCommands(new StartingPositionFourTwoCubeEngage(container, elevator, drawer, roller, neck, mouth));
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
+								//TODO
+								break;
+							default:
+								// nothing
+								break;
+						}	
+						break;
+					case RobotContainer.MAIN_TARGET_TWO_CUBE_NODES:
+						switch (autonOption) {
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -362,6 +655,9 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
 								//TODO
 								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
 								break;
@@ -369,6 +665,9 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -389,6 +688,9 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
 								//TODO
 								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
 								break;
@@ -396,6 +698,9 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -408,6 +713,9 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
 								//TODO
 								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
 								break;
@@ -415,6 +723,34 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
+								//TODO
+								break;
+							default:
+								// nothing
+								break;
+						}	
+						break;
+					case RobotContainer.MAIN_TARGET_CUBE_NODE:
+						switch (autonOption) {
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -427,6 +763,9 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
 								//TODO
 								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
 								break;
@@ -434,6 +773,34 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
+								//TODO
+								break;
+							default:
+								// nothing
+								break;
+						}	
+						break;
+					case RobotContainer.MAIN_TARGET_TWO_CUBE_NODES:
+						switch (autonOption) {
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -446,6 +813,9 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
 								//TODO
 								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
 								break;
@@ -453,6 +823,9 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -473,6 +846,9 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
 								//TODO
 								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
 								break;
@@ -480,6 +856,9 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -490,16 +869,47 @@ public class CustomAuton extends SequentialCommandGroup {
 					case RobotContainer.MAIN_TARGET_CONE_NODE:
 						switch (autonOption) {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
-								//addCommands(new DropConeOnTopNodeAndShrink());
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
-								//addCommands(new StartingPositionSixBOneConeAndLeaveCommunity());
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
-								//addCommands(new StartingPositionSixBOneConeAndLeaveCommunityAndPickupCone());
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
+								//TODO
+								break;
+							default:
+								// nothing
+								break;
+						}	
+						break;
+					case RobotContainer.MAIN_TARGET_CUBE_NODE:
+						switch (autonOption) {
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
+								//TODO
 								break;
 							default:
 								// nothing
@@ -509,15 +919,46 @@ public class CustomAuton extends SequentialCommandGroup {
 					case RobotContainer.MAIN_TARGET_TWO_CONE_NODES:
 						switch (autonOption) {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
-								//addCommands(new StartingPositionSixBTwoCones());
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
-								//addCommands(new StartingPositionSixBTwoConesAndLeaveCommunity());
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
+								//TODO
+								break;
+							default:
+								// nothing
+								break;
+						}	
+						break;
+					case RobotContainer.MAIN_TARGET_TWO_CUBE_NODES:
+						switch (autonOption) {
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:
@@ -530,6 +971,9 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CONE:
 								//TODO
 								break;
+							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
+								//TODO
+								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
 								break;
@@ -537,6 +981,9 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
+								//TODO
+								break;
+							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
 								break;
 							default:

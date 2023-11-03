@@ -109,7 +109,9 @@ public class RobotContainer {
 	private SendableChooser<String> startPositionChooser = new SendableChooser<>();
 
 	public static final String MAIN_TARGET_CONE_NODE = "Cone Node";
+	public static final String MAIN_TARGET_CUBE_NODE = "Cube Node";
 	public static final String MAIN_TARGET_TWO_CONE_NODES = "Two Cone Nodes";
+	public static final String MAIN_TARGET_TWO_CUBE_NODES = "Two Cube Nodes";
 	public static final String MAIN_TARGET_CHARGING_STATION = "Charging Station";
 	public static final String MAIN_TARGET_NOWHERE = "Nowhere";
 	private String mainTarget;
@@ -135,9 +137,11 @@ public class RobotContainer {
 	private SendableChooser<String> releaseChooser = new SendableChooser<>();
 
 	public static final String AUTON_OPTION_JUST_DROP_CONE = "Just Drop Cone";
+	public static final String AUTON_OPTION_JUST_DROP_CUBE = "Just Drop Cube";
 	public static final String AUTON_OPTION_ALSO_DOCK = "Also Dock";
 	public static final String AUTON_OPTION_LEAVE_COMMUNITY = "Leave Community";
 	public static final String AUTON_OPTION_ALSO_PICKUP_CONE = "Also Pickup Cone";
+	public static final String AUTON_OPTION_ALSO_PICKUP_CUBE = "Also Pickup Cube";
 	private String autonOption;
 	private SendableChooser<String> autonOptionChooser = new SendableChooser<>();
 
