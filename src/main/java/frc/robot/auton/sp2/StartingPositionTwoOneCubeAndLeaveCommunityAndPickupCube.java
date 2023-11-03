@@ -24,9 +24,9 @@ import frc.robot.subsystems.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
-public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
+public class StartingPositionTwoOneCubeAndLeaveCommunityAndPickupCube extends SequentialCommandGroup {
 
-    public StartingPositionTwoTwoCube(RobotContainer container, Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth){
+    public StartingPositionTwoOneCubeAndLeaveCommunityAndPickupCube(RobotContainer container, Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth){
 
         addCommands(
 
@@ -58,54 +58,15 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 
 			new PickupCube(container, neck, roller),
 
-            //new NeckMoveDownWithStallDetection(neck),
+            /*new NeckMoveDownWithStallDetection(neck),
 
-            //new RollerTimedRoll(roller, .5), // todo change to timed command 
-
-            // Move forward to pick up cube
-
-            // container.createSwerveControllerCommand(createTrajectory3(container.createTrajectoryConfig())),
-
-			// Shrink
-			
-            new NeckSafeMoveUpWithStallDetection(neck, mouth, container.getCopilotGamepad()),
-
-            // Move to first part of kturn
-
-            container.createSwerveControllerCommand(createTrajectory4(container.createReverseTrajectoryConfig())),
-
-            // Move back to cube node
-
-            container.createSwerveControllerCommand(createTrajectory5(container.createTrajectoryConfig())),
-
-            // Drop cube for mid node
-
-            new RollerTimedRelease(roller, .5)
-             
-
-            /*// Move to second cube while rotating 180 degrees
-
-            // Grab mechanism open
-
-            new NeckMoveDownWithStallDetection(neck),
-
-            new RollerRoll(roller), // todo change to timed command 
+            new RollerTimedRoll(roller, .5), // todo change to timed command */
 
             // Move forward to pick up cube
 
+            container.createSwerveControllerCommand(createTrajectory3(container.createTrajectoryConfig())),
 
-            // Shrink
-
-            new NeckSafeMoveUpWithStallDetection(neck, mouth, container.getCopilotGamepad()),
-
-            // Move back to shelf while rotating 180 degrees
-
-            // Drop cube
-
-            new NeckMoveDownWithStallDetection(neck),
-
-            new RollerRelease(roller) // todo change to timed command */
- 
+            new NeckSafeMoveUpWithStallDetection(neck, mouth, container.getCopilotGamepad())
             
         ); 
   
