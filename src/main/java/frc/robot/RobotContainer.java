@@ -363,17 +363,19 @@ public class RobotContainer {
 
 
 		copilotGamepad.leftBumper()
-			.onTrue(new NeckMoveDownWithStallDetection(neck));
+			.onTrue(new NeckSafeMoveUpWithStallDetection(neck, mouth, getCopilotGamepad()));
 
 		copilotGamepad.rightBumper()
-			.onTrue(new NeckSafeMoveUpWithStallDetection(neck, mouth, getCopilotGamepad()));
+			.onTrue(new NeckMoveDownWithStallDetection(neck));
 
 
 		copilotGamepad.leftStick()
-			.onTrue(new GamepadRumble(getCopilotGamepad(),false));			
+			.onTrue(new RollerTimedRoll(roller, 3));
+			//.onTrue(new GamepadRumble(getCopilotGamepad(),false));			
 
 		copilotGamepad.rightStick()
-			.onTrue(new GamepadRumble(getCopilotGamepad(),false));
+			.onTrue(new RollerTimedRelease(roller, 3));
+			//.onTrue(new GamepadRumble(getCopilotGamepad(),false));
 
 
 		copilotGamepad.axisGreaterThan(LY,GAMEPAD_AXIS_THRESHOLD)

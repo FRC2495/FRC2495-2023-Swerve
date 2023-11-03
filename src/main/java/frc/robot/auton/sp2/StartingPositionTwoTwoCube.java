@@ -36,7 +36,7 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 
             new DrawerExtendWithStallDetection(drawer),
 
-            new RollerRelease(roller), // todo change to timed command 
+            new RollerTimedRelease(roller, .5), // todo change to timed command 
 
             // Shrink
 
@@ -52,7 +52,7 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 
             new NeckMoveDownWithStallDetection(neck),
 
-            new RollerRoll(roller), // todo change to timed command 
+            new RollerTimedRoll(roller, .5), // todo change to timed command 
 
             // Move forward to pick up cube
 
@@ -70,7 +70,7 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 
             // Drop cube for mid node
 
-            new RollerRelease(roller)
+            new RollerTimedRelease(roller, .5)
              
 
             /*// Move to second cube while rotating 180 degrees
