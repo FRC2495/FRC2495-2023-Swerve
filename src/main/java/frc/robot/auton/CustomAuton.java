@@ -10,6 +10,8 @@ package frc.robot.auton;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 import frc.robot.RobotContainer;
+import frc.robot.auton.common.DropTopCube;
+import frc.robot.auton.common.DropTopCubeAndShrink;
 import frc.robot.auton.sp2.StartingPositionTwoOneCubeAndLeaveCommunity;
 import frc.robot.auton.sp2.StartingPositionTwoTwoCube;
 //import frc.robot.auton.blue.*;
@@ -57,7 +59,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
-								//TODO
+								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
@@ -107,7 +109,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
-								//TODO
+								addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
@@ -267,7 +269,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
-								//TODO
+								addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
@@ -426,7 +428,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
-								//TODO
+								addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
@@ -584,7 +586,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
-								//TODO
+								addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
@@ -742,7 +744,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
-								//TODO
+								addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO
@@ -900,7 +902,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_JUST_DROP_CUBE:
-								//TODO
+								addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
 								//TODO

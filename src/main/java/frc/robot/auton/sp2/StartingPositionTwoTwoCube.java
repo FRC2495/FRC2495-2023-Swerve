@@ -134,20 +134,6 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 		return trajectory;
 	}
 
-    public Trajectory createAreaBeforeCubePickupTrajectory(RobotContainer container) {
-		// An example trajectory to follow. All units in meters.
-		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
-			// Start at the origin facing the +X direction
-			new Pose2d(0, 0, Rotation2d.fromDegrees(0.0)),
-			// Pass through these waypoints
-			List.of(),
-			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_AREA_BEFORE_FIRST_CUBE_PICKUP_TO_CUBE_PICKUP_METERS, 0, Rotation2d.fromDegrees(0)),
-			container.createTrajectoryConfig());
-
-		return trajectory;
-	}
-
     public Trajectory createCubePickupToSecondPartOfNonBumpKTurnTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
