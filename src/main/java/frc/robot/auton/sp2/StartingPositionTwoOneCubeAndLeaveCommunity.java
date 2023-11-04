@@ -46,7 +46,7 @@ public class StartingPositionTwoOneCubeAndLeaveCommunity extends SequentialComma
 
             // Move backward to leave community
 
-            container.createSwerveControllerCommand(createTrajectory(container.createReverseTrajectoryConfig()))
+            container.createSwerveControllerCommand(createLeaveCommunityTrajectory(container.createReverseTrajectoryConfig()))
 
             
 
@@ -57,7 +57,7 @@ public class StartingPositionTwoOneCubeAndLeaveCommunity extends SequentialComma
     }
 
     
-    public Trajectory createTrajectory(TrajectoryConfig config) {
+    public Trajectory createLeaveCommunityTrajectory(TrajectoryConfig config) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -70,6 +70,8 @@ public class StartingPositionTwoOneCubeAndLeaveCommunity extends SequentialComma
 
 		return trajectory;
 	}
+
+	
 
    
 }

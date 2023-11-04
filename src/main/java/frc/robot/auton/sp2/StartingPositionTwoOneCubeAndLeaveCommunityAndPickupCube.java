@@ -46,11 +46,11 @@ public class StartingPositionTwoOneCubeAndLeaveCommunityAndPickupCube extends Se
 
             // Move backward to first part of kturn
 
-            container.createSwerveControllerCommand(createTrajectory(container.createReverseTrajectoryConfig())),
+            container.createSwerveControllerCommand(createFirstPartOfKturnTrajectory(container.createReverseTrajectoryConfig())),
 
 			// Move forward to second part of kturn
 
-			container.createSwerveControllerCommand(createTrajectory2(container.createTrajectoryConfig())),
+			container.createSwerveControllerCommand(createSecondPartOfKturnTrajectory(container.createTrajectoryConfig())),
 
             // Grab mechanism open
 
@@ -64,7 +64,7 @@ public class StartingPositionTwoOneCubeAndLeaveCommunityAndPickupCube extends Se
 
             // Move forward to pick up cube
 
-            container.createSwerveControllerCommand(createTrajectory3(container.createTrajectoryConfig())),
+           // container.createSwerveControllerCommand(createAreaBeforeCubePickupTrajectory(container.createTrajectoryConfig())),
 
             new NeckSafeMoveUpWithStallDetection(neck, mouth, container.getCopilotGamepad())
             
@@ -73,7 +73,7 @@ public class StartingPositionTwoOneCubeAndLeaveCommunityAndPickupCube extends Se
     }
 
     
-    public Trajectory createTrajectory(TrajectoryConfig config) {
+    public Trajectory createFirstPartOfKturnTrajectory(TrajectoryConfig config) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -87,7 +87,7 @@ public class StartingPositionTwoOneCubeAndLeaveCommunityAndPickupCube extends Se
 		return trajectory;
 	}
 
-    public Trajectory createTrajectory2(TrajectoryConfig config) {
+    public Trajectory createSecondPartOfKturnTrajectory(TrajectoryConfig config) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -101,7 +101,7 @@ public class StartingPositionTwoOneCubeAndLeaveCommunityAndPickupCube extends Se
 		return trajectory;
 	}
 
-    public Trajectory createTrajectory3(TrajectoryConfig config) {
+    public Trajectory createAreaBeforeCubePickupTrajectory(TrajectoryConfig config) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -109,13 +109,13 @@ public class StartingPositionTwoOneCubeAndLeaveCommunityAndPickupCube extends Se
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_FIRST_KTURN_METERS_TO_FIRST_CUBE_PICKUP_METERS, -AutonConstants.DISTANCE_FROM_FIRST_KTURN_METERS_TO_AREA_BEFORE_FIRST_CUBE_PICKUP_METERS, new Rotation2d(0)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_AREA_BEFORE_FIRST_CUBE_PICKUP_TO_CUBE_PICKUP_METERS, 0, new Rotation2d(0)),
 			config);
 
 		return trajectory;
 	}
 
-    public Trajectory createTrajectory4(TrajectoryConfig config) {
+    public Trajectory createCubePickupToSecondPartOfKTurnTrajectory(TrajectoryConfig config) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -129,7 +129,7 @@ public class StartingPositionTwoOneCubeAndLeaveCommunityAndPickupCube extends Se
 		return trajectory;
 	}
 
-	public Trajectory createTrajectory5(TrajectoryConfig config) {
+	public Trajectory createSecondPartOfKturnToCubeNode(TrajectoryConfig config) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction

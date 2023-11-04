@@ -17,8 +17,9 @@ public class AutonConstants {
     public static final double DISTANCE_FROM_NODE_TO_OUTSIDE_COMMUNITY = 134+26;
     public static final double DISTANCE_FROM_NODE_TO_OUTSIDE_COMMUNITY_METERS = 2.18;
     public static final double DISTANCE_FROM_OUTSIDE_COMMUNITY_TO_FIRST_KTURN_METERS = 1.33;
-    public static final double DISTANCE_FROM_FIRST_KTURN_METERS_TO_FIRST_CUBE_PICKUP_METERS = 2.26;
-    public static final double DISTANCE_FROM_FIRST_KTURN_METERS_TO_AREA_BEFORE_FIRST_CUBE_PICKUP_METERS = 1.15;
+    public static final double DISTANCE_FROM_FIRST_KTURN_METERS_TO_FIRST_CUBE_PICKUP_METERS = 1.35;
+    public static final double DISTANCE_FROM_FIRST_KTURN_METERS_TO_AREA_BEFORE_FIRST_CUBE_PICKUP_METERS = 1.11;
+    public static final double DISTANCE_FROM_AREA_BEFORE_FIRST_CUBE_PICKUP_TO_CUBE_PICKUP_METERS = 1;
     public static final double DISTANCE_FROM_OUTSIDE_COMMUNITY_TO_SECOND_CONE_PICKUP = 25;
 
     // Starting Position Three + Four Distances
