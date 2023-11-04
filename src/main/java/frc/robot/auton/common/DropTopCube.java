@@ -19,7 +19,7 @@ public class DropTopCube extends SequentialCommandGroup{
 
             new DrawerExtendWithStallDetection(drawer),
 
-            new RollerRelease(roller)
+            new RollerTimedRelease(roller, .25)
         
         );
 

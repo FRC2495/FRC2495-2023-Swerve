@@ -32,18 +32,12 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 
             // Drop preloaded cube on top node
 
-            new ElevatorMoveUpWithStallDetection(elevator),
-
-            new DrawerExtendWithStallDetection(drawer),
-
-            new RollerTimedRelease(roller, .5), // todo change to timed command 
+            new DropTopCube(container, elevator, drawer, roller),
 
             // Shrink
 
-            new DrawerRetractWithStallDetection(drawer),
-
-            new ElevatorMoveDownWithStallDetection(elevator),
-
+            new Shrink(container, elevator, drawer),
+			
             // Move backward to first part of kturn
 
             container.createSwerveControllerCommand(createFirstPartOfKturnTrajectory(container)),
