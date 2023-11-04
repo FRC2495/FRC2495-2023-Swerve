@@ -109,7 +109,7 @@ public class Neck extends SubsystemBase implements INeck {
 		// Note: Regardless of invert value, the LEDs will blink green when positive output is requested (by robot code or firmware closed loop).
 		// Only the motor leads are inverted. This feature ensures that sensor phase and limit switches will properly match the LED pattern
 		// (when LEDs are green => forward limit switch and soft limits are being checked). 	
-		neck.setInverted(true); // invert if required
+		neck.setInverted(false); // invert if required
 		//neck_follower.setInverted(false);
 
 		// Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output.
