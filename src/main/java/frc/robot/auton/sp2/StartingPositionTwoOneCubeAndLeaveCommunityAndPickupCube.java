@@ -40,7 +40,7 @@ public class StartingPositionTwoOneCubeAndLeaveCommunityAndPickupCube extends Se
 
             // Shrink
 
-            new DrawerSafeRetractWithStallDetection(drawer, mouth, neck, container.getCopilotGamepad()),
+            new DrawerRetractWithStallDetection(drawer),
 
             new ElevatorMoveDownWithStallDetection(elevator),
 

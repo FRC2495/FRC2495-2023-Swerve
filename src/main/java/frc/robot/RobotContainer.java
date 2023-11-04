@@ -351,7 +351,7 @@ public class RobotContainer {
 
 
 		copilotGamepad.leftTrigger()
-			.onTrue(new DrawerSafeRetractWithStallDetection(drawer, mouth, neck, getCopilotGamepad()));
+			.onTrue(new DrawerRetractWithStallDetection(drawer));
 
 		copilotGamepad.rightTrigger()
 			.onTrue(new DrawerExtendWithStallDetection(drawer));

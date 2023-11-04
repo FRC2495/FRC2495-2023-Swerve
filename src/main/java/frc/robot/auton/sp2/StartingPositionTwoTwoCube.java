@@ -40,7 +40,7 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 
             // Shrink
 
-            new DrawerSafeRetractWithStallDetection(drawer, mouth, neck, container.getCopilotGamepad()),
+            new DrawerRetractWithStallDetection(drawer),
 
             new ElevatorMoveDownWithStallDetection(elevator),
 
