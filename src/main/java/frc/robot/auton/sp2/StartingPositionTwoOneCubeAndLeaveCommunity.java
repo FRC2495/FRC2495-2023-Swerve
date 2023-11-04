@@ -46,7 +46,7 @@ public class StartingPositionTwoOneCubeAndLeaveCommunity extends SequentialComma
 
             // Move backward to leave community
 
-            container.createSwerveControllerCommand(createLeaveCommunityTrajectory(container.createReverseTrajectoryConfig()))
+            container.createSwerveControllerCommand(createLeaveCommunityTrajectory(container))
 
             
 
@@ -57,7 +57,7 @@ public class StartingPositionTwoOneCubeAndLeaveCommunity extends SequentialComma
     }
 
     
-    public Trajectory createLeaveCommunityTrajectory(TrajectoryConfig config) {
+    public Trajectory createLeaveCommunityTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -66,7 +66,7 @@ public class StartingPositionTwoOneCubeAndLeaveCommunity extends SequentialComma
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_NODE_TO_OUTSIDE_COMMUNITY_METERS, 0, Rotation2d.fromDegrees(180)),
-			config);
+            container.createReverseTrajectoryConfig());
 
 		return trajectory;
 	}

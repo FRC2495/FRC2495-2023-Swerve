@@ -4,6 +4,9 @@ public class AutonConstants {
 
     // Fixed auton distances
 
+    // All Starting Position Distances
+    public static final double DISTANCE_FROM_NODE_TO_COMPLETELY_OUTSIDE_COMMUNITY_METERS = 4.09;
+
     // Starting Position One + Six(?) Distances
     public static final double DISTANCE_FROM_CONE_NODE_TO_AREA_BEFORE_FIRST_TURN = 37;
     public static final double DISTANCE_FROM_AREA_AFTER_FIRST_TURN_TO_AREA_BEFORE_SECOND_TURN = 29;
@@ -14,6 +17,8 @@ public class AutonConstants {
     public static final double DISTANCE_FROM_AREA_AFTER_THIRD_TURN_TO_AREA_BEFORE_FOURTH_TURN = 21;
     public static final double DISTANCE_FROM_AREA_AFTER_FOURTH_TURN_TO_CONE_NODE = 8;
 
+
+    // Starting Position Two Distances
     public static final double DISTANCE_FROM_NODE_TO_OUTSIDE_COMMUNITY = 134+26;
     public static final double DISTANCE_FROM_NODE_TO_OUTSIDE_COMMUNITY_METERS = 2.18;
     public static final double DISTANCE_FROM_OUTSIDE_COMMUNITY_TO_FIRST_KTURN_METERS = 1.33;
@@ -21,6 +26,10 @@ public class AutonConstants {
     public static final double DISTANCE_FROM_FIRST_KTURN_METERS_TO_AREA_BEFORE_FIRST_CUBE_PICKUP_METERS = 1.11;
     public static final double DISTANCE_FROM_AREA_BEFORE_FIRST_CUBE_PICKUP_TO_CUBE_PICKUP_METERS = 1;
     public static final double DISTANCE_FROM_OUTSIDE_COMMUNITY_TO_SECOND_CONE_PICKUP = 25;
+
+    public static final double DISTANCE_FROM_NODE_TO_FIRST_PART_OF_L_SHAPE_METERS = 2.57;
+    public static final double DISTANCE_FROM_FIRST_PART_OF_L_SHAPE__TO_SECOND_PART_OF_L_SHAPE_METERS = 1.45;
+    public static final double DISTANCE_FROM_SECOND_PART_OF_L_SHAPE_TO_FINAL_DESTINATION_METERS = 1.53;
 
     // Starting Position Three + Four Distances
     public static final double DISTANCE_FROM_NODE_TO_DOCK = 30; // todo put proper value
