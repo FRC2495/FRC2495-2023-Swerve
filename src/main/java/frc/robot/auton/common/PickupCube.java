@@ -27,7 +27,7 @@ public class PickupCube extends ParallelCommandGroup{
 
         addCommands(
 
-            new RollerTimedRoll(roller, 2),
+            new RollerTimedRoll(roller, .5),
 
             container.createSwerveControllerCommand(createAreaBeforeCubePickupTrajectory(container))        
         );

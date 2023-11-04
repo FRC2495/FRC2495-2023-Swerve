@@ -6,19 +6,20 @@ import frc.robot.RobotContainer;
 import frc.robot.commands.drawer.*;
 import frc.robot.commands.elevator.*;
 import frc.robot.commands.roller.*;
+import frc.robot.subsystems.*;
 
 
 public class DropTopCube extends SequentialCommandGroup{
     
-    public DropTopCube(RobotContainer container) {
+    public DropTopCube(RobotContainer container, Elevator elevator, Drawer drawer, Roller roller) {
 
         addCommands(
             
-            new ElevatorMoveUpWithStallDetection(null),
+            new ElevatorMoveUpWithStallDetection(elevator),
 
-            new DrawerExtendWithStallDetection(null),
+            new DrawerExtendWithStallDetection(drawer),
 
-            new RollerRelease(null)
+            new RollerRelease(roller)
         
         );
 
