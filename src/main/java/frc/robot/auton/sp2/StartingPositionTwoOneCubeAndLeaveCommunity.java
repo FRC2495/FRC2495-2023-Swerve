@@ -65,7 +65,7 @@ public class StartingPositionTwoOneCubeAndLeaveCommunity extends SequentialComma
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_NODE_TO_OUTSIDE_COMMUNITY_METERS, 0, new Rotation2d(180)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_NODE_TO_OUTSIDE_COMMUNITY_METERS, 0, Rotation2d.fromDegrees(180)),
 			config);
 
 		return trajectory;

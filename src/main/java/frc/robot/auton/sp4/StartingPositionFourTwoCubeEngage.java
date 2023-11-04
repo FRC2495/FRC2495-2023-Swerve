@@ -75,7 +75,7 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(new Translation2d(1, 1)),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(Units.inchesToMeters(AutonConstants.DISTANCE_FROM_START_OF_CHARGING_STATION_TO_DOCKED_AT_CHARGING_STATION + AutonConstants.DISTANCE_FROM_DOCK_TO_OUTSIDE_COMMUNITY), 0, new Rotation2d(0)),
+			new Pose2d(Units.inchesToMeters(AutonConstants.DISTANCE_FROM_START_OF_CHARGING_STATION_TO_DOCKED_AT_CHARGING_STATION + AutonConstants.DISTANCE_FROM_DOCK_TO_OUTSIDE_COMMUNITY), 0, Rotation2d.fromDegrees(0)),
 			config);
 
 		return trajectory;
@@ -86,11 +86,11 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the +X direction
-			new Pose2d(0, 0, new Rotation2d(0)),
+			new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
 			// Pass through these two interior waypoints, making an 's' curve path
 			List.of(new Translation2d(1, 1), new Translation2d(2, -1)),
 			// End 3 meters straight ahead of where we started, facing forward
-			new Pose2d(3, 0, new Rotation2d(0)),
+			new Pose2d(3, 0, Rotation2d.fromDegrees(0)),
 			config);
 
 		return trajectory;
