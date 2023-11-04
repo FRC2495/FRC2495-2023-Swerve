@@ -29,14 +29,11 @@ public class PickupCube extends ParallelCommandGroup{
 
             new RollerTimedRoll(roller, 2),
 
-            container.createSwerveControllerCommand(createAreaBeforeCubePickupTrajectory(container.createTrajectoryConfig()))
-        
+            container.createSwerveControllerCommand(createAreaBeforeCubePickupTrajectory(container))        
         );
-
-
     }
     
-    public Trajectory createAreaBeforeCubePickupTrajectory(TrajectoryConfig config) {
+    public Trajectory createAreaBeforeCubePickupTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -45,7 +42,7 @@ public class PickupCube extends ParallelCommandGroup{
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_AREA_BEFORE_FIRST_CUBE_PICKUP_TO_CUBE_PICKUP_METERS, 0, Rotation2d.fromDegrees(0)),
-			config);
+			container.createTrajectoryConfig());
 
 		return trajectory;
 	}

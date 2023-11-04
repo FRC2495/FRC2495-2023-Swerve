@@ -437,7 +437,7 @@ public class RobotContainer {
 
 		switch (autonSelected) {
 			case AUTON_SAMPLE_SWERVE:
-				return createSwerveControllerCommand(createExampleTrajectory(createTrajectoryConfig()));
+				return createSwerveControllerCommand(createExampleTrajectory());
 				//break;
 
 			case AUTON_CUSTOM:
@@ -476,7 +476,7 @@ public class RobotContainer {
 		return config;
 	}
 
-	public Trajectory createExampleTrajectory(TrajectoryConfig config) {
+	public Trajectory createExampleTrajectory() {
 		// An example trajectory to follow. All units in meters.
 		Trajectory exampleTrajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the +X direction
@@ -485,7 +485,7 @@ public class RobotContainer {
 			List.of(new Translation2d(1, 1), new Translation2d(2, -1)),
 			// End 3 meters straight ahead of where we started, facing forward
 			new Pose2d(3, 0, Rotation2d.fromDegrees(0)),
-			config);
+			createTrajectoryConfig());
 
 		return exampleTrajectory;
 	}

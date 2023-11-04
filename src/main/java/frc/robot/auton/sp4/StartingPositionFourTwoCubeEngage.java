@@ -43,9 +43,8 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
             new ElevatorMoveDownWithStallDetection(elevator),*/
 
             // Move to cube directly over charge station
-            //container.createSwerveControllerCommand(createTrajectory(container.createTrajectoryConfig()))
 
-            container.createSwerveControllerCommand(createTrajectory(container.createReverseTrajectoryConfig()))
+            container.createSwerveControllerCommand(createTrajectory(container))
 
             // Get ready to pick up the cube
 
@@ -62,12 +61,11 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
 
             // Move back to shelf over charge station*/
 
-
         ); 
   
     }
 
-    public Trajectory createTrajectory(TrajectoryConfig config) {
+    public Trajectory createTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -76,13 +74,13 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
 			List.of(new Translation2d(1, 1)),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(Units.inchesToMeters(AutonConstants.DISTANCE_FROM_START_OF_CHARGING_STATION_TO_DOCKED_AT_CHARGING_STATION + AutonConstants.DISTANCE_FROM_DOCK_TO_OUTSIDE_COMMUNITY), 0, Rotation2d.fromDegrees(0)),
-			config);
+			container.createReverseTrajectoryConfig());
 
 		return trajectory;
 	}
    
 
-    public Trajectory createTrajectory2(TrajectoryConfig config) {
+    public Trajectory createSCurveTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the +X direction
@@ -91,36 +89,36 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
 			List.of(new Translation2d(1, 1), new Translation2d(2, -1)),
 			// End 3 meters straight ahead of where we started, facing forward
 			new Pose2d(3, 0, Rotation2d.fromDegrees(0)),
-			config);
+			container.createTrajectoryConfig());
 
 		return trajectory;
 	}
 
 
-    public Trajectory createTrajectory3(TrajectoryConfig config) {
+    public Trajectory createStraightInReverseTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
-			// Start at the origin facing the +X direction
+			// Start at the origin facing the -X direction
 			new Pose2d(0, 0, Rotation2d.fromDegrees(180.0)),
 			// Pass through these two interior waypoints, making an 's' curve path
-			List.of(new Translation2d(1, 1) ),
-			// End 3 meters straight ahead of where we started, facing forward
+			List.of(/*new Translation2d(1, 1)*/),
+			// End 5 meters straight ahead of where we started, facing back
 			new Pose2d(5, 0, Rotation2d.fromDegrees(180.0)),
-			config);
+			container.createReverseTrajectoryConfig());
 
 		return trajectory;
 	}
 
-    public Trajectory createTrajectory4(TrajectoryConfig config) {
+    public Trajectory createStraightForwardTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the +X direction
 			new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
 			// Pass through these two interior waypoints, making an 's' curve path
 			List.of(),
-			// End 3 meters straight ahead of where we started, facing forward
+			// End 5 meters straight ahead of where we started, facing forward
 			new Pose2d(5, 0, Rotation2d.fromDegrees(0)),
-			config);
+			container.createTrajectoryConfig());
 
 		return trajectory;
 	}
