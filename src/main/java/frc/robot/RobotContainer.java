@@ -65,6 +65,10 @@ import frc.robot.commands.indicator.*;
 import frc.robot.commands.groups.*;
 import frc.robot.commands.gamepad.*;
 import frc.robot.auton.*;
+import frc.robot.auton.common.CompletelyLeaveCommunity;
+import frc.robot.auton.common.MoveForward;
+import frc.robot.auton.common.MoveInInvertedLShape;
+import frc.robot.auton.common.MoveInLShape;
 
 
 /*
@@ -305,10 +309,19 @@ public class RobotContainer {
 
 
 		joyMain.button(2)
-			.whileTrue(new DrivetrainSetXFormation(drivetrain));		
+			.whileTrue(new DrivetrainSetXFormation(drivetrain));	
+			
+		joyMain.button(3)
+			.onTrue(new MoveInLShape(this));
+			
+		joyMain.button(4)
+			.onTrue(new MoveInInvertedLShape(this));
+
+		joyMain.button(5)
+			.onTrue(new MoveForward(this));
 
 		joyMain.button(6)
-			.onTrue(new DrivetrainResetEncoders(drivetrain));
+			.onTrue(new CompletelyLeaveCommunity(this));
 
 		joyMain.button(7)
 			.whileTrue(new RollerJoystickControl(roller, drivetrain, getMainJoystick()));
