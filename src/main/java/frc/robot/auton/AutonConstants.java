@@ -25,16 +25,17 @@ public class AutonConstants {
     public static final double DISTANCE_FROM_FIRST_NONBUMP_KTURN_METERS_TO_FIRST_CUBE_PICKUP_METERS = 1.35;
     public static final double DISTANCE_FROM_FIRST_NONBUMP_KTURN_METERS_TO_AREA_BEFORE_FIRST_CUBE_PICKUP_METERS = 1.11;
     public static final double DISTANCE_FROM_AREA_BEFORE_FIRST_CUBE_PICKUP_TO_CUBE_PICKUP_METERS = 1;
-    public static final double DISTANCE_FROM_OUTSIDE_COMMUNITY_TO_SECOND_CONE_PICKUP_METERS = 25;
-
-    public static final double DISTANCE_FROM_NODE_TO_FIRST_PART_OF_L_SHAPE_METERS = 2.57;
-    public static final double DISTANCE_FROM_FIRST_PART_OF_L_SHAPE_TO_SECOND_PART_OF_L_SHAPE_METERS = 1.45;
-    public static final double DISTANCE_FROM_SECOND_PART_OF_L_SHAPE_TO_FINAL_DESTINATION_METERS = 1.53;
+    //public static final double DISTANCE_FROM_OUTSIDE_COMMUNITY_TO_SECOND_CONE_PICKUP = 25;
 
     public static final double DISTANCE_FROM_NODE_TO_FIRST_PART_OF_BUMP_KTURN_METERS = 3.60;
     public static final double DISTANCE_FROM_FIRST_PART_OF_BUMP_KTURN_TO_SECOND_PART_OF_KTURN_METERS = .45;
     public static final double DISTANCE_FROM_FIRST_PART_OF_BUMP_KTURN_TO_AREA_BEFORE_CUBE_PICKUP_METERS = 1.05;
     public static final double DISTANCE_FROM_SECOND_PART_OF_BUMP_KTURN_TO_AREA_BEFORE_CUBE_PICKUP_METERS = .63;
+
+    public static final double DISTANCE_FROM_NODE_TO_FIRST_PART_OF_L_SHAPE_METERS = 2.57;
+    public static final double DISTANCE_FROM_FIRST_PART_OF_L_SHAPE_TO_SECOND_PART_OF_L_SHAPE_METERS = 1.45;
+    public static final double DISTANCE_FROM_SECOND_PART_OF_L_SHAPE_TO_FINAL_DESTINATION_METERS = 1.53;
+
 
     // Starting Position Three + Four Distances
     public static final double DISTANCE_FROM_NODE_TO_DOCK = 30; // todo put proper value
