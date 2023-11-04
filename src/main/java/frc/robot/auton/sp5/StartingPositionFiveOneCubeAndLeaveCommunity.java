@@ -1,4 +1,4 @@
-package frc.robot.auton.sp2;
+package frc.robot.auton.sp5;
 
 import java.util.List;
 
@@ -24,9 +24,9 @@ import frc.robot.subsystems.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
-public class StartingPositionTwoOneCubeAndLeaveCommunity extends SequentialCommandGroup {
+public class StartingPositionFiveOneCubeAndLeaveCommunity extends SequentialCommandGroup {
 
-    public StartingPositionTwoOneCubeAndLeaveCommunity(RobotContainer container, Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth){
+    public StartingPositionFiveOneCubeAndLeaveCommunity(RobotContainer container, Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth){
 
         addCommands(
 
