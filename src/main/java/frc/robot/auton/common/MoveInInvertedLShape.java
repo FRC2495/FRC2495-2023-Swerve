@@ -17,22 +17,22 @@ import frc.robot.auton.AutonConstants;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
-public class MoveInLShape extends SequentialCommandGroup {
+public class MoveInInvertedLShape extends SequentialCommandGroup {
 
-    public MoveInLShape(RobotContainer container){
+    public MoveInInvertedLShape(RobotContainer container){
 
         addCommands(
 
-            container.createSwerveControllerCommand(createFirstPartOfLShapeTrajectory(container)),
+            container.createSwerveControllerCommand(createFirstPartOfInvertedLShapeTrajectory(container)),
 
-            container.createSwerveControllerCommand(createSecondPartOfLShapeTrajectory(container))
+            container.createSwerveControllerCommand(createSecondPartOfInvertedLShapeTrajectory(container))
             
         ); 
   
     }
 
     
-    public Trajectory createFirstPartOfLShapeTrajectory(RobotContainer container) {
+    public Trajectory createFirstPartOfInvertedLShapeTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -46,7 +46,7 @@ public class MoveInLShape extends SequentialCommandGroup {
 		return trajectory;
 	}
 
-	public Trajectory createSecondPartOfLShapeTrajectory(RobotContainer container) {
+	public Trajectory createSecondPartOfInvertedLShapeTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -54,7 +54,7 @@ public class MoveInLShape extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_FIRST_PART_OF_L_SHAPE_TO_SECOND_PART_OF_L_SHAPE_METERS, AutonConstants.DISTANCE_FROM_SECOND_PART_OF_L_SHAPE_TO_FINAL_DESTINATION_METERS, Rotation2d.fromDegrees(90)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_FIRST_PART_OF_L_SHAPE_TO_SECOND_PART_OF_L_SHAPE_METERS, -AutonConstants.DISTANCE_FROM_SECOND_PART_OF_L_SHAPE_TO_FINAL_DESTINATION_METERS, Rotation2d.fromDegrees(-90)),
 			container.createReverseTrajectoryConfig());
 
 		return trajectory;
