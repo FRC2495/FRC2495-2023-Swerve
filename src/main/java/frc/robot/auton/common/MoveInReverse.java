@@ -24,12 +24,12 @@ public class MoveInReverse extends SequentialCommandGroup {
 		this.distance = distance;
 
         addCommands(
-            new DrivetrainSwerveRelative(drivetrain, container, createMoveBackwardTrajectory(container))          
+            new DrivetrainSwerveRelative(drivetrain, container, createMoveInReverseTrajectory(container))          
         ); 
   
     }
     
-    public Trajectory createMoveBackwardTrajectory(RobotContainer container) {
+    public Trajectory createMoveInReverseTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
