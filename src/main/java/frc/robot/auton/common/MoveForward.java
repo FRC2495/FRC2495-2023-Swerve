@@ -10,7 +10,6 @@ import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 import frc.robot.RobotContainer;
-import frc.robot.auton.AutonConstants;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.subsystems.*;
 
@@ -18,16 +17,17 @@ import frc.robot.subsystems.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class MoveForward extends SequentialCommandGroup {
 
-    public MoveForward(SwerveDrivetrain drivetrain, RobotContainer container){
+    private double distance;
+	
+	public MoveForward(SwerveDrivetrain drivetrain, RobotContainer container, double distance) {
 
-        addCommands(
-
+        this.distance = distance;
+		
+		addCommands(
 			new DrivetrainSwerveRelative(drivetrain, container, createMoveForwardTrajectory(container))
-
         ); 
   
     }
-
     
     public Trajectory createMoveForwardTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
@@ -37,11 +37,10 @@ public class MoveForward extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_NODE_TO_OUTSIDE_COMMUNITY_METERS, 0, Rotation2d.fromDegrees(0)),
+			new Pose2d(distance, 0, Rotation2d.fromDegrees(0)),
 			container.createTrajectoryConfig());
 
 		return trajectory;
 	}
 
-   
 }

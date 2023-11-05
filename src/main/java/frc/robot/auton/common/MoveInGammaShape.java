@@ -10,7 +10,6 @@ import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 import frc.robot.RobotContainer;
-import frc.robot.auton.AutonConstants;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.subsystems.*;
 
@@ -18,14 +17,16 @@ import frc.robot.subsystems.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class MoveInGammaShape extends SequentialCommandGroup {
 
-    public MoveInGammaShape(SwerveDrivetrain drivetrain, RobotContainer container){
+	private double sideLength;
 
-        addCommands(
+    public MoveInGammaShape(SwerveDrivetrain drivetrain, RobotContainer container, double sideLength) {
 
-			new DrivetrainSwerveRelative(drivetrain, container, createGammaShapeTrajectory(container))
-            
+        this.sideLength = sideLength;
+		
+		addCommands(
+			new DrivetrainSwerveRelative(drivetrain, container, createGammaShapeTrajectory(container))           
         ); 
-  
+
     }
 
 	public Trajectory createGammaShapeTrajectory(RobotContainer container) {
@@ -37,11 +38,10 @@ public class MoveInGammaShape extends SequentialCommandGroup {
 			List.of(),
 			// End ahead of where we started, facing sideway
 			// https://docs.wpilib.org/en/stable/docs/software/advanced-controls/geometry/coordinate-systems.html
-			new Pose2d(3, -3, Rotation2d.fromDegrees(-90)),
+			new Pose2d(sideLength, -sideLength, Rotation2d.fromDegrees(-90)),
 			container.createTrajectoryConfig());
 
 		return trajectory;
 	}
-
    
 }

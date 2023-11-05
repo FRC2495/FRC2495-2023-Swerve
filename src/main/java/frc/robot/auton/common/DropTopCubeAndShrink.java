@@ -17,7 +17,6 @@ public class DropTopCubeAndShrink extends SequentialCommandGroup{
             new Shrink(container, elevator, drawer)
         );
 
-
     }
 
 }

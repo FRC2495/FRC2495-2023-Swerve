@@ -309,17 +309,16 @@ public class RobotContainer {
 			.whileTrue(new DrivetrainSetXFormation(drivetrain));	
 			
 		joyMain.button(3)
-			.onTrue(new MoveInLShape(drivetrain, this));
+			.onTrue(new MoveInLShape(drivetrain, this, 3));
 			
 		joyMain.button(4)
-			.onTrue(new MoveInGammaShape(drivetrain, this));
+			.onTrue(new MoveInGammaShape(drivetrain, this, 3));
 
 		joyMain.button(5)
-			.onTrue(new MoveForward(drivetrain, this));
-			//.onTrue(createSwerveControllerCommand(createExampleTrajectory()));
+			.onTrue(new MoveForward(drivetrain, this, 3));
 
 		joyMain.button(6)
-			.onTrue(new CompletelyLeaveCommunity(drivetrain, this));
+			.onTrue(new MoveBackward(drivetrain, this, 3));
 
 		joyMain.button(7)
 			.whileTrue(new RollerJoystickControl(roller, drivetrain, getMainJoystick()));

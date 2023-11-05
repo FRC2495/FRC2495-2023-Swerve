@@ -23,7 +23,6 @@ public class DropTopCube extends SequentialCommandGroup{
         
         );
 
-
     }
 
 }
