@@ -10,17 +10,12 @@ package frc.robot.auton;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 import frc.robot.RobotContainer;
-import frc.robot.auton.common.DropTopCube;
-import frc.robot.auton.common.DropTopCubeAndShrink;
-import frc.robot.auton.sp2.StartingPositionTwoOneCubeAndLeaveCommunity;
-import frc.robot.auton.sp2.StartingPositionTwoOneCubeAndLeaveCommunityAndPickupCube;
-import frc.robot.auton.sp2.StartingPositionTwoTwoCube;
+import frc.robot.auton.common.*;
+import frc.robot.auton.sp2.*;
 //import frc.robot.auton.blue.*;
 //import frc.robot.auton.common.*;
-import frc.robot.auton.sp4.StartingPositionFourTwoCubeEngage;
-import frc.robot.auton.sp5.StartingPositionFiveOneCubeAndLeaveCommunity;
-import frc.robot.auton.sp5.StartingPositionFiveTwoCube;
-//import frc.robot.auton.sp5.StartingPositionFiveThreeCube;
+import frc.robot.auton.sp4.*;
+import frc.robot.auton.sp5.*;
 import frc.robot.subsystems.*;
 
 public class CustomAuton extends SequentialCommandGroup {

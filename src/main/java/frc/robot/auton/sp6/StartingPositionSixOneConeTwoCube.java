@@ -1,6 +1,5 @@
 package frc.robot.auton.sp6;
 
-import frc.robot.auton.common.*;
 import frc.robot.commands.elevator.*;
 import frc.robot.commands.neck.*;
 import frc.robot.commands.drawer.*;

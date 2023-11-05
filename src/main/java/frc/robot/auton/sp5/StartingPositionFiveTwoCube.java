@@ -2,12 +2,9 @@ package frc.robot.auton.sp5;
 
 import java.util.List;
 
-import edu.wpi.first.math.util.Units;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.trajectory.Trajectory;
-import edu.wpi.first.math.trajectory.TrajectoryConfig;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
@@ -15,9 +12,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.RobotContainer;
 import frc.robot.auton.AutonConstants;
 import frc.robot.auton.common.*;
-import frc.robot.commands.drawer.*;
 import frc.robot.commands.drivetrain.*;
-import frc.robot.commands.elevator.*;
 import frc.robot.commands.neck.*;
 import frc.robot.commands.roller.*;
 import frc.robot.subsystems.*;
