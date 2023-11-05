@@ -309,7 +309,7 @@ public class RobotContainer {
 			.whileTrue(new DrivetrainSetXFormation(drivetrain));	
 			
 		joyMain.button(3)
-			.onTrue(new MoveInLShape(drivetrain, this, 3));
+			.onTrue(new MoveInLShapeInReverse(drivetrain, this, 3));
 			
 		joyMain.button(4)
 			.onTrue(new MoveInGammaShape(drivetrain, this, 3));
