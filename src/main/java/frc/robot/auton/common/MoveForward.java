@@ -37,6 +37,7 @@ public class MoveForward extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
+			// https://docs.wpilib.org/en/stable/docs/software/advanced-controls/geometry/coordinate-systems.html
 			new Pose2d(distance, 0, Rotation2d.fromDegrees(0)),
 			container.createTrajectoryConfig());
 
