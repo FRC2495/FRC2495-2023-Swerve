@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -15,10 +17,12 @@ import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.util.WPIUtilJNI;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
 import com.kauailabs.navx.frc.AHRS;
+
 import frc.robot.Constants.DrivetrainConstants;
 import frc.utils.SwerveUtils;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Ports;
 
 /**
@@ -35,6 +39,22 @@ public class SwerveDrivetrain extends SubsystemBase {
 
 	public static final double FIELD_LENGTH_INCHES = 54*12+1; // 54ft 1in
 	public static final double FIELD_WIDTH_INCHES = 26*12+7; // 26ft 7in
+
+	// turn settings
+	// NOTE: it might make sense to decrease the PID controller period below 0.02 sec (which is the period used by the main loop)
+	static final double TURN_PID_CONTROLLER_PERIOD_SECONDS = .01; // 0.01 sec = 10 ms 	
+	
+	static final double MIN_TURN_PCT_OUTPUT = 0.1; // 0.1;
+	static final double MAX_TURN_PCT_OUTPUT = 0.4; // 0.4;
+	
+	static final double TURN_PROPORTIONAL_GAIN = 0.01; // 0.01;
+	static final double TURN_INTEGRAL_GAIN = 0.0;
+	static final double TURN_DERIVATIVE_GAIN = 0.0001; // 0.0001
+	
+	static final int DEGREE_THRESHOLD = 3; // 3;
+	
+	private final static int TURN_ON_TARGET_MINIMUM_COUNT = 10; // number of times/iterations we need to be on target to really be on target
+	// end turn settings	
 
 	// Create SwerveModules
 	private final SwerveModule m_frontLeft = new SwerveModule(
@@ -80,6 +100,15 @@ public class SwerveDrivetrain extends SubsystemBase {
 			m_rearRight.getPosition()
 		});
 
+
+	// other variables
+	private boolean isTurning;  // indicates that the drivetrain is turning using the PID controller hereunder
+
+	private int onTargetCountTurning; // counter indicating how many times/iterations we were on target
+
+	private PIDController turnPidController; // the PID controller used to turn
+
+
 	/** Creates a new Drivetrain. */
 	public SwerveDrivetrain() {
 		m_frontLeft.calibrateVirtualPosition(FRONT_LEFT_VIRTUAL_OFFSET_RADIANS); // set virtual position for absolute encoder
@@ -102,6 +131,12 @@ public class SwerveDrivetrain extends SubsystemBase {
 		Rotation2d initialRotation = new Rotation2d(); 
 		Pose2d initialPose = new Pose2d(initialTranslation,initialRotation);
 		resetOdometry(initialPose);
+
+		//creates a PID controller
+		turnPidController = new PIDController(TURN_PROPORTIONAL_GAIN, TURN_INTEGRAL_GAIN, TURN_DERIVATIVE_GAIN);	
+		
+		turnPidController.enableContinuousInput(-180, 180); // because -180 degrees is the same as 180 degrees (needs input range to be defined first)
+		turnPidController.setTolerance(DEGREE_THRESHOLD); // n degree error tolerated
 	}
 
 	@Override
@@ -115,6 +150,8 @@ public class SwerveDrivetrain extends SubsystemBase {
 				m_rearLeft.getPosition(),
 				m_rearRight.getPosition()
 			});
+
+		calculateTurnAngleUsingPidController();
 	}
 
 	/**
@@ -274,6 +311,8 @@ public class SwerveDrivetrain extends SubsystemBase {
 	public void stop()
 	{
 		drive(0, 0, 0, false, false);
+
+		isTurning = false;
 	}
 
 	/** in dash
@@ -317,6 +356,89 @@ public class SwerveDrivetrain extends SubsystemBase {
 	public AHRS getImu()
 	{
 		return m_gyro;
+	}
+
+	public boolean isTurning(){
+		return isTurning;
+	}
+
+	// this method needs to be paired with checkTurnAngleUsingPidController()
+	public void turnAngleUsingPidController(double angle) {
+		// switches to percentage vbus
+		stop(); // resets state
+		
+		double heading = getHeading() + angle;
+
+		//System.out.println("requested heading " + heading);
+		
+		turnPidController.setSetpoint(heading); // sets the heading
+
+		turnPidController.reset(); // resets controller
+		
+		isTurning = true;
+		onTargetCountTurning = 0;
+		//isReallyStalled = false;
+		//stalledCount = 0;		
+	}
+
+	public void calculateTurnAngleUsingPidController() {	
+		if (isTurning) {
+
+			//System.out.println("current heading: " + getHeading());
+
+			double output = MathUtil.clamp(turnPidController.calculate(getHeading()), -MAX_TURN_PCT_OUTPUT, MAX_TURN_PCT_OUTPUT);
+			pidWriteRotation(output);
+		}
+	}
+
+	// This method checks that we are within target up to ON_TARGET_MINIMUM_COUNT times
+	// It relies on its own counter
+	public boolean tripleCheckTurnAngleUsingPidController() {	
+		if (isTurning) {
+			boolean isOnTarget = turnPidController.atSetpoint();
+			
+			if (isOnTarget) { // if we are on target in this iteration 
+				onTargetCountTurning++; // we increase the counter
+			} else { // if we are not on target in this iteration
+				if (onTargetCountTurning > 0) { // even though we were on target at least once during a previous iteration
+					onTargetCountTurning = 0; // we reset the counter as we are not on target anymore
+					System.out.println("Triple-check failed (turning).");
+				} else {
+					// we are definitely turning
+				}
+			}
+			
+			if (onTargetCountTurning > TURN_ON_TARGET_MINIMUM_COUNT) { // if we have met the minimum
+				isTurning = false;
+			}
+			
+			if (!isTurning) {
+				System.out.println("You have reached the target (turning).");
+				stop();				 
+			}
+		}
+		return isTurning;
+	}
+
+	public void pidWriteRotation(double output) {
+
+		//System.out.println("position error: " + turnPidController.getPositionError());
+		//System.out.println("raw output: " + output);
+		
+		// calling disable() on controller will force a call to pidWrite with zero output
+		// which we need to handle by not doing anything that could have a side effect 
+		if (output != 0 && Math.abs(turnPidController.getPositionError()) < DEGREE_THRESHOLD)
+		{
+			output = 0;
+		}
+		if (output != 0 && Math.abs(output) < MIN_TURN_PCT_OUTPUT)
+		{
+			output = Math.signum(output) * MIN_TURN_PCT_OUTPUT;
+		}
+
+		//System.out.println("output: " + output);
+
+		drive(0, 0, output, false, false); // TODO double-check sign
 	}
 
 }
