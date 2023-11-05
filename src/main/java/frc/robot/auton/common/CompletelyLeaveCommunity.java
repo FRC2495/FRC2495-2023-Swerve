@@ -14,7 +14,7 @@ public class CompletelyLeaveCommunity extends SequentialCommandGroup {
     public CompletelyLeaveCommunity(SwerveDrivetrain drivetrain, RobotContainer container) {
 
         addCommands(
-            new MoveBackward(drivetrain, container, AutonConstants.DISTANCE_FROM_NODE_TO_OUTSIDE_COMMUNITY_METERS)            
+            new MoveInReverse(drivetrain, container, AutonConstants.DISTANCE_FROM_NODE_TO_OUTSIDE_COMMUNITY_METERS)            
         ); 
   
     }

@@ -15,11 +15,11 @@ import frc.robot.subsystems.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
-public class MoveBackward extends SequentialCommandGroup {
+public class MoveInReverse extends SequentialCommandGroup {
 
     private double distance;
 	
-	public MoveBackward(SwerveDrivetrain drivetrain, RobotContainer container, double distance) {
+	public MoveInReverse(SwerveDrivetrain drivetrain, RobotContainer container, double distance) {
 
 		this.distance = distance;
 
@@ -38,7 +38,7 @@ public class MoveBackward extends SequentialCommandGroup {
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			// https://docs.wpilib.org/en/stable/docs/software/advanced-controls/geometry/coordinate-systems.html			
-			new Pose2d(-distance, 0, Rotation2d.fromDegrees(180)),
+			new Pose2d(+distance, 0, Rotation2d.fromDegrees(180)),
 			container.createReverseTrajectoryConfig());
 
 		return trajectory;

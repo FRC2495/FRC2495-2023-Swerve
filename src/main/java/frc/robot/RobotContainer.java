@@ -318,8 +318,8 @@ public class RobotContainer {
 			.onTrue(new MoveForward(drivetrain, this, 3));
 
 		joyMain.button(6)
-			.onTrue(new MoveBackward(drivetrain, this, 3));
-			
+			.onTrue(new MoveInReverse(drivetrain, this, 3));
+
 
 		joyMain.button(7)
 			.whileTrue(new RollerJoystickControl(roller, drivetrain, getMainJoystick()));
