@@ -7,12 +7,12 @@ package frc.robot;
 import edu.wpi.first.math.MathUtil;
 //import edu.wpi.first.math.controller.PIDController;
 //import edu.wpi.first.math.controller.ProfiledPIDController;
-import edu.wpi.first.math.geometry.Pose2d;
-import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.geometry.Translation2d;
-import edu.wpi.first.math.trajectory.Trajectory;
+//import edu.wpi.first.math.geometry.Pose2d;
+//import edu.wpi.first.math.geometry.Rotation2d;
+//import edu.wpi.first.math.geometry.Translation2d;
+//import edu.wpi.first.math.trajectory.Trajectory;
 import edu.wpi.first.math.trajectory.TrajectoryConfig;
-import edu.wpi.first.math.trajectory.TrajectoryGenerator;
+//import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
@@ -34,7 +34,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import java.util.List;
+//import java.util.List;
 
 import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.DrivetrainConstants;
@@ -319,6 +319,7 @@ public class RobotContainer {
 
 		joyMain.button(6)
 			.onTrue(new MoveBackward(drivetrain, this, 3));
+			
 
 		joyMain.button(7)
 			.whileTrue(new RollerJoystickControl(roller, drivetrain, getMainJoystick()));
@@ -456,7 +457,8 @@ public class RobotContainer {
 		switch (autonSelected) {
 			case AUTON_SAMPLE_SWERVE:
 				//return createSwerveControllerCommand(createExampleTrajectory());
-				return new DrivetrainSwerveRelative(drivetrain, this, createExampleTrajectory());
+				//return new DrivetrainSwerveRelative(drivetrain, this, createExampleTrajectory());
+				return new MoveInSShape(drivetrain, this, 3);
 				//break;
 
 			case AUTON_CUSTOM:
@@ -495,7 +497,7 @@ public class RobotContainer {
 		return config;
 	}
 
-	public Trajectory createExampleTrajectory() {
+	/*public Trajectory createExampleTrajectory() {
 		// An example trajectory to follow. All units in meters.
 		Trajectory exampleTrajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the +X direction
@@ -507,7 +509,7 @@ public class RobotContainer {
 			createTrajectoryConfig());
 
 		return exampleTrajectory;
-	}
+	}*/
 	
 	/*public Command createSwerveControllerCommand(Trajectory trajectory) {
 
