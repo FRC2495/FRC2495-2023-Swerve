@@ -28,7 +28,7 @@ public class DrivetrainStop extends InstantCommand {
 	@Override
 	public void initialize() {
 		System.out.println("DrivetrainStop: initialize");
-		drivetrain.drive(0, 0, 0, false, false);
+		drivetrain.stop();
 	}
 
 }

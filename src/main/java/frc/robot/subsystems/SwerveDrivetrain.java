@@ -271,6 +271,11 @@ public class SwerveDrivetrain extends SubsystemBase {
 		m_gyro.setAngleAdjustment(180);
 	}
 
+	public void stop()
+	{
+		drive(0, 0, 0, false, false);
+	}
+
 	/** in dash
 	 * Returns the heading of the robot.
 	 *
