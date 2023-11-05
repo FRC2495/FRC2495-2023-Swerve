@@ -7,26 +7,20 @@ import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.trajectory.Trajectory;
-import edu.wpi.first.math.trajectory.TrajectoryConfig;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 import frc.robot.RobotContainer;
 import frc.robot.auton.AutonConstants;
-import frc.robot.auton.common.*;
-import frc.robot.commands.drawer.*;
-import frc.robot.commands.elevator.*;
-import frc.robot.commands.neck.*;
-import frc.robot.commands.roller.*;
-import frc.robot.RobotContainer;
+import frc.robot.commands.drivetrain.*;
 import frc.robot.subsystems.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
 
-    public StartingPositionFourTwoCubeEngage(RobotContainer container, Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth) {
+    public StartingPositionFourTwoCubeEngage(SwerveDrivetrain drivetrain, RobotContainer container, Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth) {
 
         addCommands(
 
@@ -44,7 +38,7 @@ public class StartingPositionFourTwoCubeEngage extends SequentialCommandGroup {
 
             // Move to cube directly over charge station
 
-            container.createSwerveControllerCommand(createTrajectory(container))
+            new DrivetrainSwerveRelative(drivetrain, container, createTrajectory(container))
 
             // Get ready to pick up the cube
 

@@ -2,32 +2,31 @@ package frc.robot.auton.common;
 
 import java.util.List;
 
-import edu.wpi.first.math.util.Units;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.trajectory.Trajectory;
-import edu.wpi.first.math.trajectory.TrajectoryConfig;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 import frc.robot.RobotContainer;
 import frc.robot.auton.AutonConstants;
+import frc.robot.commands.drivetrain.*;
+import frc.robot.subsystems.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
 public class MoveInNonBumpKTurn extends SequentialCommandGroup {
 
-    public MoveInNonBumpKTurn(RobotContainer container){
+    public MoveInNonBumpKTurn(SwerveDrivetrain drivetrain, RobotContainer container){
 
         addCommands(
 
-		container.createSwerveControllerCommand(createFirstPartOfNonBumpKturnTrajectory(container)),
+			new DrivetrainSwerveRelative(drivetrain, container, createFirstPartOfNonBumpKturnTrajectory(container)),
 
-		// Move forward to second part of kturn
+			// Move forward to second part of kturn
 
-		container.createSwerveControllerCommand(createSecondPartOfNonBumpKturnTrajectory(container))
+			new DrivetrainSwerveRelative(drivetrain, container, createSecondPartOfNonBumpKturnTrajectory(container))
             
         ); 
   

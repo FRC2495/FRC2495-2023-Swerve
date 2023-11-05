@@ -312,17 +312,17 @@ public class RobotContainer {
 			.whileTrue(new DrivetrainSetXFormation(drivetrain));	
 			
 		joyMain.button(3)
-			.onTrue(new MoveInLShape(this));
+			.onTrue(new MoveInLShape(drivetrain, this));
 			
 		joyMain.button(4)
-			.onTrue(new MoveInInvertedLShape(this));
+			.onTrue(new MoveInInvertedLShape(drivetrain, this));
 
 		joyMain.button(5)
-			.onTrue(new MoveForward(this));
+			.onTrue(new MoveForward(drivetrain, this));
 			//.onTrue(createSwerveControllerCommand(createExampleTrajectory()));
 
 		joyMain.button(6)
-			.onTrue(new CompletelyLeaveCommunity(this));
+			.onTrue(new CompletelyLeaveCommunity(drivetrain, this));
 
 		joyMain.button(7)
 			.whileTrue(new RollerJoystickControl(roller, drivetrain, getMainJoystick()));
@@ -459,12 +459,13 @@ public class RobotContainer {
 
 		switch (autonSelected) {
 			case AUTON_SAMPLE_SWERVE:
-				return createSwerveControllerCommand(createExampleTrajectory());
+				//return createSwerveControllerCommand(createExampleTrajectory());
+				return new DrivetrainSwerveRelative(drivetrain, this, createExampleTrajectory());
 				//break;
 
 			case AUTON_CUSTOM:
-				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption, this,
-					elevator, drawer, roller, neck, mouth);
+				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption,
+					drivetrain, this, elevator, drawer, roller, neck, mouth);
 				//break;
 
 			case AUTON_DO_NOTHING:
@@ -512,7 +513,7 @@ public class RobotContainer {
 		return exampleTrajectory;
 	}
 	
-	public Command createSwerveControllerCommand(Trajectory trajectory) {
+	/*public Command createSwerveControllerCommand(Trajectory trajectory) {
 
 		ProfiledPIDController thetaController = new ProfiledPIDController(
 			AutoConstants.THETA_CONTROLLER_P, 0, 0, AutoConstants.THETA_CONTROLLER_CONSTRAINTS);
@@ -536,7 +537,7 @@ public class RobotContainer {
 
 		// Run path following command, then stop at the end.
 		return swerveControllerCommand.andThen(() -> drivetrain.drive(0, 0, 0, false, false));
-	}
+	}*/
 
 	public Field2d getField()
 	{

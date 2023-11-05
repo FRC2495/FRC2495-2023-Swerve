@@ -43,7 +43,7 @@ public class CustomAuton extends SequentialCommandGroup {
      * @param autonOption_in   auton option
     */
     public CustomAuton(String gamePiece_in, String startPosition_in, String mainTarget_in, String cameraOption_in,
-            String sonarOption_in, String autonOption_in, RobotContainer container,
+            String sonarOption_in, String autonOption_in, SwerveDrivetrain drivetrain, RobotContainer container,
 			Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth) {
 
 		gamePiece = gamePiece_in;
@@ -278,10 +278,10 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
-								addCommands(new StartingPositionTwoOneCubeAndLeaveCommunity(container, elevator, drawer, roller, neck, mouth));
+								addCommands(new StartingPositionTwoOneCubeAndLeaveCommunity(drivetrain, container, elevator, drawer, roller, neck, mouth));
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
-								addCommands(new StartingPositionTwoOneCubeAndLeaveCommunityAndPickupCube(container, elevator, drawer, roller, neck, mouth));
+								addCommands(new StartingPositionTwoOneCubeAndLeaveCommunityAndPickupCube(drivetrain, container, elevator, drawer, roller, neck, mouth));
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
 								//TODO
@@ -334,7 +334,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
-								addCommands(new StartingPositionTwoTwoCube(container, elevator, drawer, roller, neck, mouth));
+								addCommands(new StartingPositionTwoTwoCube(drivetrain, container, elevator, drawer, roller, neck, mouth));
 								break;
 							default:
 								// nothing
@@ -617,7 +617,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_DOCK:
-								addCommands(new StartingPositionFourTwoCubeEngage(container, elevator, drawer, roller, neck, mouth));
+								addCommands(new StartingPositionFourTwoCubeEngage(drivetrain, container, elevator, drawer, roller, neck, mouth));
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
 								//TODO
@@ -753,13 +753,13 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
-								addCommands(new StartingPositionFiveOneCubeAndLeaveCommunity(container, elevator, drawer, roller, neck, mouth));
+								addCommands(new StartingPositionFiveOneCubeAndLeaveCommunity(drivetrain, container, elevator, drawer, roller, neck, mouth));
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CONE:
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
-								addCommands(new StartingPositionFiveOneCubeAndLeaveCommunity(container, elevator, drawer, roller, neck, mouth));
+								addCommands(new StartingPositionFiveOneCubeAndLeaveCommunity(drivetrain, container, elevator, drawer, roller, neck, mouth));
 								break;
 							default:
 								// nothing
@@ -809,7 +809,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_ALSO_PICKUP_CUBE:
-								addCommands(new StartingPositionFiveTwoCube(container, elevator, drawer, roller, neck, mouth));
+								addCommands(new StartingPositionFiveTwoCube(drivetrain, container, elevator, drawer, roller, neck, mouth));
 								break;
 							default:
 								// nothing

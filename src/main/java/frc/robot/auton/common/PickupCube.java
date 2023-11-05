@@ -4,32 +4,27 @@ import java.util.List;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 
-import edu.wpi.first.math.util.Units;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.trajectory.Trajectory;
-import edu.wpi.first.math.trajectory.TrajectoryConfig;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 
 import frc.robot.auton.AutonConstants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.*;
-import frc.robot.commands.drawer.*;
-import frc.robot.commands.elevator.*;
-import frc.robot.commands.neck.NeckMoveDownWithStallDetection;
+import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.roller.*;
 
 
 public class PickupCube extends ParallelCommandGroup{
     
-    public PickupCube(RobotContainer container, Neck neck, Roller roller) {
+    public PickupCube(SwerveDrivetrain drivetrain, RobotContainer container, Neck neck, Roller roller) {
 
         addCommands(
 
             new RollerTimedRoll(roller, .5),
 
-            container.createSwerveControllerCommand(createAreaBeforeCubePickupTrajectory(container))        
+            new DrivetrainSwerveRelative(drivetrain, container, createAreaBeforeCubePickupTrajectory(container))        
         );
     }
     

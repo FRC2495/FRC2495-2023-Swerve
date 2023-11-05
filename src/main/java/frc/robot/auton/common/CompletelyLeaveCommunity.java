@@ -11,17 +11,18 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 import frc.robot.RobotContainer;
 import frc.robot.auton.AutonConstants;
+import frc.robot.commands.drivetrain.*;
+import frc.robot.subsystems.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
 public class CompletelyLeaveCommunity extends SequentialCommandGroup {
 
-    public CompletelyLeaveCommunity(RobotContainer container){
+    public CompletelyLeaveCommunity(SwerveDrivetrain drivetrain, RobotContainer container){
 
         addCommands(
 
-            container.createSwerveControllerCommand(createLeaveCommunityTrajectory(container))
-
+            new DrivetrainSwerveRelative(drivetrain, container, createLeaveCommunityTrajectory(container))
             
         ); 
   
@@ -41,8 +42,6 @@ public class CompletelyLeaveCommunity extends SequentialCommandGroup {
 
 		return trajectory;
 	}
-
-	
 
    
 }

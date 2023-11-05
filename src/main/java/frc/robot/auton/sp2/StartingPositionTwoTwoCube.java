@@ -2,12 +2,9 @@ package frc.robot.auton.sp2;
 
 import java.util.List;
 
-import edu.wpi.first.math.util.Units;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.trajectory.Trajectory;
-import edu.wpi.first.math.trajectory.TrajectoryConfig;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
@@ -15,18 +12,16 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.RobotContainer;
 import frc.robot.auton.AutonConstants;
 import frc.robot.auton.common.*;
-import frc.robot.commands.drawer.*;
-import frc.robot.commands.elevator.*;
+import frc.robot.commands.drivetrain.DrivetrainSwerveRelative;
 import frc.robot.commands.neck.*;
 import frc.robot.commands.roller.*;
-import frc.robot.RobotContainer;
 import frc.robot.subsystems.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 
-    public StartingPositionTwoTwoCube(RobotContainer container, Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth){
+    public StartingPositionTwoTwoCube(SwerveDrivetrain drivetrain, RobotContainer container, Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth){
 
         addCommands(
 
@@ -40,17 +35,17 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 
             // Move backward to first part of kturn
 
-            container.createSwerveControllerCommand(createFirstPartOfNonBumpKturnTrajectory(container)),
+            new DrivetrainSwerveRelative(drivetrain, container, createFirstPartOfNonBumpKturnTrajectory(container)),
 
 			// Move forward to second part of kturn
 
-			container.createSwerveControllerCommand(createSecondPartOfNonBumpKturnTrajectory(container)),
+			new DrivetrainSwerveRelative(drivetrain, container, createSecondPartOfNonBumpKturnTrajectory(container)),
 
             // Grab mechanism open
 
 			new NeckMoveDownWithStallDetection(neck),
 
-			new PickupCube(container, neck, roller),
+			new PickupCube(drivetrain, container, neck, roller),
 
             //new NeckMoveDownWithStallDetection(neck),
 
@@ -58,7 +53,7 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 
             // Move forward to pick up cube
 
-            // container.createSwerveControllerCommand(createTrajectory3(container)),
+            // new DrivetrainSwerveRelative(drivetrain, container, createTrajectory3(container)),
 
 			// Shrink
 
@@ -66,11 +61,11 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 
             // Move to first part of kturn
 
-            container.createSwerveControllerCommand(createCubePickupToSecondPartOfNonBumpKTurnTrajectory(container)),
+            new DrivetrainSwerveRelative(drivetrain, container, createCubePickupToSecondPartOfNonBumpKTurnTrajectory(container)),
 
             // Move back to cube node
 
-            container.createSwerveControllerCommand(createSecondPartOfNonBumpKturnToCubeNode(container)),
+            new DrivetrainSwerveRelative(drivetrain, container, createSecondPartOfNonBumpKturnToCubeNode(container)),
 
             // Drop cube for mid node
 
@@ -100,7 +95,6 @@ public class StartingPositionTwoTwoCube extends SequentialCommandGroup {
 
             new RollerRelease(roller) // todo change to timed command */
  
-            
         ); 
   
     }

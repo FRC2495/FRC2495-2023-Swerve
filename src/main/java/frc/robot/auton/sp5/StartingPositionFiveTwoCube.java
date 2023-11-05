@@ -16,17 +16,17 @@ import frc.robot.RobotContainer;
 import frc.robot.auton.AutonConstants;
 import frc.robot.auton.common.*;
 import frc.robot.commands.drawer.*;
+import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.elevator.*;
 import frc.robot.commands.neck.*;
 import frc.robot.commands.roller.*;
-import frc.robot.RobotContainer;
 import frc.robot.subsystems.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionFiveTwoCube extends SequentialCommandGroup {
 
-    public StartingPositionFiveTwoCube(RobotContainer container, Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth){
+    public StartingPositionFiveTwoCube(SwerveDrivetrain drivetrain, RobotContainer container, Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth){
 
         addCommands(
 
@@ -40,17 +40,17 @@ public class StartingPositionFiveTwoCube extends SequentialCommandGroup {
 
             // Move backward to first part of kturn
 
-            container.createSwerveControllerCommand(createFirstPartOfBumpKturnTrajectory(container)),
+            new DrivetrainSwerveRelative(drivetrain, container, createFirstPartOfBumpKturnTrajectory(container)),
 
 			// Move forward to second part of kturn
 
-			container.createSwerveControllerCommand(createSecondPartOfBumpKturnTrajectory(container)),
+			new DrivetrainSwerveRelative(drivetrain, container, createSecondPartOfBumpKturnTrajectory(container)),
 
             // Grab mechanism open
 
 			new NeckMoveDownWithStallDetection(neck),
 
-			new PickupCube(container, neck, roller),
+			new PickupCube(drivetrain, container, neck, roller),
 
             //new NeckMoveDownWithStallDetection(neck),
 
@@ -66,11 +66,11 @@ public class StartingPositionFiveTwoCube extends SequentialCommandGroup {
 
             // Move to first part of kturn
 
-            container.createSwerveControllerCommand(createCubePickupToSecondPartOfBumpKTurnTrajectory(container)),
+            new DrivetrainSwerveRelative(drivetrain, container, createCubePickupToSecondPartOfBumpKTurnTrajectory(container)),
 
             // Move back to cube node
 
-            container.createSwerveControllerCommand(createSecondPartOfBumpKturnToCubeNode(container)),
+            new DrivetrainSwerveRelative(drivetrain, container, createSecondPartOfBumpKturnToCubeNode(container)),
 
             // Drop cube for mid node
 

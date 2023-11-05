@@ -2,12 +2,9 @@ package frc.robot.auton.sp2;
 
 import java.util.List;
 
-import edu.wpi.first.math.util.Units;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.trajectory.Trajectory;
-import edu.wpi.first.math.trajectory.TrajectoryConfig;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
@@ -15,18 +12,14 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.RobotContainer;
 import frc.robot.auton.AutonConstants;
 import frc.robot.auton.common.*;
-import frc.robot.commands.drawer.*;
-import frc.robot.commands.elevator.*;
-import frc.robot.commands.neck.*;
-import frc.robot.commands.roller.*;
-import frc.robot.RobotContainer;
+import frc.robot.commands.drivetrain.*;
 import frc.robot.subsystems.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionTwoOneCubeAndLeaveCommunity extends SequentialCommandGroup {
 
-    public StartingPositionTwoOneCubeAndLeaveCommunity(RobotContainer container, Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth){
+    public StartingPositionTwoOneCubeAndLeaveCommunity(SwerveDrivetrain drivetrain, RobotContainer container, Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth){
 
         addCommands(
 
@@ -40,12 +33,8 @@ public class StartingPositionTwoOneCubeAndLeaveCommunity extends SequentialComma
 
             // Move backward to leave community
 
-            container.createSwerveControllerCommand(createLeaveCommunityTrajectory(container))
-
-            
-
-            
-            
+            new DrivetrainSwerveRelative(drivetrain, container, createLeaveCommunityTrajectory(container))
+                       
         ); 
   
     }
@@ -64,8 +53,6 @@ public class StartingPositionTwoOneCubeAndLeaveCommunity extends SequentialComma
 
 		return trajectory;
 	}
-
-	
 
    
 }
