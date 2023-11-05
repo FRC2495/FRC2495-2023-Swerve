@@ -65,10 +65,7 @@ import frc.robot.commands.indicator.*;
 import frc.robot.commands.groups.*;
 //import frc.robot.commands.gamepad.*;
 import frc.robot.auton.*;
-import frc.robot.auton.common.CompletelyLeaveCommunity;
-import frc.robot.auton.common.MoveForward;
-import frc.robot.auton.common.MoveInInvertedLShape;
-import frc.robot.auton.common.MoveInLShape;
+import frc.robot.auton.common.*;
 
 
 /*
@@ -315,7 +312,7 @@ public class RobotContainer {
 			.onTrue(new MoveInLShape(drivetrain, this));
 			
 		joyMain.button(4)
-			.onTrue(new MoveInInvertedLShape(drivetrain, this));
+			.onTrue(new MoveInGammaShape(drivetrain, this));
 
 		joyMain.button(5)
 			.onTrue(new MoveForward(drivetrain, this));

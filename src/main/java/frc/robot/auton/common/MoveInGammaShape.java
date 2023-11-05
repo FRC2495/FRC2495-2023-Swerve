@@ -16,29 +16,29 @@ import frc.robot.subsystems.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
-public class MoveInLShape extends SequentialCommandGroup {
+public class MoveInGammaShape extends SequentialCommandGroup {
 
-    public MoveInLShape(SwerveDrivetrain drivetrain, RobotContainer container){
+    public MoveInGammaShape(SwerveDrivetrain drivetrain, RobotContainer container){
 
         addCommands(
 
-			new DrivetrainSwerveRelative(drivetrain, container, createLShapeTrajectory(container))
-           
+			new DrivetrainSwerveRelative(drivetrain, container, createGammaShapeTrajectory(container))
+            
         ); 
   
     }
 
-	public Trajectory createLShapeTrajectory(RobotContainer container) {
+	public Trajectory createGammaShapeTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(0, 0, Rotation2d.fromDegrees(180.0)),
+			new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
 			// Pass through these waypoints
 			List.of(),
 			// End ahead of where we started, facing sideway
 			// https://docs.wpilib.org/en/stable/docs/software/advanced-controls/geometry/coordinate-systems.html
-			new Pose2d(-3, 3, Rotation2d.fromDegrees(-90)),
-			container.createReverseTrajectoryConfig());
+			new Pose2d(3, -3, Rotation2d.fromDegrees(-90)),
+			container.createTrajectoryConfig());
 
 		return trajectory;
 	}
