@@ -13,7 +13,7 @@ import frc.robot.subsystems.SwerveDrivetrain;
 
 
 /**
- *
+ * Follows specified trajectory and then stops the drivetrain using trajectory trackers defined locally.
  */
 public class DrivetrainFollowTrajectoryAndStop extends SequentialCommandGroup {
 

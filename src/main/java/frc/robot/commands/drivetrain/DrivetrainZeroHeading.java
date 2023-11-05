@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.subsystems.SwerveDrivetrain;
 
 /**
- *
+ * Resets the heading to zero.
  */
 public class DrivetrainZeroHeading extends InstantCommand {
 

@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.subsystems.SwerveDrivetrain;
 
 /**
- * Resets odometry at the specified pose
+ * Resets odometry to the specified pose.
  */
 public class DrivetrainResetOdometry extends InstantCommand {
 

@@ -10,7 +10,7 @@ import frc.robot.subsystems.SwerveDrivetrain;
 
 
 /**
- *
+ * Resets odometry at the initial pose of the specified trajectory and then follows specified trajectory and then stops.
  */
 public class DrivetrainResetOdometryAndFollowTrajectoryAndStop extends SequentialCommandGroup {
 

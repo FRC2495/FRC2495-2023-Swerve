@@ -9,7 +9,7 @@ import frc.robot.subsystems.SwerveDrivetrain;
 import frc.robot.RobotContainer;
 
 /**
- *
+ * Swerve-drives along trajectory. Trajectory is assumed to contain absolute coordinates.
  */
 public class DrivetrainSwerveAbsolute extends SequentialCommandGroup {
 

@@ -11,7 +11,7 @@ import frc.robot.Constants.DrivetrainConstants;
 import frc.robot.subsystems.SwerveDrivetrain;
 
 /**
- *
+ * Follows specified trajectory. Exact same as SwerveControllerCommand which it is derived from.
  */
 public class DrivetrainFollowTrajectory extends SwerveControllerCommand {
 

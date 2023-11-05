@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.RobotContainer;
 
 /**
- * Resets odometry at the specified pose
+ * Sets trajectory object of field with specified trajectory.
  */
 public class FieldSetTrajectory extends InstantCommand {
 

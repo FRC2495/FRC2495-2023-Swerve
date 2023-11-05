@@ -9,7 +9,7 @@ import frc.robot.subsystems.SwerveDrivetrain;
 import frc.robot.RobotContainer;
 
 /**
- *
+ * Swerve-drives along trajectory. Trajectory is assumed to contain relative coordinates (that is the starting position should be (0,0)).
  */
 public class DrivetrainSwerveRelative extends SequentialCommandGroup {
 

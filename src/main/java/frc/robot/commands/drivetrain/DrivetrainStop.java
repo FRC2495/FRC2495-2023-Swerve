@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.subsystems.SwerveDrivetrain;
 
 /**
- * Stops drivetrain
+ * Stops drivetrain.
  */
 public class DrivetrainStop extends InstantCommand {
 
