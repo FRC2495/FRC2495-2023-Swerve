@@ -531,7 +531,7 @@ public class RobotContainer {
 			drivetrain); // subsystems to require
 
 		// Reset odometry to the starting pose of the trajectory.
-		drivetrain.resetOdometry(trajectory.getInitialPose());
+		drivetrain.resetOdometry(trajectory.getInitialPose()); // WARNING: https://github.com/REVrobotics/MAXSwerve-Java-Template/issues/13
 
 		field.getObject("trajectory").setTrajectory(trajectory);
 
