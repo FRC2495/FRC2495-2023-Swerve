@@ -354,6 +354,7 @@
               "Game/Game": "A2023_Charged_Up",
               "Visuals/Robot Icon Size": 50.0,
               "Visuals/Show Outside Circles": false,
+              "Colors/centeredTrajectory": "#008000FF",
               "Colors/trajectory": "#FFFFFFFF"
             }
           },
@@ -880,6 +881,7 @@
               "Game/Game": "A2023_Charged_Up",
               "Visuals/Robot Icon Size": 50.0,
               "Visuals/Show Outside Circles": false,
+              "Colors/centeredTrajectory": "#008000FF",
               "Colors/trajectory": "#FFFFFFFF"
             }
           }
@@ -1266,6 +1268,7 @@
               "Game/Game": "A2023_Charged_Up",
               "Visuals/Robot Icon Size": 50.0,
               "Visuals/Show Outside Circles": false,
+              "Colors/centeredTrajectory": "#008000FF",
               "Colors/trajectory": "#FFFFFFFF"
             }
           },
@@ -2569,6 +2572,7 @@
               "Game/Game": "A2023_Charged_Up",
               "Visuals/Robot Icon Size": 50.0,
               "Visuals/Show Outside Circles": false,
+              "Colors/centeredTrajectory": "#008000FF",
               "Colors/trajectory": "#FFFFFFFF"
             }
           },
