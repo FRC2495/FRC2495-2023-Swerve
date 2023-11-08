@@ -47,11 +47,11 @@ public class SwerveDrivetrain extends SubsystemBase {
 	static final double MIN_TURN_PCT_OUTPUT = 0.1; // 0.1;
 	static final double MAX_TURN_PCT_OUTPUT = 0.4; // 0.4;
 	
-	static final double TURN_PROPORTIONAL_GAIN = 0.01; // 0.01;
+	static final double TURN_PROPORTIONAL_GAIN = 0.001; // 0.01;
 	static final double TURN_INTEGRAL_GAIN = 0.0;
-	static final double TURN_DERIVATIVE_GAIN = 0.0001; // 0.0001
+	static final double TURN_DERIVATIVE_GAIN = 0.0; // 0.0001
 	
-	static final int DEGREE_THRESHOLD = 3; // 3;
+	static final int DEGREE_THRESHOLD = 10; // 3;
 	
 	private final static int TURN_ON_TARGET_MINIMUM_COUNT = 10; // number of times/iterations we need to be on target to really be on target
 	// end turn settings	
@@ -367,7 +367,7 @@ public class SwerveDrivetrain extends SubsystemBase {
 		// switches to percentage vbus
 		stop(); // resets state
 		
-		double heading = getHeading() + angle;
+		double heading = getHeading() - angle;
 
 		//System.out.println("requested heading " + heading);
 		
