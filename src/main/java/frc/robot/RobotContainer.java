@@ -215,8 +215,8 @@ public class RobotContainer {
 		autonChooser.addOption("Sample Move In Reverse", AUTON_SAMPLE_MOVE_IN_REVERSE);
 		autonChooser.addOption("Sample Move In Gamma Shape", AUTON_SAMPLE_MOVE_IN_GAMMA_SHAPE);
 		autonChooser.addOption("Sample Move In L Shape In Reverse", AUTON_SAMPLE_MOVE_IN_L_SHAPE_IN_REVERSE);
-		autonChooser.addOption("Test Hardcoded Trajectory 1", AUTON_TEST_HARDCODED_MOVE_1);
-		autonChooser.addOption("Test Hardcoded Trajectory 2", AUTON_TEST_HARDCODED_MOVE_2);
+		autonChooser.addOption("Test Hardcoded Move 1", AUTON_TEST_HARDCODED_MOVE_1);
+		autonChooser.addOption("Test Hardcoded Move 2", AUTON_TEST_HARDCODED_MOVE_2);
 		SmartDashboard.putData("Auto choices", autonChooser);
 
 		gamePieceChooser.setDefaultOption("None", GAME_PIECE_NONE);
