@@ -41,7 +41,8 @@ public class MoveInNonBumpKTurn extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End ahead of where we started, facing sideway
-			new Pose2d(AutonConstants.DISTANCE_FROM_NODE_TO_OUTSIDE_COMMUNITY_METERS, AutonConstants.DISTANCE_FROM_OUTSIDE_COMMUNITY_TO_FIRST_NONBUMP_KTURN_METERS, Rotation2d.fromDegrees(90)),
+			// https://docs.wpilib.org/en/stable/docs/software/advanced-controls/geometry/coordinate-systems.html
+			new Pose2d(AutonConstants.DISTANCE_FROM_NODE_TO_OUTSIDE_COMMUNITY_METERS, AutonConstants.DISTANCE_FROM_OUTSIDE_COMMUNITY_TO_FIRST_NONBUMP_KTURN_METERS, Rotation2d.fromDegrees(-90)),
 			container.createReverseTrajectoryConfig());
 
 		return trajectory;
@@ -51,10 +52,11 @@ public class MoveInNonBumpKTurn extends SequentialCommandGroup {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -Y direction
-			new Pose2d(0, 0, Rotation2d.fromDegrees(90.0)),
+			new Pose2d(0, 0, Rotation2d.fromDegrees(-90.0)),
 			// Pass through these waypoints
 			List.of(),
 			// End ahead of where we started, facing forward
+			// https://docs.wpilib.org/en/stable/docs/software/advanced-controls/geometry/coordinate-systems.html
 			new Pose2d(AutonConstants.DISTANCE_FROM_FIRST_NONBUMP_KTURN_METERS_TO_FIRST_CUBE_PICKUP_METERS, -AutonConstants.DISTANCE_FROM_FIRST_NONBUMP_KTURN_METERS_TO_AREA_BEFORE_FIRST_CUBE_PICKUP_METERS, Rotation2d.fromDegrees(0)),
 			container.createTrajectoryConfig());
 
