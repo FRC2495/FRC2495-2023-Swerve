@@ -16,7 +16,7 @@ public class DrivetrainSwerveAbsolute extends SequentialCommandGroup {
 	public DrivetrainSwerveAbsolute(SwerveDrivetrain drivetrain, RobotContainer container, Trajectory trajectory) {
 
 		addCommands(
-			new FieldSetTrajectory(container, trajectory),
+			new FieldSetTrajectory(container, trajectory, false),
 			new DrivetrainFollowTrajectoryAndStop(drivetrain, trajectory));
 	}
 

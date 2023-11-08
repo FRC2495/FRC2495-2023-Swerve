@@ -32,13 +32,13 @@ public class MoveInGammaShape extends SequentialCommandGroup {
 	public Trajectory createGammaShapeTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
-			// Start at the origin facing the -X direction
+			// Start at the origin facing the +X direction
 			new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
 			// Pass through these waypoints
 			List.of(),
 			// End ahead of where we started, facing sideway
 			// https://docs.wpilib.org/en/stable/docs/software/advanced-controls/geometry/coordinate-systems.html
-			new Pose2d(sideLength, -sideLength, Rotation2d.fromDegrees(-90)),
+			new Pose2d(+sideLength, -sideLength, Rotation2d.fromDegrees(-90)),
 			container.createTrajectoryConfig());
 
 		return trajectory;

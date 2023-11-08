@@ -865,6 +865,23 @@
               "Visuals/Show tick mark ring": true,
               "Visuals/Counter clockwise": false
             }
+          },
+          "6,2": {
+            "size": [
+              3,
+              2
+            ],
+            "content": {
+              "_type": "Field",
+              "_source0": "network_table:///SmartDashboard/Swerve Odometry",
+              "_title": "SmartDashboard/Swerve Odometry",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Game/Game": "A2023_Charged_Up",
+              "Visuals/Robot Icon Size": 50.0,
+              "Visuals/Show Outside Circles": false,
+              "Colors/trajectory": "#FFFFFFFF"
+            }
           }
         }
       }
@@ -2554,6 +2571,23 @@
               "Visuals/Show Outside Circles": false,
               "Colors/trajectory": "#FFFFFFFF"
             }
+          },
+          "7,0": {
+            "size": [
+              2,
+              2
+            ],
+            "content": {
+              "_type": "Gyro",
+              "_source0": "network_table:///SmartDashboard/Heading",
+              "_title": "SmartDashboard/Heading",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Visuals/Major tick spacing": 45.0,
+              "Visuals/Starting angle": 180.0,
+              "Visuals/Show tick mark ring": true,
+              "Visuals/Counter clockwise": false
+            }
           }
         }
       }
@@ -2562,7 +2596,7 @@
   "windowGeometry": {
     "x": -8.0,
     "y": -8.0,
-    "width": 1551.199951171875,
-    "height": 839.2000122070312
+    "width": 1552.0,
+    "height": 840.0
   }
 }

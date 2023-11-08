@@ -91,6 +91,10 @@ public class RobotContainer {
 	public static final String AUTON_DO_NOTHING = "Do Nothing";
 	public static final String AUTON_CUSTOM = "My Auto";
 	public static final String AUTON_SAMPLE_SWERVE = "Sample Swerve";
+	public static final String AUTON_SAMPLE_MOVE_FORWARD = "Sample Move Forward";
+	public static final String AUTON_SAMPLE_MOVE_IN_REVERSE = "Sample Move In Reverse";
+	public static final String AUTON_SAMPLE_MOVE_IN_GAMMA_SHAPE = "Sample Move In Gamma Shape";
+	public static final String AUTON_SAMPLE_MOVE_IN_L_SHAPE_IN_REVERSE = "Sample Move In L Shape In Reverse";
 	private String autonSelected;
 	private SendableChooser<String> autonChooser = new SendableChooser<>();
 
@@ -205,6 +209,10 @@ public class RobotContainer {
 		autonChooser.setDefaultOption("Do Nothing", AUTON_DO_NOTHING);
 		autonChooser.addOption("My Auto", AUTON_CUSTOM);
 		autonChooser.addOption("Sample Swerve", AUTON_SAMPLE_SWERVE);
+		autonChooser.addOption("Sample Move Forward", AUTON_SAMPLE_MOVE_FORWARD);
+		autonChooser.addOption("Sample Move In Reverse", AUTON_SAMPLE_MOVE_IN_REVERSE);
+		autonChooser.addOption("Sample Move In Gamma Shape", AUTON_SAMPLE_MOVE_IN_GAMMA_SHAPE);
+		autonChooser.addOption("Sample Move In L Shape In Reverse", AUTON_SAMPLE_MOVE_IN_L_SHAPE_IN_REVERSE);
 		SmartDashboard.putData("Auto choices", autonChooser);
 
 		gamePieceChooser.setDefaultOption("None", GAME_PIECE_NONE);
@@ -459,6 +467,22 @@ public class RobotContainer {
 				//return createSwerveControllerCommand(createExampleTrajectory());
 				//return new DrivetrainSwerveRelative(drivetrain, this, createExampleTrajectory());
 				return new MoveInSShape(drivetrain, this, 3);
+				//break;
+
+			case AUTON_SAMPLE_MOVE_FORWARD:
+				return new MoveForward(drivetrain, this, 3);
+				//break;
+
+			case AUTON_SAMPLE_MOVE_IN_REVERSE:
+				return new MoveInReverse(drivetrain, this, 3);
+				//break;
+
+			case AUTON_SAMPLE_MOVE_IN_GAMMA_SHAPE:
+				return new MoveInGammaShape(drivetrain, this, 3);
+				//break;
+
+			case AUTON_SAMPLE_MOVE_IN_L_SHAPE_IN_REVERSE:
+				return new MoveInLShapeInReverse(drivetrain, this, 3);
 				//break;
 
 			case AUTON_CUSTOM:

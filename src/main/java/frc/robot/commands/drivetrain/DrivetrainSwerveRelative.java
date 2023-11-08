@@ -16,7 +16,7 @@ public class DrivetrainSwerveRelative extends SequentialCommandGroup {
 	public DrivetrainSwerveRelative(SwerveDrivetrain drivetrain, RobotContainer container, Trajectory trajectory) {
 
 		addCommands(
-			new FieldSetTrajectory(container, trajectory),
+			new FieldSetTrajectory(container, trajectory, true),
 			new DrivetrainResetOdometryAndFollowTrajectoryAndStop(drivetrain, trajectory));
 	}
 

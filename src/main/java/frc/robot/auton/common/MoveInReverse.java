@@ -36,7 +36,7 @@ public class MoveInReverse extends SequentialCommandGroup {
 			new Pose2d(0, 0, Rotation2d.fromDegrees(180.0)),
 			// Pass through these waypoints
 			List.of(),
-			// End straight ahead of where we started, facing forward
+			// End straight ahead of where we started, facing back
 			// https://docs.wpilib.org/en/stable/docs/software/advanced-controls/geometry/coordinate-systems.html			
 			new Pose2d(+distance, 0, Rotation2d.fromDegrees(180)),
 			container.createReverseTrajectoryConfig());

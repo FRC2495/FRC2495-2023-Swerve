@@ -40,7 +40,7 @@ public class MoveInLShapeInReverse extends SequentialCommandGroup {
 			List.of(),
 			// End ahead of where we started, facing sideway
 			// https://docs.wpilib.org/en/stable/docs/software/advanced-controls/geometry/coordinate-systems.html
-			new Pose2d(-sideLength, sideLength, Rotation2d.fromDegrees(-90)),
+			new Pose2d(+sideLength, +sideLength, Rotation2d.fromDegrees(-90)),
 			container.createReverseTrajectoryConfig());
 
 		return trajectory;
