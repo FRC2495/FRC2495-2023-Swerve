@@ -348,11 +348,11 @@ public class RobotContainer {
 		joyMain.button(10)
 			.whileTrue(new ElevatorJoystickControl(elevator, drivetrain, getMainJoystick()));
 
-		joyMain.button(11)
-			.onTrue(new DrivetrainZeroHeading(drivetrain));
+		//joyMain.button(11)
+			//.onTrue(new DrivetrainZeroHeading(drivetrain));
 		
-		joyMain.button(12)
-			.whileTrue(new DrivetrainSetXFormation(drivetrain));
+		//joyMain.button(12)
+			//.whileTrue(new DrivetrainSetXFormation(drivetrain));
 			
 				
 		// copilot (gamepad)
