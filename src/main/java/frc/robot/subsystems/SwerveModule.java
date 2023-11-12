@@ -142,8 +142,9 @@ public class SwerveModule {
 		SwerveModuleState optimizedDesiredState = SwerveModuleState.optimize(correctedDesiredState,
 			new Rotation2d(m_turningEncoder.getPosition()));
 
+		// the purpose of the condition heruender is to avoid the noise that the swerve modules make when they are idle
 		if (Math.abs(optimizedDesiredState.speedMetersPerSecond) < 0.001 // less than 1 mm per sec
-			&& Math.abs(optimizedDesiredState.angle.getRadians() - m_turningEncoder.getPosition()) < 0.1) // 10% of a radian
+			&& Math.abs(optimizedDesiredState.angle.getRadians() - m_turningEncoder.getPosition()) < Rotation2d.fromDegrees(1).getRadians()) // less than 1 degree
 		{
 			m_drivingSparkMax.set(0); // no point in doing anything
 			m_turningSparkMax.set(0);
