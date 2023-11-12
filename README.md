@@ -1,4 +1,4 @@
-# Java Code for CHARGED UP written off-season to experiment with swerve drive and hopefully compete with new robot in Fall 2023
+# Java Code for CHARGED UP written off-season to experiment with swerve drive and compete at Brunswick Eruption on 11 November 2023.
 
 See [the online changelog](https://github.com/FRC2495/FRC2495-2023-Swerve/blob/main/CHANGELOG.md) for information about updates since this project was created.
 
